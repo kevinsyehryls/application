@@ -1,0 +1,261 @@
+	<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Ccrudpks extends CI_Controller {
+
+	/* i. function construct */
+	function __construct(){
+		parent::__construct();
+	}
+	
+	function showpks(){
+		?>
+		 <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            	<tr>
+              	  <th width="5%">No</th>
+                  <th width="15%">Nomor PKS</th>
+                  <th width="20%">Nama Corporate</th>
+                  <th width="15%">Nama Pimpinan</th>
+                  <th width="15%">Nama PIC</th>
+                  <th width="10%">PIC Telkomsel</th>
+                  <th width="5%">Start Date</th>
+                  <th width="5%">End Date</th>
+                  <th width="10%">Opsi</th>
+           	 	</tr>
+            </thead>
+          <tbody>      
+            <?php
+			  $this->load->model('mcrudpks');
+       		  $query = $this->mcrudpks->selectpks();
+			  $i = 1;
+			  foreach($query->result() as $row){
+			  	?>
+				<tr>
+                  <td><?php echo $i ?></td>
+                  <td><?php echo $row->nomor_pks ?></td>
+                  <td><?php echo $row->nama_corporate ?></td>
+                  <td><?php echo $row->nama_pimpinan_corporate ?></td>
+                  <td><?php echo $row->nama_pic_corporate ?></td>
+                  <td><?php echo $row->nama_pic_telkomsel?></td>
+                  <td><?php echo $row->start_date ?></td>
+                  <td><?php echo $row->end_date ?></td>
+                  <td>
+                    <button onclick="EditPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Edit</button>
+                    <button onclick="DelPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Delete</button>
+                  </td> 			                  
+                </tr>
+				<?php
+				$i++;
+			  } 
+			  ?>               
+        </table>
+		<?php
+	}
+	
+	function addpks(){
+		?>
+		<div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">TAMBAH PKS</h4>
+          </div>
+          <div class="modal-body">
+        
+      	 <div class="box-body">
+            <div class="form-group">
+              <label for="pksid">ID PKS</label>
+              <input type="text" class="form-control" id="id_pks" placeholder="Ketik Id Corporate">
+            </div>
+            <div class="form-group">
+              <label for="nomor">Nomor PKS</label>
+              <input type="text" class="form-control" id="id_pksno" placeholder="Ketik Nama Corporate">
+            </div>
+            <div class="form-group">
+            <label for="pimpinan">Pimpinan Telkomsel</label>
+            	<select id="id_pksppn" class="form-control">
+                    <option>---- PILIH PIMPINAN ----</option>
+                    <?php
+                    $this->load->model('mcrudpks');
+       		  		$query = $this->mcrudpks->relpimpinan();
+			  		foreach($query->result() as $row){
+						?>
+						<option value="<?=$row->id_pimpinan_telkomsel?>"><?=$row->nama_pimpinan_telkomsel?></option>
+						<?php	
+					}
+					?>
+             	</select>
+            </div>   
+             <div class="form-group">
+              <label for="pic">PIC Telkomsel</label>
+              <select id="id_pkspic" class="form-control">
+                    <option>---- PILIH PIC ----</option>
+                    <?php
+                    $this->load->model('mcrudpks');
+       		  		$query = $this->mcrudpks->relpic();
+			  		foreach($query->result() as $row){
+						?>
+						<option value="<?=$row->id_pic_telkomsel?>"><?=	$row->nama_pic_telkomsel?></option>
+						<?php	
+					}
+					?>
+              </select>
+            </div> 
+            <div class="form-group">
+              <label for="corp">Corporate</label>
+              <select id="id_pkscorp" class="form-control">
+                    <option>---- PILIH CORPORATE ----</option>
+                     <?php
+                    $this->load->model('mcrudpks');
+       		  		$query = $this->mcrudpks->relcorp();
+			  		foreach($query->result() as $row){
+						?>
+						<option value="<?=$row->id_corporate?>"><?=$row->nama_corporate?></option>
+						<?php	
+					}
+					?>
+              </select>
+            </div> 
+             <div class="form-group">
+              <label for="start">Start Date</label>
+              <input type="text" class="form-control" id="id_pksst" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+            </div> 
+            <div class="form-group">
+              <label for="end">End Date</label>
+               <input type="text" class="form-control" id="id_pksen" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+            </div>  
+             <div class="form-group">
+              <input type="checkbox" class="minimal" id"id_pksctpi" name="cbxTtd" value="T">
+              <label for="ttdcpi">Tanda Tangan Pimpinan Corporate</label>
+            </div> 
+            <div class="form-group">
+              <input type="checkbox" class="minimal" id"id_pksctpc" name="cbxTtd" value="T">
+              <label for="ttdcpc">Tanda Tangan PIC Corporate</label>
+            </div> 
+            <div class="form-group">
+              <input type="checkbox" class="minimal" id"id_pksttpc" name="cbxTtd" value="T">
+              <label for="ttdppc">Tanda Tangan Pimpinan Telkomsel</label>
+            </div>   
+            <div class="form-group">
+              <input type="checkbox" class="minimal" id"id_pksttpi" name="cbxTtd" value="T">
+              <label for="ttdppi">Tanda Tangan PIC Telkomsel</label>
+            </div>       
+          </div>          
+		</div>
+        <div class="modal-footer">
+             <button id="id_pkspbtn" type="button" class="btn btn-primary">Save changes</button>
+          </div>
+		<?php
+	}
+	
+	public function showeditpks(){
+		$this->load->model('mcrudpks');
+		$query=$this->mcrudpks->select1pks();
+		foreach($query->result() as $row){
+		?>  
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">EDIT PKS</h4>
+          </div>
+          
+          <div class="modal-body">
+        
+      	  <div class="box-body">
+            <div class="form-group">
+              <label for="pksid">ID PKS</label>
+              <input type="text" class="form-control" id="id_pks" placeholder="Ketik Id Corporate"  value="<?=$row->id_pks?>" readonly="readonly">
+            </div>
+            <div class="form-group">
+              <label for="nomor">Nomor PKS</label>
+              <input type="text" class="form-control" id="id_pksno" placeholder="Ketik Nama Corporate" value="<?=$row->nomor_pks?>">
+            </div>
+            <div class="form-group">
+                <label for="pimpinan">Pimpinan Telkomsel</label>
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPimpTlk()'>
+                	<?php
+					$id_pks = $this->input->post('id_pks');
+                    $query1 = $this->db->query("
+						select
+						*
+						from tb_pimpinan_telkomsel a
+						join `tb_pks` b on a.`id_pimpinan_telkomsel` = b.`id_pimpinan_telkomsel`
+						where b.id_pks = '$id_pks'
+					");
+					foreach($query1->result() as $row1){
+						echo $row1->nama_pimpinan_telkomsel;
+					}
+					?>
+                </a><br>	
+                <div style="display:inline-flex">
+                    <select id='id_SelPimpTlk' style="display: none">
+                        <?php
+                        $this->load->model('mcrudpks');
+						$query = $this->mcrudpks->selectppn();
+						foreach($query->result() as $row){
+						?>
+                        <option value="<?=$row->id_pimpinan_telkomsel?>"><?=$row->nama_pimpinan_telkomsel?></option>
+                        <?php
+						}
+						?>
+                    </select>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnSvSelPimpTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnSvSelPimpTlk()" style="display: none">Save</button>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnCxSelPimpTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnCxSelPimpTlk()" style="display: none">Cancel</button>
+                </div>
+            </div>   
+            <div class="form-group">
+                <label for="pic">PIC Telkomsel</label>
+                &nbsp;&nbsp;&nbsp;PIC TElkomsel
+            </div> 
+            <div class="form-group">
+                <label for="corp">Corporate</label>
+                &nbsp;&nbsp;&nbsp;ID Corporate
+            </div> 
+             <div class="form-group">
+              <label for="start">Start Date</label>
+              <input type="text" class="form-control" id="id_pksst" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+            </div> 
+            <div class="form-group">
+              <label for="end">End Date</label>
+               <input type="text" class="form-control" id="id_pksen" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+            </div>  
+             <div class="form-group">
+              <input type="checkbox" class="minimal" id"id_pksctpi" name="cbxTtd" value="T">
+              <label for="ttdcpi">Tanda Tangan Pimpinan Corporate</label>
+            </div> 
+            <div class="form-group">
+              <input type="checkbox" class="minimal" id"id_pksctpc" name="cbxTtd" value="T">
+              <label for="ttdcpc">Tanda Tangan PIC Corporate</label>
+            </div> 
+            <div class="form-group">
+              <input type="checkbox" class="minimal" id"id_pksttpc" name="cbxTtd" value="T">
+              <label for="ttdppc">Tanda Tangan Pimpinan Telkomsel</label>
+            </div>   
+            <div class="form-group">
+              <input type="checkbox" class="minimal" id"id_pksttpi" name="cbxTtd" value="T">
+              <label for="ttdppi">Tanda Tangan PIC Telkomsel</label>
+            </div>       
+          </div>          
+		</div>
+        <div class="modal-footer">
+             <button id="id_corpbtn" type="button" class="btn btn-primary" onclick="UpdCorp()">Save changes</button>
+          </div>
+		<?php
+		}
+	}
+	public function editpks(){
+		$this->load->model('mcrudpks');
+		$query = $this->mcrudpks->updatepks();
+	}
+	public function savepks(){
+		$this->load->model('mcrudpks');
+		$query = $this->mcrudpks->insertpks();
+	}
+	
+	public function delpks(){
+		$this->load->model('mcrudpks');
+		$query = $this->mcrudpks->deletepks();
+	}
+	
+	
+}
+?>
