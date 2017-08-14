@@ -115,14 +115,24 @@ class Ccrudpks extends CI_Controller {
 					?>
               </select>
             </div> 
-             <div class="form-group">
-              <label for="start">Start Date</label>
-              <input type="text" class="form-control" id="id_pksst" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
-            </div> 
             <div class="form-group">
-              <label for="end">End Date</label>
-               <input type="text" class="form-control" id="id_pksen" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
-            </div>  
+                <label for="start">Start Date</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="id_pksst">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="end">End Date</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="id_pksen">
+                </div>
+            </div>
              <div class="form-group">
               <input type="checkbox" class="minimal" id"id_pksctpi" name="cbxTtd" value="T">
               <label for="ttdcpi">Tanda Tangan Pimpinan Corporate</label>
@@ -269,12 +279,22 @@ class Ccrudpks extends CI_Controller {
                 </div>
              </div>
              <div class="form-group">
-              <label for="start">Start Date</label>
-              <input type="text" class="form-control" id="id_pksst" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                <label for="start">Start Date</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="id_pksst">
+                </div>
             </div> 
             <div class="form-group">
               <label for="end">End Date</label>
-               <input type="text" class="form-control" id="id_pksen" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="id_pksen">
+                </div>
             </div>  
              <div class="form-group">
               <input type="checkbox" class="minimal" id"id_pksctpi" name="cbxTtd" value="T">
