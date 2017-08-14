@@ -204,12 +204,70 @@ class Ccrudpks extends CI_Controller {
             </div>   
             <div class="form-group">
                 <label for="pic">PIC Telkomsel</label>
-                &nbsp;&nbsp;&nbsp;PIC TElkomsel
-            </div> 
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPicTlk()'>
+                	<?php
+					$id_pks = $this->input->post('id_pks');
+                    $query1 = $this->db->query("
+						select
+						*
+						from tb_pic_telkomsel a
+						join `tb_pks` b on a.`id_pic_telkomsel` = b.`id_pic_telkomsel`
+						where b.id_pks = '$id_pks'
+					");
+					foreach($query1->result() as $row1){
+						echo $row1->nama_pic_telkomsel;
+					}
+					?>
+                </a><br>	
+                <div style="display:inline-flex">
+                    <select id='id_SelPicTlk' style="display: none">
+                        <?php
+                        $this->load->model('mcrudpks');
+						$query = $this->mcrudpks->selectpic();
+						foreach($query->result() as $row){
+						?>
+                        <option value="<?=$row->id_pic_telkomsel?>"><?=$row->nama_pic_telkomsel?></option>
+                        <?php
+						}
+						?>
+                    </select>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnSvSelPicTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnSvSelPicTlk()" style="display: none">Save</button>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnCxSelPicTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnCxSelPicTlk()" style="display: none">Cancel</button>
+                </div>
+            </div>   
             <div class="form-group">
                 <label for="corp">Corporate</label>
-                &nbsp;&nbsp;&nbsp;ID Corporate
-            </div> 
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxCorpTlk()'>
+                	<?php
+					$id_pks = $this->input->post('id_pks');
+                    $query1 = $this->db->query("
+						select
+						*
+						from tb_corporate a
+						join `tb_pks` b on a.`id_corporate` = b.`id_corporate`
+						where b.id_pks = '$id_pks'
+					");
+					foreach($query1->result() as $row1){
+						echo $row1->nama_corporate;
+					}
+					?>
+                </a><br>	
+                <div style="display:inline-flex">
+                    <select id='id_SelCorpTlk' style="display: none">
+                        <?php
+                        $this->load->model('mcrudpks');
+						$query = $this->mcrudpks->selectcorp();
+						foreach($query->result() as $row){
+						?>
+                        <option value="<?=$row->id_corporate?>"><?=$row->nama_corporate?></option>
+                        <?php
+						}
+						?>
+                    </select>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnSvSelCorpTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnSvSelCorpTlk()" style="display: none">Save</button>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnCxSelCorpTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnCxSelCorpTlk()" style="display: none">Cancel</button>
+                </div>
+             </div>
              <div class="form-group">
               <label for="start">Start Date</label>
               <input type="text" class="form-control" id="id_pksst" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">

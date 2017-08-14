@@ -138,25 +138,26 @@
 	}
 	
 	// show combobox select Corporate
-	function ShowCbxList(){
-		$('#id_SelList').css('display','block');
-		$('#id_BtnSvSelList').css('display','block');
-		$('#id_BtnCxSelList').css('display','block');
-	}
-	// save combobox select Corporate
-	function id_BtnSvSelList(){
-		// update pimpinan telkomsel
-		var id_list_msisdn = $('#id_list').val();
-		var id_SelList = $('#id_List').val();
-		alert("update tb_list_nomor set id_corporate = " + id_SelList + " where id_list_msisdn = "  +  id_list);
-	}
-	// cancel combobox select Corporate
-	function id_BtnCxSelList(){
-		$('#id_SelList').css('display','none');
-		$('#id_BtnSvSelList').css('display','none');
-		$('#id_BtnCxSelList').css('display','none');
+	function ShowCbxCorpTlk(){
+		$('#id_SelCorpTlk').css('display','block');
+		$('#id_BtnSvSelCorpTlk').css('display','block');
+		$('#id_BtnCxSelCorpTlk').css('display','block');
 	}
 	
+	// save combobox select Corporate
+	function id_BtnSvSelCorpTlk(){
+		// update pimpinan telkomsel
+		var id_pks = $('#id_pks').val();
+		var id_SelCorpTlk = $('#id_SelCorpTlk').val();
+		alert("update tb_pks set id_corporate = " + id_SelCorpTlk + " where id_pks = "  +  id_pks);
+	}
+	
+	// cancel combobox select Corporate
+	function id_BtnCxSelCorpTlk(){
+		$('#id_SelCorpTlk').css('display','none');
+		$('#id_BtnSvSelCorpTlk').css('display','none');
+		$('#id_BtnCxSelCorpTlk').css('display','none');
+	}
 	
 	//Saat tombol save change di klik
 	function UpdList(){

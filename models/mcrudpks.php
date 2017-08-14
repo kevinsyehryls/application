@@ -1,3 +1,4 @@
+<title>m</title>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Mcrudpks extends CI_Model {
@@ -95,13 +96,18 @@ class Mcrudpks extends CI_Model {
 	}
 
 	// fill cbx edit pimpinan telkomsel
-	function select1ppn(){
+	function selectppn(){
 		$query = $this->db->query("select * from tb_pimpinan_telkomsel");
 		return $query;
 	}
-	// fill cbx edit pimpinan telkomsel
-	function selectppn(){
-		$query = $this->db->query("select * from tb_pimpinan_telkomsel");
+		// fill cbx edit pic telkomsel
+	function selectpic(){
+		$query = $this->db->query("select * from tb_pic_telkomsel");
+		return $query;
+	}
+	// fill cbx edit corporate
+	function selectcorp(){
+		$query = $this->db->query("select * from tb_corporate");
 		return $query;
 	}
 }

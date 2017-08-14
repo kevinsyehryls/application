@@ -7,7 +7,7 @@ class McrudList extends CI_Model {
 		parent::__construct();
 		$this->load->database();
 	}
-	
+	// tampil Tabel List Nomor
 	function selectlist(){
 		$query = $this->db->query("
 			select
@@ -78,11 +78,6 @@ class McrudList extends CI_Model {
 		$this->db->update('tb_list_nomor', $datalist);
 	}
 	
-	// fill cbx edit Coprorate
-	function select1corp(){
-		$query = $this->db->query("select * from tb_corporate");
-		return $query;
-	}
 	// fill cbx edit corporate
 	function selectcorp(){
 		$query = $this->db->query("select * from tb_corporate");

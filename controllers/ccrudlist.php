@@ -118,9 +118,9 @@ class Ccrudlist extends CI_Controller {
               <label for="nik">ID List</label>
               <input type="text" class="form-control" id="id_list" placeholder="Ketik Id" value="<?=$row->id_list_msisdn?>" readonly="readonly">
             </div>
-            <div class="form-group">
+                <div class="form-group">
                 <label for="corp">Corporate</label>
-                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxList()'>
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxCorpTlk()'>
                 	<?php
 					$id_list = $this->input->post('id_list');
                     $query1 = $this->db->query("
@@ -136,10 +136,10 @@ class Ccrudlist extends CI_Controller {
 					?>
                 </a><br>	
                 <div style="display:inline-flex">
-                    <select id='id_SelList' style="display: none">
-                        <?php
+                    <select id='id_SelCorpTlk' style="display: none">
+                      	<?php
                         $this->load->model('mcrudlist');
-						$query = $this->mcrudlist->selectlist();
+						$query = $this->mcrudlist->selectcorp();
 						foreach($query->result() as $row){
 						?>
                         <option value="<?=$row->id_corporate?>"><?=$row->nama_corporate?></option>
@@ -147,29 +147,29 @@ class Ccrudlist extends CI_Controller {
 						}
 						?>
                     </select>&nbsp;&nbsp;&nbsp;
-                    <button id="id_BtnSvSelList" type="button" class="btn btn-primary btn-xs" onclick="id_BtnSvSelList()" style="display: none">Save</button>&nbsp;&nbsp;&nbsp;
-                    <button id="id_BtnCxSelList" type="button" class="btn btn-primary btn-xs" onclick="id_BtnCxSelList()" style="display: none">Cancel</button>
+                    <button id="id_BtnSvSelCorpTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnSvSelCorpTlk()" style="display: none">Save</button>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnCxSelCorpTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnCxSelCorpTlk()" style="display: none">Cancel</button>
                 </div>
-            </div>   
+             </div>
             <div class="form-group">
               <label for="msisdn">Msisdn</label>
-              <input type="text" class="form-control" id="id_listmsisdn" placeholder="Ketik Msisdn" value="<?=$row->msisdn?>">
+              <input type="text" class="form-control" id="id_listmsisdn" placeholder="Ketik Msisdn" value="<?=$row1->msisdn?>">
             </div>
             <div class="form-group">
               <label for="user">User</label>
-              <input type="text" class="form-control" id="id_listuser" placeholder="Ketik User" value="<?=$row->user?>">
+              <input type="text" class="form-control" id="id_listuser" placeholder="Ketik User" value="<?=$row1->user?>">
             </div>
             <div class="form-group">
               <label for="div">Division</label>
-              <input type="text" class="form-control" id="id_listdiv" placeholder="Ketik Division" value="<?=$row->division?>">
+              <input type="text" class="form-control" id="id_listdiv" placeholder="Ketik Division" value="<?=$row1->division?>">
             </div>
             <div class="form-group">
               <label for="short">Short Code</label>
-              <input type="text" class="form-control" id="id_listshort" placeholder="Ketik Short Code" value="<?=$row->short_code?>">
+              <input type="text" class="form-control" id="id_listshort" placeholder="Ketik Short Code" value="<?=$row1->short_code?>">
             </div>
             <div class="form-group">
               <label for="des">Deskripsi</label>
-              <input type="text" class="form-control" id="id_listdes" placeholder="Ketik Deskripi" value="<?=$row->deskripsi?>">
+              <input type="text" class="form-control" id="id_listdes" placeholder="Ketik Deskripi" value="<?=$row1->deskripsi?>">
             </div>                 
           </div>
           <div class="modal-footer">

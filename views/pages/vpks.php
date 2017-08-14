@@ -149,24 +149,68 @@
 			});
 	}
 	
-	// show combobox select pimpinan PKS
+	// show combobox select pimpinan Telkomsel
 	function ShowCbxPimpTlk(){
 		$('#id_SelPimpTlk').css('display','block');
 		$('#id_BtnSvSelPimpTlk').css('display','block');
 		$('#id_BtnCxSelPimpTlk').css('display','block');
 	}
-	// save combobox select pimpinan PKS
+	// save combobox select pimpinan Telkomsel
 	function id_BtnSvSelPimpTlk(){
 		// update pimpinan telkomsel
 		var id_pks = $('#id_pks').val();
 		var id_SelPimpTlk = $('#id_SelPimpTlk').val();
 		alert("update tb_pks set id_pimpinan_telkomsel = " + id_SelPimpTlk + " where id_pks = "  +  id_pks);
 	}
-	// cancel combobox select pimpinan PKS
+	// cancel combobox select pimpinan Telkomsel
 	function id_BtnCxSelPimpTlk(){
 		$('#id_SelPimpTlk').css('display','none');
 		$('#id_BtnSvSelPimpTlk').css('display','none');
 		$('#id_BtnCxSelPimpTlk').css('display','none');
+	}
+	
+	// show combobox select PIC Telkomsel
+	function ShowCbxPicTlk(){
+		$('#id_SelPicTlk').css('display','block');
+		$('#id_BtnSvSelPicTlk').css('display','block');
+		$('#id_BtnCxSelPicTlk').css('display','block');
+	}
+	
+	// save combobox select PIC Telkomsel
+	function id_BtnSvSelPicTlk(){
+		// update pimpinan telkomsel
+		var id_pks = $('#id_pks').val();
+		var id_SelPicTlk = $('#id_SelPicTlk').val();
+		alert("update tb_pks set id_pimpinan_telkomsel = " + id_SelPicTlk + " where id_pks = "  +  id_pks);
+	}
+	
+	// cancel combobox select PIC Telkomsel
+	function id_BtnCxSelPicTlk(){
+		$('#id_SelPicTlk').css('display','none');
+		$('#id_BtnSvSelPicTlk').css('display','none');
+		$('#id_BtnCxSelPicTlk').css('display','none');
+	}
+	
+	// show combobox select Corporate
+	function ShowCbxCorpTlk(){
+		$('#id_SelCorpTlk').css('display','block');
+		$('#id_BtnSvSelCorpTlk').css('display','block');
+		$('#id_BtnCxSelCorpTlk').css('display','block');
+	}
+	
+	// save combobox select Corporate
+	function id_BtnSvSelCorpTlk(){
+		// update pimpinan telkomsel
+		var id_pks = $('#id_pks').val();
+		var id_SelCorpTlk = $('#id_SelCorpTlk').val();
+		alert("update tb_pks set id_corporate = " + id_SelCorpTlk + " where id_pks = "  +  id_pks);
+	}
+	
+	// cancel combobox select Corporate
+	function id_BtnCxSelCorpTlk(){
+		$('#id_SelCorpTlk').css('display','none');
+		$('#id_BtnSvSelCorpTlk').css('display','none');
+		$('#id_BtnCxSelCorpTlk').css('display','none');
 	}
 	
 	//Saat tombol save change di klik
