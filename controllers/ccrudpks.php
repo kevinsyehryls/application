@@ -158,9 +158,7 @@ class Ccrudpks extends CI_Controller {
               <span aria-hidden="true">×</span></button>
             <h4 class="modal-title">EDIT PKS</h4>
           </div>
-          
           <div class="modal-body">
-        
       	  <div class="box-body">
             <div class="form-group">
               <label for="pksid">ID PKS</label>
@@ -191,10 +189,10 @@ class Ccrudpks extends CI_Controller {
                     <select id='id_SelPimpTlk' style="display: none">
                         <?php
                         $this->load->model('mcrudpks');
-						$query = $this->mcrudpks->selectppn();
-						foreach($query->result() as $row){
+						$query2 = $this->mcrudpks->selectppn();
+						foreach($query2->result() as $row2){
 						?>
-                        <option value="<?=$row->id_pimpinan_telkomsel?>"><?=$row->nama_pimpinan_telkomsel?></option>
+                        <option value="<?=$row2->id_pimpinan_telkomsel?>"><?=$row2->nama_pimpinan_telkomsel?></option>
                         <?php
 						}
 						?>
@@ -208,15 +206,15 @@ class Ccrudpks extends CI_Controller {
                 &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPicTlk()'>
                 	<?php
 					$id_pks = $this->input->post('id_pks');
-                    $query1 = $this->db->query("
+                    $query3 = $this->db->query("
 						select
 						*
 						from tb_pic_telkomsel a
 						join `tb_pks` b on a.`id_pic_telkomsel` = b.`id_pic_telkomsel`
 						where b.id_pks = '$id_pks'
 					");
-					foreach($query1->result() as $row1){
-						echo $row1->nama_pic_telkomsel;
+					foreach($query3->result() as $row3){
+						echo $row3->nama_pic_telkomsel;
 					}
 					?>
                 </a><br>	
@@ -224,10 +222,10 @@ class Ccrudpks extends CI_Controller {
                     <select id='id_SelPicTlk' style="display: none">
                         <?php
                         $this->load->model('mcrudpks');
-						$query = $this->mcrudpks->selectpic();
-						foreach($query->result() as $row){
+						$query4 = $this->mcrudpks->selectpic();
+						foreach($query4->result() as $row4){
 						?>
-                        <option value="<?=$row->id_pic_telkomsel?>"><?=$row->nama_pic_telkomsel?></option>
+                        <option value="<?=$row4->id_pic_telkomsel?>"><?=$row4->nama_pic_telkomsel?></option>
                         <?php
 						}
 						?>
@@ -241,15 +239,15 @@ class Ccrudpks extends CI_Controller {
                 &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxCorpTlk()'>
                 	<?php
 					$id_pks = $this->input->post('id_pks');
-                    $query1 = $this->db->query("
+                    $query5 = $this->db->query("
 						select
 						*
 						from tb_corporate a
 						join `tb_pks` b on a.`id_corporate` = b.`id_corporate`
 						where b.id_pks = '$id_pks'
 					");
-					foreach($query1->result() as $row1){
-						echo $row1->nama_corporate;
+					foreach($query5->result() as $row5){
+						echo $row5->nama_corporate;
 					}
 					?>
                 </a><br>	
@@ -257,10 +255,10 @@ class Ccrudpks extends CI_Controller {
                     <select id='id_SelCorpTlk' style="display: none">
                         <?php
                         $this->load->model('mcrudpks');
-						$query = $this->mcrudpks->selectcorp();
-						foreach($query->result() as $row){
+						$query6 = $this->mcrudpks->selectcorp();
+						foreach($query6->result() as $row6){
 						?>
-                        <option value="<?=$row->id_corporate?>"><?=$row->nama_corporate?></option>
+                        <option value="<?=$row6->id_corporate?>"><?=$row6->nama_corporate?></option>
                         <?php
 						}
 						?>
@@ -289,10 +287,10 @@ class Ccrudpks extends CI_Controller {
             </div>
             <div class="form-group" style="display: inline-flex">
                 <label for="Sign sequencial priority">Signing sequencial priority:</label><br>
-                <input type="checkbox" id="id_CbxSignCor1" name="Cbxpks" value="T">&nbsp;&nbsp;pimpinan corporate
-                <input type="checkbox" id="id_CbxSignCor2" name="Cbxpks" value="T">&nbsp;&nbsp;pic corporate
-                <input type="checkbox" id="id_CbxSignTel1" name="Cbxpks" value="T">&nbsp;&nbsp;pimpinan telkomsel
-                <input type="checkbox" id="id_CbxSignTel2" name="Cbxpks" value="T">&nbsp;&nbsp;pic telkomsel
+                <input type="checkbox" id="id_CbxSignCor1" name="Cbxpks" value="T" <?=$row->sign_pimpinan_corporate == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pimpinan corporate
+                <input type="checkbox" id="id_CbxSignCor2" name="Cbxpks" value="T" <?=$row->sign_pic_corporate == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pic corporate
+                <input type="checkbox" id="id_CbxSignTel1" name="Cbxpks" value="T" <?=$row->sign_pimpinan_telkomsel  == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pimpinan telkomsel
+                <input type="checkbox" id="id_CbxSignTel2" name="Cbxpks" value="T" <?=$row->sign_pic_telkomsel == 'T' ? 'checked' : '' ?>>  pic telkomsel
             </div>
           </div>          
 		</div>
