@@ -133,22 +133,13 @@ class Ccrudpks extends CI_Controller {
                     <input type="text" class="form-control pull-right" id="id_pksen">
                 </div>
             </div>
-             <div class="form-group">
-              <input type="checkbox" class="minimal" id"id_pksctpi" name="cbxTtd" value="T">
-              <label for="ttdcpi">Tanda Tangan Pimpinan Corporate</label>
-            </div> 
-            <div class="form-group">
-              <input type="checkbox" class="minimal" id"id_pksctpc" name="cbxTtd" value="T">
-              <label for="ttdcpc">Tanda Tangan PIC Corporate</label>
-            </div> 
-            <div class="form-group">
-              <input type="checkbox" class="minimal" id"id_pksttpc" name="cbxTtd" value="T">
-              <label for="ttdppc">Tanda Tangan Pimpinan Telkomsel</label>
-            </div>   
-            <div class="form-group">
-              <input type="checkbox" class="minimal" id"id_pksttpi" name="cbxTtd" value="T">
-              <label for="ttdppi">Tanda Tangan PIC Telkomsel</label>
-            </div>       
+            <div class="form-group" style="display: inline-flex">
+                <label for="Sign sequencial priority">Signing sequencial priority:</label><br>
+                <input type="checkbox" id="id_CbxSignCor1" name="Cbxpks" value="T">&nbsp;&nbsp;pimpinan corporate
+                <input type="checkbox" id="id_CbxSignCor2" name="Cbxpks" value="T">&nbsp;&nbsp;pic corporate
+                <input type="checkbox" id="id_CbxSignTel1" name="Cbxpks" value="T">&nbsp;&nbsp;pimpinan telkomsel
+                <input type="checkbox" id="id_CbxSignTel2" name="Cbxpks" value="T">&nbsp;&nbsp;pic telkomsel
+            </div>
           </div>          
 		</div>
         <div class="modal-footer">
@@ -295,23 +286,14 @@ class Ccrudpks extends CI_Controller {
                     </div>
                     <input type="text" class="form-control pull-right" id="id_pksen">
                 </div>
-            </div>  
-             <div class="form-group">
-              <input type="checkbox" class="minimal" id"id_pksctpi" name="cbxTtd" value="T">
-              <label for="ttdcpi">Tanda Tangan Pimpinan Corporate</label>
-            </div> 
-            <div class="form-group">
-              <input type="checkbox" class="minimal" id"id_pksctpc" name="cbxTtd" value="T">
-              <label for="ttdcpc">Tanda Tangan PIC Corporate</label>
-            </div> 
-            <div class="form-group">
-              <input type="checkbox" class="minimal" id"id_pksttpc" name="cbxTtd" value="T">
-              <label for="ttdppc">Tanda Tangan Pimpinan Telkomsel</label>
-            </div>   
-            <div class="form-group">
-              <input type="checkbox" class="minimal" id"id_pksttpi" name="cbxTtd" value="T">
-              <label for="ttdppi">Tanda Tangan PIC Telkomsel</label>
-            </div>       
+            </div>
+            <div class="form-group" style="display: inline-flex">
+                <label for="Sign sequencial priority">Signing sequencial priority:</label><br>
+                <input type="checkbox" id="id_CbxSignCor1" name="Cbxpks" value="T">&nbsp;&nbsp;pimpinan corporate
+                <input type="checkbox" id="id_CbxSignCor2" name="Cbxpks" value="T">&nbsp;&nbsp;pic corporate
+                <input type="checkbox" id="id_CbxSignTel1" name="Cbxpks" value="T">&nbsp;&nbsp;pimpinan telkomsel
+                <input type="checkbox" id="id_CbxSignTel2" name="Cbxpks" value="T">&nbsp;&nbsp;pic telkomsel
+            </div>
           </div>          
 		</div>
         <div class="modal-footer">

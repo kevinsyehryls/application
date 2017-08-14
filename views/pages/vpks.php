@@ -111,6 +111,11 @@ function GenDataPks(){
 // save user
 function SavePks(){
     $(document).on('click', '#id_pkspbtn', function(){
+        /* get checkboxes value */
+        var CbxSignCor1 = $('#id_CbxSignCor1:checked').val();
+        var CbxSignCor2 = $('#id_CbxSignCor2:checked').val();
+        var CbxSignTel1 = $('#id_CbxSignTel1:checked').val();
+        var CbxSignTel2 = $('#id_CbxSignTel2:checked').val();
         jQuery.ajax({
         type: "POST",
         url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/savepks",
@@ -122,14 +127,14 @@ function SavePks(){
             id_pkscorp: $('#id_pkscorp').val(),
             id_pksst: $('#id_pksst').val(),
             id_pksen: $('#id_pksen').val(),
-            id_pksctpi: $('#id_pksctpi:checked').val(),
-            id_pksctpc: $('#id_pksctpc:checked').val(),
-            id_pksttpi: $('#id_pksttpi:checked').val(),
-            id_pksttpc: $('#id_pksttpc:checked').val()
+            CbxSignCor1 : CbxSignCor1,
+            CbxSignCor2 : CbxSignCor2,
+            CbxSignTel1 : CbxSignTel1,
+            CbxSignTel2 : CbxSignTel2
         },
         success: function(res) {
             $('#modal-default').modal('hide');
-            alert("Data saved!" + res);
+            alert("Data saved!");
             GenDataPks();
         },
         error: function(xhr){
