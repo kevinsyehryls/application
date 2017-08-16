@@ -115,13 +115,28 @@ class Ccrudpks extends CI_Controller {
 					?>
               </select>
             </div> 
+             <div class="form-group">
+              <label for="pkt">Paket</label>	
+              <select id="id_pkspkt" class="form-control">
+                    <option>---- PILIH PAKET ----</option>
+                     <?php
+                    $this->load->model('mcrudpks');
+       		  		$query = $this->mcrudpks->relpkt();
+			  		foreach($query->result() as $row){
+						?>
+						<option value="<?=$row->id_paket?>"><?=$row->nama_paket?></option>
+						<?php	
+					}
+					?>
+              </select>
+            </div> 
             <div class="form-group">
                 <label for="start">Start Date</label>
                 <div class="input-group date">
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksst">
+                    <input type="text" class="form-control pull-right" id="id_pksst" placeholder="MM/DD/YYYY">
                 </div>
             </div>
             <div class="form-group">
@@ -130,7 +145,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksen">
+                    <input type="text" class="form-control pull-right" id="id_pksen" placeholder="MM/DD/YYYY">
                 </div>
             </div>
             <div class="form-group" style="display: inline-flex">
@@ -143,7 +158,7 @@ class Ccrudpks extends CI_Controller {
           </div>          
 		</div>
         <div class="modal-footer">
-             <button id="id_pkspbtn" type="button" class="btn btn-primary">Save changes</button>
+             <button id="id_pkspbtn" type="button" class="btn btn-primary">Save</button>
           </div>
 		<?php
 	}
@@ -268,6 +283,39 @@ class Ccrudpks extends CI_Controller {
                 </div>
              </div>
              <div class="form-group">
+                <label for="corp">Paket</label>
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPktTlk()'>
+                	<?php
+					$id_pks = $this->input->post('id_pks');
+                    $query7 = $this->db->query("
+						select
+						*
+						from tb_paket a
+						join `tb_pks` b on a.`id_paket` = b.`id_paket`
+						where b.id_pks = '$id_pks'
+					");
+					foreach($query7->result() as $row7){
+						echo $row7->nama_paket;
+					}
+					?>
+                </a><br>	
+                <div style="display:inline-flex">
+                    <select id='id_SelPktTlk' style="display: none">
+                        <?php
+                        $this->load->model('mcrudpks');
+						$query8 = $this->mcrudpks->selectpkt();
+						foreach($query8->result() as $row8){
+						?>
+                        <option value="<?=$row8->id_paket?>"><?=$row8->nama_paket?></option>
+                        <?php
+						}
+						?>
+                    </select>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnSvSelPktTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnSvSelPktTlk()" style="display: none">Save</button>&nbsp;&nbsp;&nbsp;
+                    <button id="id_BtnCxSelPktTlk" type="button" class="btn btn-primary btn-xs" onclick="id_BtnCxSelPktTlk()" style="display: none">Cancel</button>
+                </div>
+             </div>
+             <div class="form-group">
                 <label for="start">Start Date</label>
                 <div class="input-group date">
                     <div class="input-group-addon">
@@ -295,7 +343,7 @@ class Ccrudpks extends CI_Controller {
           </div>          
 		</div>
         <div class="modal-footer">
-             <button id="id_corpbtn" type="button" class="btn btn-primary" onclick="UpdCorp()">Save changes</button>
+             <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdCorp()">Save changes</button>
           </div>
 		<?php
 		}
