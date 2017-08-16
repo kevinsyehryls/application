@@ -321,7 +321,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksst">
+                    <input type="text" class="form-control pull-right" id="id_pksst" value="<?=$row->start_date?>">
                 </div>
             </div> 
             <div class="form-group">
@@ -330,7 +330,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksen">
+                    <input type="text" class="form-control pull-right" id="id_pksen" value="<?=$row->end_date?>">
                 </div>
             </div>
             <div class="form-group" style="display: inline-flex">
