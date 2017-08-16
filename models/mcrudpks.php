@@ -36,9 +36,15 @@ class Mcrudpks extends CI_Model {
 		return $query;
 	}
 	
-	// tampil cbx pic telkomsel pada modal tambah PKS
+	// tampil cbx Cororate telkomsel pada modal tambah PKS
 	function relcorp(){
 		$query = $this->db->query("select * from tb_corporate");
+		return $query;
+	}
+	
+	// tampil cbx PAKET telkomsel pada modal tambah PKS
+	function relpkt(){
+		$query = $this->db->query("select * from tb_paket");
 		return $query;
 	}
 	
@@ -48,8 +54,11 @@ class Mcrudpks extends CI_Model {
 		$pksppn =$this->input->post("id_pksppn");
 		$pkspic =$this->input->post("id_pkspic");
 		$pkscorp =$this->input->post("id_pkscorp");
+		$pkspkt =$this->input->post("id_pkspkt");
 		$pksst =$this->input->post("id_pksst");
 		$pkssen =$this->input->post("id_pksen");
+		$startdate = date("Y-m-d", strtotime($pksst));
+		$enddate = date("Y-m-d", strtotime($pkssen));
         /* cbx val */
         $CbxSignCor1 = $this->input->post('CbxSignCor1');
         $CbxSignCor2 = $this->input->post('CbxSignCor2');
@@ -65,8 +74,9 @@ class Mcrudpks extends CI_Model {
 			'id_pimpinan_telkomsel' => $pksppn,
 			'id_pic_telkomsel' => $pkspic,
 			'id_corporate' => $pkscorp,
-			'start_date' => $pksst,
-			'end_date' => $pkssen,
+			'id_paket' => $pkspkt,
+			'start_date' => $startdate,
+			'end_date' => $enddate,
             'sign_pimpinan_corporate' => $CbxSignCor1,
             'sign_pic_corporate' => $CbxSignCor2,
             'sign_pimpinan_telkomsel' => $CbxSignTel1,
@@ -94,15 +104,32 @@ class Mcrudpks extends CI_Model {
 		$pksppn =$this->input->post("id_pksppn");
 		$pkspic =$this->input->post("id_pkspic");
 		$pkscorp =$this->input->post("id_pkscorp");
+		$pkspkt =$this->input->post("id_pkspkt");
 		$pksst =$this->input->post("id_pksst");
 		$pkssen =$this->input->post("id_pksen");
+		$startdate = date("Y-m-d", strtotime($pksst));
+		$enddate = date("Y-m-d", strtotime($pkssen));
+		/* cbx val */
+        $CbxSignCor1 = $this->input->post('CbxSignCor1');
+        $CbxSignCor2 = $this->input->post('CbxSignCor2');
+        $CbxSignTel1 = $this->input->post('CbxSignTel1');
+        $CbxSignTel2 = $this->input->post('CbxSignTel2');
+        if($CbxSignCor1 == ''){$CbxSignCor1 = "F";}
+        if($CbxSignCor2 == ''){$CbxSignCor2 = "F";}
+        if($CbxSignTel1 == ''){$CbxSignTel1 = "F";}
+        if($CbxSignTel2 == ''){$CbxSignTel2 = "F";}
 		$datapks =array(
 			'nomor_pks' => $no,
 			'id_pimpinan_telkomsel' => $pksppn,
 			'id_pic_telkomsel' => $pkspic,
 			'id_corporate' => $pkscorp,
-			'start_date' => $pksst,
-			'end_date' => $pkssen
+			'id_paket' => $pkspkt,
+			'start_date' => $startdate,
+			'end_date' => $enddate,
+			'sign_pimpinan_corporate' => $CbxSignCor1,
+            'sign_pic_corporate' => $CbxSignCor2,
+            'sign_pimpinan_telkomsel' => $CbxSignTel1,
+            'sign_pic_telkomsel' => $CbxSignTel2
 		);	
 		$this->db->where('id_pks', $id);
 		$this->db->update('tb_pks', $datapks);
@@ -118,9 +145,14 @@ class Mcrudpks extends CI_Model {
 		$query = $this->db->query("select * from tb_pic_telkomsel");
 		return $query;
 	}
-	// fill cbx edit corporate
+		// fill cbx edit corporate
 	function selectcorp(){
 		$query = $this->db->query("select * from tb_corporate");
+		return $query;
+	}
+		// fill cbx edit paket
+	function selectpkt(){
+		$query = $this->db->query("select * from tb_paket");
 		return $query;
 	}
 }
