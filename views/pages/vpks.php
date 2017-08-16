@@ -125,6 +125,7 @@ function SavePks(){
             id_pksppn: $('#id_pksppn').val(),
             id_pkspic: $('#id_pkspic').val(),
             id_pkscorp: $('#id_pkscorp').val(),
+            id_pkspkt: $('#id_pkspkt').val(),
             id_pksst: $('#id_pksst').val(),
             id_pksen: $('#id_pksen').val(),
             CbxSignCor1 : CbxSignCor1,
@@ -230,6 +231,27 @@ function id_BtnCxSelCorpTlk(){
     $('#id_BtnCxSelCorpTlk').css('display','none');
 }
 
+// show combobox select Paket
+function ShowCbxPktTlk(){
+    $('#id_SelPktTlk').css('display','block');
+    $('#id_BtnSvSelPktTlk').css('display','block');
+    $('#id_BtnCxSelPktTlk').css('display','block');
+}
+
+// save combobox select Paket
+function id_BtnSvSelPktTlk(){
+    var id_pks = $('#id_pks').val();
+    var id_SelPktTlk = $('#id_SelPktTlk').val();
+    alert("update tb_pks set id_paket = " + id_SelPktTlk + " where id_pks = "  +  id_pks);
+}
+
+// cancel combobox select Paket
+function id_BtnCxSelPktTlk(){
+    $('#id_SelPktTlk').css('display','none');
+    $('#id_BtnSvSelPktTlk').css('display','none');
+    $('#id_BtnCxSelPktTlk').css('display','none');
+}
+
 //Saat tombol save change di klik
 function UpdPks(){
     jQuery.ajax({
@@ -241,6 +263,7 @@ function UpdPks(){
             id_pksppn: $('#id_pksppn').val(),
             id_pkspic: $('#id_pkspic').val(),
             id_pkscorp: $('#id_pkscorp').val(),
+            id_pkspkt: $('#id_pkspkt').val(),
             id_pksst: $('#id_pksst').val(),
             id_pksen: $('#id_pksen').val(),
             id_pksctpi: $('#id_pksctpi:checked').val(),
