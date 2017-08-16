@@ -159,13 +159,15 @@ function EditPks(id_pks){
                 //Date picker
                 $('#id_pksst, #id_pksen').datepicker({
                     autoclose: true
-                })
+                });
             },
             error: function(xhr){
                $('#id_DivPks').html("error");
             }
-        });
+    });
 }
+
+
 
 // show combobox select pimpinan Telkomsel
 function ShowCbxPimpTlk(){
@@ -175,10 +177,26 @@ function ShowCbxPimpTlk(){
 }
 // save combobox select pimpinan Telkomsel
 function id_BtnSvSelPimpTlk(){
-    // update pimpinan telkomsel
     var id_pks = $('#id_pks').val();
     var id_SelPimpTlk = $('#id_SelPimpTlk').val();
-    alert("update tb_pks set id_pimpinan_telkomsel = " + id_SelPimpTlk + " where id_pks = "  +  id_pks);
+    var id_SelPimpTlkTxt = $('#id_SelPimpTlk option:selected').text();
+    jQuery.ajax({
+        type: "POST",
+        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/updinline_pimptsel",
+        data: {
+            id_SelPimpTlk: id_SelPimpTlk,
+            id_pks: id_pks,
+            id_SelPimpTlkTxt: id_SelPimpTlkTxt
+        },
+        success: function(res) {
+            $('#id_aPimpTsel').text(res);
+            id_BtnCxSelPimpTlk();
+            GenDataPks();
+        },
+        error: function(xhr){
+            $('#id_DivPks').html("error");
+        }
+    });
 }
 // cancel combobox select pimpinan Telkomsel
 function id_BtnCxSelPimpTlk(){
@@ -187,21 +205,39 @@ function id_BtnCxSelPimpTlk(){
     $('#id_BtnCxSelPimpTlk').css('display','none');
 }
 
+
+
+
 // show combobox select PIC Telkomsel
 function ShowCbxPicTlk(){
     $('#id_SelPicTlk').css('display','block');
     $('#id_BtnSvSelPicTlk').css('display','block');
     $('#id_BtnCxSelPicTlk').css('display','block');
 }
-
 // save combobox select PIC Telkomsel
 function id_BtnSvSelPicTlk(){
     // update pimpinan telkomsel
     var id_pks = $('#id_pks').val();
     var id_SelPicTlk = $('#id_SelPicTlk').val();
-    alert("update tb_pks set id_pimpinan_telkomsel = " + id_SelPicTlk + " where id_pks = "  +  id_pks);
+    var id_SelPicTlkTxt = $('#id_SelPicTlk option:selected').text();
+    jQuery.ajax({
+        type: "POST",
+        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/updinline_pictsel",
+        data: {
+            id_pks : id_pks,
+            id_SelPicTlk : id_SelPicTlk,
+            id_SelPicTlkTxt : id_SelPicTlkTxt
+        },
+        success: function(res) {
+            $('#id_aPicTsel').text(res);
+            id_BtnCxSelPicTlk();
+            GenDataPks();
+        },
+        error: function(xhr){
+            $('#id_DivPks').html("error");
+        }
+    });
 }
-
 // cancel combobox select PIC Telkomsel
 function id_BtnCxSelPicTlk(){
     $('#id_SelPicTlk').css('display','none');
@@ -209,21 +245,38 @@ function id_BtnCxSelPicTlk(){
     $('#id_BtnCxSelPicTlk').css('display','none');
 }
 
+
+
 // show combobox select Corporate
 function ShowCbxCorpTlk(){
     $('#id_SelCorpTlk').css('display','block');
     $('#id_BtnSvSelCorpTlk').css('display','block');
     $('#id_BtnCxSelCorpTlk').css('display','block');
 }
-
 // save combobox select Corporate
 function id_BtnSvSelCorpTlk(){
     // update pimpinan telkomsel
     var id_pks = $('#id_pks').val();
     var id_SelCorpTlk = $('#id_SelCorpTlk').val();
-    alert("update tb_pks set id_corporate = " + id_SelCorpTlk + " where id_pks = "  +  id_pks);
+    var id_SelCorpTlkTxt = $('#id_SelCorpTlk option:selected').text();
+    jQuery.ajax({
+        type: "POST",
+        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/updinline_cortsel",
+        data: {
+            id_pks : id_pks,
+            id_SelCorpTlk : id_SelCorpTlk,
+            id_SelCorpTlkTxt : id_SelCorpTlkTxt
+        },
+        success: function(res) {
+            $('#id_aCorTsel').text(res);
+            id_BtnCxSelCorpTlk();
+            GenDataPks();
+        },
+        error: function(xhr){
+            $('#id_DivPks').html("error");
+        }
+    });
 }
-
 // cancel combobox select Corporate
 function id_BtnCxSelCorpTlk(){
     $('#id_SelCorpTlk').css('display','none');
@@ -231,20 +284,38 @@ function id_BtnCxSelCorpTlk(){
     $('#id_BtnCxSelCorpTlk').css('display','none');
 }
 
+
+
 // show combobox select Paket
 function ShowCbxPktTlk(){
     $('#id_SelPktTlk').css('display','block');
     $('#id_BtnSvSelPktTlk').css('display','block');
     $('#id_BtnCxSelPktTlk').css('display','block');
 }
-
 // save combobox select Paket
 function id_BtnSvSelPktTlk(){
     var id_pks = $('#id_pks').val();
     var id_SelPktTlk = $('#id_SelPktTlk').val();
-    alert("update tb_pks set id_paket = " + id_SelPktTlk + " where id_pks = "  +  id_pks);
-}
+    var id_SelPktTlkTxt = $('#id_SelPktTlk option:selected').text();
+    jQuery.ajax({
+        type: "POST",
+        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/updinline_pkttsel",
+        data: {
+            id_pks : id_pks,
+            id_SelPktTlk : id_SelPktTlk,
+            id_SelPktTlkTxt : id_SelPktTlkTxt
+        },
+        success: function(res) {
+            $('#id_aPktTsel').text(res);
+            id_BtnCxSelPktTlk();
+            GenDataPks();
+        },
+        error: function(xhr){
+            $('#id_DivPks').html("error");
+        }
+    });
 
+}
 // cancel combobox select Paket
 function id_BtnCxSelPktTlk(){
     $('#id_SelPktTlk').css('display','none');
@@ -252,24 +323,29 @@ function id_BtnCxSelPktTlk(){
     $('#id_BtnCxSelPktTlk').css('display','none');
 }
 
+
+
 //Saat tombol save change di klik
 function UpdPks(){
+    /* get checkboxes value */
+    var CbxSignCor1 = $('#id_CbxSignCor1:checked').val();
+    var CbxSignCor2 = $('#id_CbxSignCor2:checked').val();
+    var CbxSignTel1 = $('#id_CbxSignTel1:checked').val();
+    var CbxSignTel2 = $('#id_CbxSignTel2:checked').val();
+    console.clear();
+    console.log(CbxSignCor1 + ", " + CbxSignCor2 + ", " + CbxSignTel1 + ", " + CbxSignTel2);
     jQuery.ajax({
         type: "POST",
         url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/editpks",
         data: {
             id_pks: $('#id_pks').val(),
             id_pksno: $('#id_pksno').val(),
-            id_pksppn: $('#id_pksppn').val(),
-            id_pkspic: $('#id_pkspic').val(),
-            id_pkscorp: $('#id_pkscorp').val(),
-            id_pkspkt: $('#id_pkspkt').val(),
             id_pksst: $('#id_pksst').val(),
             id_pksen: $('#id_pksen').val(),
-            id_pksctpi: $('#id_pksctpi:checked').val(),
-            id_pksctpc: $('#id_pksctpc:checked').val(),
-            id_pksttpi: $('#id_pksttpi:checked').val(),
-            id_pksttpc: $('#id_pksttpc:checked').val()
+            CbxSignCor1 : CbxSignCor1,
+            CbxSignCor2 : CbxSignCor2,
+            CbxSignTel1 : CbxSignTel1,
+            CbxSignTel2 : CbxSignTel2
         },
         success: function(res) {
             $('#modal-default').modal('hide');
@@ -281,6 +357,7 @@ function UpdPks(){
         }
     });
 }
+
 
 function DelPks(id_pks){
     var delconf = confirm("Hapus data?");

@@ -40,10 +40,6 @@
         $('.sidebar-menu').tree()
       })
     </script>
-    
-    <!-- for datetime picker -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/templ/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/templ/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
   <!-- Google Font -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/download/fontsanspro.css">

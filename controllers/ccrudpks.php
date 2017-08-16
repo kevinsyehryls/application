@@ -136,7 +136,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksst" placeholder="MM/DD/YYYY">
+                    <input type="text" class="form-control pull-right" id="id_pksst" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd">
                 </div>
             </div>
             <div class="form-group">
@@ -145,7 +145,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksen" placeholder="MM/DD/YYYY">
+                    <input type="text" class="form-control pull-right" id="id_pksen" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd">
                 </div>
             </div>
             <div class="form-group" style="display: inline-flex">
@@ -185,7 +185,7 @@ class Ccrudpks extends CI_Controller {
             </div>
             <div class="form-group">
                 <label for="pimpinan">Pimpinan Telkomsel</label>
-                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPimpTlk()'>
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPimpTlk()' id="id_aPimpTsel">
                 	<?php
 					$id_pks = $this->input->post('id_pks');
                     $query1 = $this->db->query("
@@ -218,7 +218,7 @@ class Ccrudpks extends CI_Controller {
             </div>   
             <div class="form-group">
                 <label for="pic">PIC Telkomsel</label>
-                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPicTlk()'>
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPicTlk()' id="id_aPicTsel">
                 	<?php
 					$id_pks = $this->input->post('id_pks');
                     $query3 = $this->db->query("
@@ -251,7 +251,7 @@ class Ccrudpks extends CI_Controller {
             </div>   
             <div class="form-group">
                 <label for="corp">Corporate</label>
-                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxCorpTlk()'>
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxCorpTlk()' id="id_aCorTsel">
                 	<?php
 					$id_pks = $this->input->post('id_pks');
                     $query5 = $this->db->query("
@@ -284,7 +284,7 @@ class Ccrudpks extends CI_Controller {
              </div>
              <div class="form-group">
                 <label for="corp">Paket</label>
-                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPktTlk()'>
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxPktTlk()' id="id_aPktTsel">
                 	<?php
 					$id_pks = $this->input->post('id_pks');
                     $query7 = $this->db->query("
@@ -321,7 +321,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksst" value="<?=$row->start_date?>">
+                    <input type="text" class="form-control pull-right" id="id_pksst" value="<?=$row->start_date?>" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd">
                 </div>
             </div> 
             <div class="form-group">
@@ -330,7 +330,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksen" value="<?=$row->end_date?>">
+                    <input type="text" class="form-control pull-right" id="id_pksen" value="<?=$row->end_date?>" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd">
                 </div>
             </div>
             <div class="form-group" style="display: inline-flex">
@@ -343,15 +343,17 @@ class Ccrudpks extends CI_Controller {
           </div>          
 		</div>
         <div class="modal-footer">
-             <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdCorp()">Save changes</button>
-          </div>
+             <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdPks()">Save changes</button>
+        </div>
 		<?php
 		}
 	}
+
 	public function editpks(){
 		$this->load->model('mcrudpks');
 		$query = $this->mcrudpks->updatepks();
 	}
+
 	public function savepks(){
 		$this->load->model('mcrudpks');
 		$query = $this->mcrudpks->insertpks();
@@ -361,7 +363,72 @@ class Ccrudpks extends CI_Controller {
 		$this->load->model('mcrudpks');
 		$query = $this->mcrudpks->deletepks();
 	}
-	
-	
+
+	/* update inline editing pimpinan telkomsel */
+	public function updinline_pimptsel(){
+        $id_SelPimpTlk = $this->input->post('id_SelPimpTlk');
+        $id_pks = $this->input->post('id_pks');
+        $id_SelPimpTlkTxt = $this->input->post('id_SelPimpTlkTxt');
+        $data = array(
+            'id_pimpinan_telkomsel' => $id_SelPimpTlk
+        );
+        $query = $this->db->where('id_pks', $id_pks)
+                      ->update('tb_pks', $data);
+        $affrows = $this->db->affected_rows();
+        if ($affrows > 0){
+            echo $id_SelPimpTlkTxt;
+        }
+    }
+
+    /* update inline PIC telkomsel */
+    public function updinline_pictsel(){
+        $id_pks = $this->input->post('id_pks');
+        $id_SelPicTlk = $this->input->post('id_SelPicTlk');
+        $id_SelPicTlkTxt = $this->input->post('id_SelPicTlkTxt');
+        /* alert("update tb_pks set id_pimpinan_telkomsel = " + id_SelPicTlk + " where id_pks = "  +  id_pks); */
+        $data = array(
+            'id_pic_telkomsel' => $id_SelPicTlk
+        );
+        $query = $this->db->where('id_pks', $id_pks)
+                      ->update('tb_pks', $data);
+        $affrows = $this->db->affected_rows();
+        if ($affrows > 0){
+            echo $id_SelPicTlkTxt;
+        }
+    }
+
+    /* update inline CORP telkomsel */
+    public function updinline_cortsel(){
+        $id_pks = $this->input->post('id_pks');
+        $id_SelCorpTlk = $this->input->post('id_SelCorpTlk');
+        $id_SelCorpTlkTxt = $this->input->post('id_SelCorpTlkTxt');
+        /*alert("update tb_pks set id_corporate = " + id_SelCorpTlk + " where id_pks = "  +  id_pks);*/
+        $data = array(
+            'id_corporate' => $id_SelCorpTlk
+        );
+        $query = $this->db->where('id_pks', $id_pks)
+                      ->update('tb_pks', $data);
+        $affrows = $this->db->affected_rows();
+        if ($affrows > 0){
+            echo $id_SelCorpTlkTxt;
+        }
+    }
+
+    /* update inline PAKET telkomsel */
+    public function updinline_pkttsel(){
+        $id_pks = $this->input->post('id_pks');
+        $id_SelPktTlk = $this->input->post('id_SelPktTlk');
+        $id_SelPktTlkTxt = $this->input->post('id_SelPktTlkTxt');
+        /* alert("update tb_pks set id_paket = " + id_SelPktTlk + " where id_pks = "  +  id_pks); */
+        $data = array(
+            'id_paket' => $id_SelPktTlk
+        );
+        $query = $this->db->where('id_pks', $id_pks)
+                      ->update('tb_pks', $data);
+        $affrows = $this->db->affected_rows();
+        if ($affrows > 0){
+            echo $id_SelPktTlkTxt;
+        }
+    }
 }
 ?>
