@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2017 at 06:44 PM
+-- Generation Time: Aug 16, 2017 at 12:07 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -72,10 +72,20 @@ CREATE TABLE `tb_list_nomor` (
 --
 
 CREATE TABLE `tb_paket` (
-  `id_paket` int(11) NOT NULL,
-  `nama_paket` int(11) NOT NULL,
-  `nama_file` int(11) NOT NULL
+  `id_paket` varchar(11) NOT NULL,
+  `nama_paket` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_paket`
+--
+
+INSERT INTO `tb_paket` (`id_paket`, `nama_paket`) VALUES
+('P001', 'My Group'),
+('P002', 'MVPN'),
+('P003', 'Flash'),
+('P004', 'Flash Denom'),
+('P005', 'Web2sms');
 
 -- --------------------------------------------------------
 
@@ -136,6 +146,7 @@ CREATE TABLE `tb_pks` (
   `id_pimpinan_telkomsel` varchar(15) NOT NULL,
   `id_pic_telkomsel` varchar(15) NOT NULL,
   `id_corporate` varchar(15) NOT NULL,
+  `id_paket` varchar(11) DEFAULT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `sign_pimpinan_corporate` varchar(50) NOT NULL,
@@ -148,8 +159,10 @@ CREATE TABLE `tb_pks` (
 -- Dumping data for table `tb_pks`
 --
 
-INSERT INTO `tb_pks` (`id_pks`, `nomor_pks`, `id_pimpinan_telkomsel`, `id_pic_telkomsel`, `id_corporate`, `start_date`, `end_date`, `sign_pimpinan_corporate`, `sign_pic_corporate`, `sign_pimpinan_telkomsel`, `sign_pic_telkomsel`) VALUES
-('00001', '010/LG.05/CM.73/VIII/2017', '67292', '88132', '1', '0000-00-00', '0000-00-00', 'F', 'F', 'F', 'F');
+INSERT INTO `tb_pks` (`id_pks`, `nomor_pks`, `id_pimpinan_telkomsel`, `id_pic_telkomsel`, `id_corporate`, `id_paket`, `start_date`, `end_date`, `sign_pimpinan_corporate`, `sign_pic_corporate`, `sign_pimpinan_telkomsel`, `sign_pic_telkomsel`) VALUES
+('00001', '010/LG.05/CM.73/VIII/2017', '67292', '88132', '1', 'P004', '0000-00-00', '0000-00-00', 'F', 'F', 'F', 'F'),
+('232323', 'efesfeds', '71829', '88132', '2', 'P004', '2017-08-01', '2017-08-31', 'F', 'F', 'F', 'F'),
+('423423', '42342', '67292', '73245', '1', 'P002', '2017-08-01', '2017-08-31', 'T', 'F', 'F', 'F');
 
 -- --------------------------------------------------------
 
@@ -172,7 +185,7 @@ CREATE TABLE `tb_user` (
 INSERT INTO `tb_user` (`id_user`, `email`, `pass`, `nama`, `level`) VALUES
 (99, 'azizah@telkomsel.co.id', '1234', 'Azizah', 'Administrasi'),
 (106, 'aldi@telkomsel.co.id', '1234', 'aldiii', 'Administrasi'),
-(108, 'imade_abimayu@telkomsel.co.id', '1234', 'aldiii', 'SPV');
+(108, 'imade_abimayu@telkomsel.co.id', '1234', 'I Made Abimayu', 'SPV');
 
 --
 -- Indexes for dumped tables
@@ -216,7 +229,8 @@ ALTER TABLE `tb_pks`
   ADD PRIMARY KEY (`id_pks`),
   ADD KEY `FK_corporate` (`id_corporate`),
   ADD KEY `FK_pic_telkomsel` (`id_pic_telkomsel`),
-  ADD KEY `FK_pimpinan_telkomsel` (`id_pimpinan_telkomsel`);
+  ADD KEY `FK_pimpinan_telkomsel` (`id_pimpinan_telkomsel`),
+  ADD KEY `id_paket` (`id_paket`);
 
 --
 -- Indexes for table `tb_user`
@@ -248,6 +262,7 @@ ALTER TABLE `tb_list_nomor`
 --
 ALTER TABLE `tb_pks`
   ADD CONSTRAINT `FK_corporate` FOREIGN KEY (`id_corporate`) REFERENCES `tb_corporate` (`id_corporate`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_paket` FOREIGN KEY (`id_paket`) REFERENCES `tb_paket` (`id_paket`) ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_pic_telkomsel` FOREIGN KEY (`id_pic_telkomsel`) REFERENCES `tb_pic_telkomsel` (`id_pic_telkomsel`) ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_pimpinan_telkomsel` FOREIGN KEY (`id_pimpinan_telkomsel`) REFERENCES `tb_pimpinan_telkomsel` (`id_pimpinan_telkomsel`) ON UPDATE CASCADE;
 
