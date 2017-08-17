@@ -65,7 +65,7 @@ class Ccrudlist extends CI_Controller {
               <select id="id_listcorp" class="form-control">
                     <option>---- PILIH CORPORATE ----</option>
                      <?php
-                    $this->load->model('mcrudpks');
+                    $this->load->model('mcrudlist');
        		  		$query = $this->mcrudpks->relcorp();
 			  		foreach($query->result() as $row){
 						?>
@@ -135,14 +135,14 @@ class Ccrudlist extends CI_Controller {
 					}
 					?>
                 </a><br>	
-                <div style="display:inline-flex">
+                 <div style="display:inline-flex">
                     <select id='id_SelCorpTlk' style="display: none">
-                      	<?php
+                        <?php
                         $this->load->model('mcrudlist');
-						$query = $this->mcrudlist->selectcorp();
-						foreach($query->result() as $row){
+						$query2 = $this->mcrudlist->selectcorp();
+						foreach($query6->result() as $row6){
 						?>
-                        <option value="<?=$row->id_corporate?>"><?=$row->nama_corporate?></option>
+                        <option value="<?=$row2->id_corporate?>"><?=$row2->nama_corporate?></option>
                         <?php
 						}
 						?>
@@ -192,9 +192,23 @@ class Ccrudlist extends CI_Controller {
 	}
 		public function dellist(){
 		$this->load->model('mcrudlist');
-		$query = $this->mcrudlist->deletelist();
-		
-		
+		$query = $this->mcrudlist->deletelist();		
 	}
+		/* update inline CORP telkomsel */
+    	public function updinline_cortsel(){
+        $id_list = $this->input->post('id_list');
+        $id_SelCorpTlk = $this->input->post('id_SelCorpTlk');
+        $id_SelCorpTlkTxt = $this->input->post('id_SelCorpTlkTxt');
+        /*alert("update tb_pks set id_corporate = " + id_SelCorpTlk + " where id_pks = "  +  id_pks);*/
+        $data = array(
+            'id_corporate' => $id_SelCorpTlk
+        );
+        $query = $this->db->where('id_list_msisdn', $id_list)
+                      ->update('tb_list_nomor', $data);
+        $affrows = $this->db->affected_rows();
+        if ($affrows > 0){
+            echo $id_SelCorpTlkTxt;
+        }
+    }
 }
 ?>
