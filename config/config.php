@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://192.168.43.247/myproj/sirama';
-$config['base_url'] = 'http://localhost/proj/telkomselpks';
+$config['base_url'] = 'http://localhost/telkomselpks';
 
 /*
 |--------------------------------------------------------------------------
