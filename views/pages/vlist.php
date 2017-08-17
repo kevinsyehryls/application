@@ -146,10 +146,24 @@
 	
 	// save combobox select Corporate
 	function id_BtnSvSelCorpTlk(){
-		// update pimpinan telkomsel
-		var id_pks = $('#id_pks').val();
-		var id_SelCorpTlk = $('#id_SelCorpTlk').val();
-		alert("update tb_pks set id_corporate = " + id_SelCorpTlk + " where id_pks = "  +  id_pks);
+		//var id_list= $('#id_list').val();
+		//var id_SelCorpTlk = $('#id_SelCorpTlk').val();
+		//alert("update tb_list_nomor set id_corporate = " + id_SelCorpTlk + " where id_list_msisdn = "  +  id_list);
+		jQuery.ajax({
+			type: "POST",
+			url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/editlistcorp",
+			data: {
+				id_SelCorpTlk: $('#id_SelCorpTlk').val()
+			},
+			success: function(res) {
+				$('#modal-default').modal('hide');
+				alert("Data Updated!");
+				GenDataList();
+			},
+			error: function(xhr){
+			   $('#id_DivList').html("error");
+			}
+		});
 	}
 	
 	// cancel combobox select Corporate
@@ -165,17 +179,20 @@
 			type: "POST",
 			url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/editlist",
 			data: {
-				id_ppnnik: $('#id_ppnnik').val(),
-				id_ppnnama: $('#id_ppnnama').val(),
-				id_ppnjbt: $('#id_ppnjbt').val()
+				id_list: $('#id_list').val(),
+				id_listmsisdn: $('#id_listmsisdn').val(),
+				id_listuser: $('#id_listuser').val(),
+				id_listdiv: $('#id_listdiv').val(),
+				id_listshort: $('#id_listshort').val(),
+				id_listdes: $('#id_listdes').val()
 			},
 			success: function(res) {
 				$('#modal-default').modal('hide');
 				alert("Data Updated!");
-				GenDataPpn();
+				GenDataList();
 			},
 			error: function(xhr){
-			   $('#id_DivPpn').html("error");
+			   $('#id_DivList').html("error");
 			}
 		});
 	}
