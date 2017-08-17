@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2017 at 12:07 PM
+-- Generation Time: Aug 17, 2017 at 11:21 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -34,9 +34,9 @@ CREATE TABLE `tb_corporate` (
   `jabatan_pimpinan_corporate` varchar(50) NOT NULL,
   `nama_pic_corporate` varchar(50) NOT NULL,
   `jabatan_pic_corporate` varchar(50) NOT NULL,
-  `nomor_hp_pic_corporate` int(12) NOT NULL,
+  `nomor_hp_pic_corporate` varchar(12) NOT NULL,
   `email_pic_corporate` varchar(100) NOT NULL,
-  `nomor_tlp_kantor` int(12) NOT NULL
+  `nomor_tlp_kantor` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -44,10 +44,10 @@ CREATE TABLE `tb_corporate` (
 --
 
 INSERT INTO `tb_corporate` (`id_corporate`, `nama_corporate`, `alamat_corporate`, `nama_pimpinan_corporate`, `jabatan_pimpinan_corporate`, `nama_pic_corporate`, `jabatan_pic_corporate`, `nomor_hp_pic_corporate`, `email_pic_corporate`, `nomor_tlp_kantor`) VALUES
-('1', 'PT. Mirage Bali Distribution', 'Jl, Pulau Batam 17, Dauh Puri Kelod, Denpasar Barat, Bali', 'Thusen', 'Owner ', 'Thusen', 'Owner', 811386772, 'mirage.bali@gmail.com', 0),
-('2', 'PT. Bpr Sri Artha Lestari', 'Jl. Teuku Umar No 110, Denpasar 80113, Bali', 'Luh Ketut Citarasmini', 'Kadiv HCM & Complience', 'Ribka Kristin', 'Staff HCM', 2147483647, 'ribka.kristin@bprlestari.com', 2147483647),
-('3', 'Potato Head And Club', 'Jl. Peti Tenget 51B Seminyak, Kuta, Badung, Bali', 'Ario Bimo Wicaksono', 'Financial Controller', 'Ni Ketut Suarini', 'Manager GA', 2147483647, 'suryani@pttfamily.com', 2147483647),
-('4', 'PT. Livit International Indonesia', 'Rukan No 14 Perum Bumi Santi, Banjar Sasih,Jl. Pratu Made Rembug Batu Bulan 80571, Gianyar, Bali', 'Nicholas John Martin', 'Operational Director', 'Ni Luh Putu Yunari', 'Finance & Operation Assistant', 2147483647, 'invoice@liv.it', 361292123);
+('1', 'PT. Mirage Bali Distribution', 'sdsadsad', 'Thusen', 'Owner ', 'Thusen', 'Owner', '0811386772', 'mirage.bali@gmail.com', '0'),
+('2', 'PT. Bpr Sri Artha Lestari', '', 'Luh Ketut Citarasmini', 'Kadiv HCM & Complience', 'Ribka Kristin', 'Staff HCM', '0823772382', 'ribka.kristin@bprlestari.com', '2147483647'),
+('3', 'Potato Head And Club', 'Jl. Peti Tenget 51B Seminyak, Kuta, Badung, Bali', 'Ario Bimo Wicaksono', 'Financial Controller', 'Ni Ketut Suarini', 'Manager GA', '2147483647', 'suryani@pttfamily.com', '2147483647'),
+('4', 'PT. Livit International Indonesia', 'Rukan No 14 Perum Bumi Santi, Banjar Sasih,Jl. Pratu Made Rembug Batu Bulan 80571, Gianyar, Bali', 'Nicholas John Martin', 'Operational Director', 'Ni Luh Putu Yunari', 'Finance & Operation Assistant', '2147483647', 'invoice@liv.it', '361292123');
 
 -- --------------------------------------------------------
 
@@ -64,6 +64,13 @@ CREATE TABLE `tb_list_nomor` (
   `short_code` varchar(30) NOT NULL,
   `deskripsi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_list_nomor`
+--
+
+INSERT INTO `tb_list_nomor` (`id_list_msisdn`, `id_corporate`, `msisdn`, `user`, `division`, `short_code`, `deskripsi`) VALUES
+('2333', '1', 1111111111, '1111111', '1111111', '11111111', '11111111');
 
 -- --------------------------------------------------------
 
@@ -160,9 +167,9 @@ CREATE TABLE `tb_pks` (
 --
 
 INSERT INTO `tb_pks` (`id_pks`, `nomor_pks`, `id_pimpinan_telkomsel`, `id_pic_telkomsel`, `id_corporate`, `id_paket`, `start_date`, `end_date`, `sign_pimpinan_corporate`, `sign_pic_corporate`, `sign_pimpinan_telkomsel`, `sign_pic_telkomsel`) VALUES
-('00001', '010/LG.05/CM.73/VIII/2017', '67292', '88132', '1', 'P004', '0000-00-00', '0000-00-00', 'F', 'F', 'F', 'F'),
-('232323', 'efesfeds', '71829', '88132', '2', 'P004', '2017-08-01', '2017-08-31', 'F', 'F', 'F', 'F'),
-('423423', '42342', '67292', '73245', '1', 'P002', '2017-08-01', '2017-08-31', 'T', 'F', 'F', 'F');
+('00001', '010/LG.05/CM.73/VIII/2017', '67292', '88132', '1', 'P002', '2017-08-01', '2017-09-01', 'F', 'F', 'F', 'F'),
+('232323', 'efesfeds', '71829', '88145', '2', 'P004', '2017-08-01', '2017-08-31', 'F', 'F', 'F', 'F'),
+('3232', 'ererer', '71829', '87928', '3', 'P001', '2017-08-29', '2017-09-27', 'T', 'F', 'F', 'F');
 
 -- --------------------------------------------------------
 
