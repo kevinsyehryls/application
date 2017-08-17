@@ -146,25 +146,27 @@
 	
 	// save combobox select Corporate
 	function id_BtnSvSelCorpTlk(){
-		//var id_list= $('#id_list').val();
-		//var id_SelCorpTlk = $('#id_SelCorpTlk').val();
-		//alert("update tb_list_nomor set id_corporate = " + id_SelCorpTlk + " where id_list_msisdn = "  +  id_list);
-		jQuery.ajax({
+    	var id_list = $('#id_list').val();
+		var id_SelCorpTlk = $('#id_SelCorpTlk').val();
+		var id_SelCorpTlkTxt = $('#id_SelCorpTlk option:selected').text();
+			jQuery.ajax({
 			type: "POST",
-			url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/editlistcorp",
+			url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/updinline_cortsel",
 			data: {
-				id_SelCorpTlk: $('#id_SelCorpTlk').val()
+				id_list : id_list,
+				id_SelCorpTlk : id_SelCorpTlk,
+				id_SelCorpTlkTxt : id_SelCorpTlkTxt
 			},
 			success: function(res) {
-				$('#modal-default').modal('hide');
-				alert("Data Updated!");
+				$('#id_aCorTsel').text(res);
+				id_BtnCxSelCorpTlk();
 				GenDataList();
 			},
 			error: function(xhr){
-			   $('#id_DivList').html("error");
+				$('#id_DivList').html("error");
 			}
-		});
-	}
+    });
+}
 	
 	// cancel combobox select Corporate
 	function id_BtnCxSelCorpTlk(){
