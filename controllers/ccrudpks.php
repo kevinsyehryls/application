@@ -14,12 +14,12 @@ class Ccrudpks extends CI_Controller {
             	<tr>
               	  <th width="5%">No</th>
                   <th width="15%">Nomor PKS</th>
-                  <th width="20%">Nama Corporate</th>
-                  <th width="15%">Nama Pimpinan</th>
-                  <th width="15%">Nama PIC</th>
-                  <th width="10%">PIC Telkomsel</th>
-                  <th width="5%">Start Date</th>
-                  <th width="5%">End Date</th>
+                  <th width="10%">Corporate</th>
+                  <th width="10%">Pimpinan</th>
+                  <th width="10%">PIC</th>
+                  <th width="10%">PIC Tsel</th>
+                  <th width="10%">Start Date</th>
+                  <th width="10%">End Date</th>
                   <th width="10%">Opsi</th>
            	 	</tr>
             </thead>
