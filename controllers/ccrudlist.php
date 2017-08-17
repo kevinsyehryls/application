@@ -120,7 +120,7 @@ class Ccrudlist extends CI_Controller {
             </div>
                 <div class="form-group">
                 <label for="corp">Corporate</label>
-                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxCorpTlk()'>
+                &nbsp;&nbsp;&nbsp;<a href='#' onclick='ShowCbxCorpTlk()' id="id_aCorTsel">
                 	<?php
 					$id_list = $this->input->post('id_list');
                     $query1 = $this->db->query("
@@ -140,7 +140,7 @@ class Ccrudlist extends CI_Controller {
                         <?php
                         $this->load->model('mcrudlist');
 						$query2 = $this->mcrudlist->selectcorp();
-						foreach($query6->result() as $row6){
+						foreach($query2->result() as $row2){
 						?>
                         <option value="<?=$row2->id_corporate?>"><?=$row2->nama_corporate?></option>
                         <?php
