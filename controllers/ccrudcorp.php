@@ -124,7 +124,7 @@ class Ccrudcorp extends CI_Controller {
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span></button>
-            <h4 class="modal-title">EDIT PIMPINAN</h4>
+            <h4 class="modal-title">EDIT CORPORATE</h4>
           </div>
           <div class="modal-body">
         
@@ -139,7 +139,7 @@ class Ccrudcorp extends CI_Controller {
             </div>
             <div class="form-group">
               <label for="alamat">Alamat Corporate</label>
-              <textarea class="form-control" rows="3" id="id_corpalmt" placeholder="Ketik Alamat" value="<?=$row->alamat_corporate?>"></textarea>
+              <textarea class="form-control" rows="3" id="id_corpalmt" placeholder="Ketik Alamat" ><?=$row->alamat_corporate?></textarea>
             </div>   
              <div class="form-group">
               <label for="pimpinan">Nama Pimpinan</label>
