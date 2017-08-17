@@ -19,7 +19,7 @@ class McrudList extends CI_Model {
 		return $query;
 	}
 	
-		// tampil cbx pic telkomsel pada modal tambah PKS
+		// tampil cbx pic telkomsel pada modal tambah List
 	function relcorp(){
 		$query = $this->db->query("select * from tb_corporate");
 		return $query;
@@ -62,7 +62,7 @@ class McrudList extends CI_Model {
 		$id=$this->input->post("id_list");
 		$idcorp=$this->input->post("id_SelCorpTlk");
 		$datalistcorp=array(
-			'id_corporate' => $idcorp,	
+			'id_corporate' => $idcorp	
 		);	
 		$this->db->where('id_list_msisdn', $id);
 		$this->db->update('tb_list_nomor', $datalistcorp);
