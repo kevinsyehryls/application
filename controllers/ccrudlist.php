@@ -178,6 +178,10 @@ class Ccrudlist extends CI_Controller {
 		<?php
 		}	
 	}
+		public function editlistcorp(){
+		$this->load->model('mcrudlist');
+		$query = $this->mcrudlist->updatelistcorp();	
+	}
 		public function editlist(){
 		$this->load->model('mcrudlist');
 		$query = $this->mcrudlist->updatelist();	
