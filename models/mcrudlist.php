@@ -58,16 +58,24 @@ class McrudList extends CI_Model {
 		return $query;	
 	}
 	
+	function updatelistcorp(){
+		$id=$this->input->post("id_list");
+		$idcorp=$this->input->post("id_SelCorpTlk");
+		$datalistcorp=array(
+			'id_corporate' => $idcorp,	
+		);	
+		$this->db->where('id_list_msisdn', $id);
+		$this->db->update('tb_list_nomor', $datalistcorp);
+	}
+
 	function updatelist(){
 		$id=$this->input->post("id_list");
-		$corp=$this->input->post("id_listcorp");
 		$msisdn=$this->input->post("id_listmsisdn");
 		$user=$this->input->post("id_listuser");
 		$div=$this->input->post("id_listdiv");
 		$short=$this->input->post("id_listshort");
 		$des=$this->input->post("id_listdes");
 		$datalist=array(
-			'id_corporate' => $corp,
 			'msisdn' => $msisdn,
 			'user' => $user,
 			'division' => $div,
