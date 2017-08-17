@@ -99,16 +99,10 @@ class Mcrudpks extends CI_Model {
 	}
 	
 	function updatepks(){
-		$id =$this->input->post("id_pks");
-		$no =$this->input->post("id_pksno");
-		$pksppn =$this->input->post("id_pksppn");
-		$pkspic =$this->input->post("id_pkspic");
-		$pkscorp =$this->input->post("id_pkscorp");
-		$pkspkt =$this->input->post("id_pkspkt");
-		$pksst =$this->input->post("id_pksst");
-		$pkssen =$this->input->post("id_pksen");
-		$startdate = date("Y-m-d", strtotime($pksst));
-		$enddate = date("Y-m-d", strtotime($pkssen));
+        $id_pks = $this->input->post('id_pks');
+        $id_pksno = $this->input->post('id_pksno');
+        $id_pksst = $this->input->post('id_pksst');
+        $id_pksen = $this->input->post('id_pksen');
 		/* cbx val */
         $CbxSignCor1 = $this->input->post('CbxSignCor1');
         $CbxSignCor2 = $this->input->post('CbxSignCor2');
@@ -119,19 +113,15 @@ class Mcrudpks extends CI_Model {
         if($CbxSignTel1 == ''){$CbxSignTel1 = "F";}
         if($CbxSignTel2 == ''){$CbxSignTel2 = "F";}
 		$datapks =array(
-			'nomor_pks' => $no,
-			'id_pimpinan_telkomsel' => $pksppn,
-			'id_pic_telkomsel' => $pkspic,
-			'id_corporate' => $pkscorp,
-			'id_paket' => $pkspkt,
-			'start_date' => $startdate,
-			'end_date' => $enddate,
-			'sign_pimpinan_corporate' => $CbxSignCor1,
-            'sign_pic_corporate' => $CbxSignCor2,
-            'sign_pimpinan_telkomsel' => $CbxSignTel1,
-            'sign_pic_telkomsel' => $CbxSignTel2
+            'nomor_pks'                 => $id_pksno,
+            'start_date'                => $id_pksst,
+            'end_date'                  => $id_pksen,
+            'sign_pimpinan_corporate'   => $CbxSignCor1,
+            'sign_pic_corporate'        => $CbxSignCor2,
+            'sign_pimpinan_telkomsel'   => $CbxSignTel1,
+            'sign_pic_telkomsel'        => $CbxSignTel2
 		);	
-		$this->db->where('id_pks', $id);
+		$this->db->where('id_pks', $id_pks);
 		$this->db->update('tb_pks', $datapks);
 	}
 
