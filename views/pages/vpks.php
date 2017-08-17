@@ -205,9 +205,6 @@ function id_BtnCxSelPimpTlk(){
     $('#id_BtnCxSelPimpTlk').css('display','none');
 }
 
-
-
-
 // show combobox select PIC Telkomsel
 function ShowCbxPicTlk(){
     $('#id_SelPicTlk').css('display','block');
@@ -255,7 +252,6 @@ function ShowCbxCorpTlk(){
 }
 // save combobox select Corporate
 function id_BtnSvSelCorpTlk(){
-    // update pimpinan telkomsel
     var id_pks = $('#id_pks').val();
     var id_SelCorpTlk = $('#id_SelCorpTlk').val();
     var id_SelCorpTlkTxt = $('#id_SelCorpTlk option:selected').text();
@@ -283,8 +279,6 @@ function id_BtnCxSelCorpTlk(){
     $('#id_BtnSvSelCorpTlk').css('display','none');
     $('#id_BtnCxSelCorpTlk').css('display','none');
 }
-
-
 
 // show combobox select Paket
 function ShowCbxPktTlk(){
