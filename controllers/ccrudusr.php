@@ -53,40 +53,57 @@ class Ccrudusr extends CI_Controller {
             <span aria-hidden="true">×</span></button>
             <h4 class="modal-title">TAMBAH USER</h4>
 		</div>
+        <?php
+        $frmattributes = array(
+            "id" => "id_FrmAddUsr",
+            "name" => "FrmAddUsr"
+        );
+        echo form_open('cpage/haluser',$frmattributes);
+        ?>
 		<div class="modal-body">
-        
-      	  <div class="box-body">
-            <div class="form-group">
-              <label for="nik">NIK</label>
-              <input type="text" class="form-control" id="id_usrnik" placeholder="Ketik NIK">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="nik">NIK</label>
+                    <input type="text" class="form-control" id="id_usrnik" name="id_usrnik" placeholder="Ketik NIK" required>
+                    <label for="id_usrnik" class="error"></label>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="id_usremail" name="id_usremail" placeholder="Enter email" required>
+                    <label for="id_usremail" class="error"></label>
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" id="id_usrpass" name="id_usrpass" placeholder="Password" required>
+                    <label for="id_usrpass" class="error"></label>
+                </div>
+                <div class="form-group">
+                    <label for="nama">Nama</label>
+                    <input type="text" class="form-control" id="id_usrnama" name="id_usrnama" placeholder="Ketik Nama" required>
+                    <label for="id_usrnama" class="error"></label>
+                </div>
+                <div class="form-group">
+                    <label for="level">Level</label>
+                    <select id="id_usrlevel" name="id_usrlevel" class="form-control" required>
+                        <option value="">---- PILIH LEVEL ----</option>
+                        <option value="Administrasi">Administrasi</option>
+                        <option value="SPV">SPV</option>
+                    </select>
+                    <label for="id_usrlevel" class="error"></label>
+                </div>
             </div>
-   
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="id_usremail" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="Password">Password</label>
-              <input type="password" class="form-control" id="id_usrpass" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label for="nama">Nama</label>
-              <input type="text" class="form-control" id="id_usrnama" placeholder="Ketik Nama">
-            </div>
-            <div class="form-group">
-             <label for="level">Level</label>
-            	<select id="id_usrlevel" class="form-control">
-                    <option>---- PILIH LEVEL ----</option>
-                    <option>Administrasi</option>
-                    <option>SPV</option>
-             	</select>
-            </div>          
-          </div>          
-		</div>
-		<div class="modal-footer">
-			<button id="id_usrbtn" type="button" class="btn btn-primary">Save</button>
-		</div>
+        </div>
+        <div class="modal-footer">
+            <button id="id_usrbtn" type="button" class="btn btn-primary">Save</button>
+        </div>
+        <style>
+            .error{
+                color: red;
+                font-style: italic;
+            }
+        </style>
 		<?php
+        echo form_close();
 	}
 	
 	public function showeditusr(){
