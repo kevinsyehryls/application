@@ -76,13 +76,38 @@ $(document).on('click', '#id_BtnAddPks', function(){
             $('#id_pksst, #id_pksen').datepicker({
                 autoclose: true
             });
-            SavePks();
-        },
-        error: function(xhr){
-           $('#id_MdlDefault').html("error");
-        }
-    });
-});
+            // form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmAddPks').validate({
+                         rules:{
+                             id_pks: "required",
+                             id_pksno: "required",
+                             id_pksppn: "required",
+                             id_pkspic: "required",
+                             id_pkscorp: "required",
+                             id_pkspkt: "required",
+                             id_pksst: "required",
+                             id_pksen: "required"
+                         },
+                         messages: {
+                             id_pks: "isi id PKS dengan benar",
+                             id_pksno: "isi No PKS dengan benar",
+                             id_pksppn: "isi Pimpinan Telkomsel dengan benar",
+                             id_pkspic: "isi PIC Telkomsel dengan benar",
+                             id_pkscorp: "isi Corporate dengan benar",
+                             id_pkspkt: "isi Paket dengan benar",
+                             id_pksst: "isi Start Date dengan benar",
+                             id_pksen: "isi End Date dengan benar"
+                        }
+                     });
+                 });
+                SavePks();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault').html("error");
+              }
+          });       
+     });
 
 // function untuk populate data user dari table database
 function GenDataPks(){
@@ -110,12 +135,15 @@ function GenDataPks(){
 
 // save user
 function SavePks(){
-    $(document).on('click', '#id_pkspbtn', function(){
+    $(document).on('click', '#id_pkspbtn', function(e){
+        e.preventDefault();
+        if($('#id_FrmAddPks').valid()){
         /* get checkboxes value */
         var CbxSignCor1 = $('#id_CbxSignCor1:checked').val();
         var CbxSignCor2 = $('#id_CbxSignCor2:checked').val();
         var CbxSignTel1 = $('#id_CbxSignTel1:checked').val();
         var CbxSignTel2 = $('#id_CbxSignTel2:checked').val();
+        // jika validasi berhasil
         jQuery.ajax({
         type: "POST",
         url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/savepks",
@@ -140,8 +168,12 @@ function SavePks(){
         },
         error: function(xhr){
            $('#id_DivPks').html("error");
+    }
+        });
+            } else {
+            // dan jika gagal
+            return false;
         }
-    });
     })
 }
 
