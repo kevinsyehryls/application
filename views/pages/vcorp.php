@@ -47,7 +47,7 @@
 	// ketika DOM ready
 	$(document).ready(function(){
 		GenDataCorp();
-	})
+	});
 	
 	// ketika tombol tambah user di klik
 	$(document).on('click', '#id_BtnAddCorp', function(){
@@ -59,13 +59,45 @@
             url: "<?php echo base_url(); ?>" + "index.php/ccrudcorp/addcorp",
             success: function(res) {
                 $('#id_MdlDefault').html(res);
-				SaveCorp();
-            },
-            error: function(xhr){
-               $('#id_MdlDefault').html("error");
-            }
-        });		
-	})
+				 // form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmAddCorp').validate({
+                         rules:{
+                             id_corp: "required",
+                             id_corpnama: "required",
+                             id_corpalmt: "required",
+                             id_corpnamapn: "required",
+                             id_corpjbtpn: "required",
+                             id_corpnamapi: "required",
+                             id_corpjbtpi: "required",
+                             id_corpnohp: "required",
+                             id_corpemail: {
+                                 required: true,
+                                 email: true
+                             },
+                             id_corpnotlpn: "required"
+						 },                             	
+                         messages: {
+                             id_corp: "isi id dengan benar",
+                             id_corpnama: "isi nama Corporate dengan benar",
+                             id_corpalmt: "isi Alamat dengan benar",
+                             id_corpnamapn: "isi Nama Pimpinan dengan benar",
+                             id_corpjbtpn: "isi Jabatan Pimpinan dengan benar",
+                             id_corpnamapi: "isi Nama PIC dengan benar",
+                             id_corpjbtpi: "isi Jabatan Pimpinan dengan benar",
+                             id_corpnohp: "isi No HP PIC dengan benar",
+                             id_corpemail: "isi email PIC dengan benar",
+                             id_corpnotlpn: "isi Telphone kantor dengan benar"
+                       	}
+                     });
+                 });
+  				SaveCorp();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault').html("error");
+              }
+          });		
+	 });
 
 	// function untuk populate data user dari table database
 	function GenDataCorp(){
@@ -93,34 +125,40 @@
 	
 	// save user
 	function SaveCorp(){
-		$(document).on('click', '#id_corpbtn', function(){
-			jQuery.ajax({
-            type: "POST",
-            url: "<?php echo base_url(); ?>" + "index.php/ccrudcorp/savecorp",
-			data: {
-				id_corp: $('#id_corp').val(),
-				id_corpnama: $('#id_corpnama').val(),
-				id_corpalmt: $('#id_corpalmt').val(),
-				id_corpnamapn: $('#id_corpnamapn').val(),
-				id_corpjbtpn: $('#id_corpjbtpn').val(),
-				id_corpnamapi: $('#id_corpnamapi').val(),
-				id_corpjbtpi: $('#id_corpjbtpi').val(),
-				id_corpnohp: $('#id_corpnohp').val(),
-				id_corpemail: $('#id_corpemail').val(),
-				id_corpnotlpn: $('#id_corpnotlpn').val()				
-			},
-            success: function(res) {
-				$('#modal-default').modal('hide');
-				alert("Data saved!");
-				GenDataCorp();
-			},
-            error: function(xhr){
-               $('#id_DivCorp').html("error");
-            }
-        });
-		})
-	}
-	
+		$(document).on('click', '#id_corpbtn', function(e){
+			e.preventDefault();
+            if($('#id_FrmAddCorp').valid()){
+	             // jika validasi berhasil
+				jQuery.ajax({
+		            type: "POST",
+		            url: "<?php echo base_url(); ?>" + "index.php/ccrudcorp/savecorp",
+					data: {
+						id_corp: $('#id_corp').val(),
+						id_corpnama: $('#id_corpnama').val(),
+						id_corpalmt: $('#id_corpalmt').val(),
+						id_corpnamapn: $('#id_corpnamapn').val(),
+						id_corpjbtpn: $('#id_corpjbtpn').val(),
+						id_corpnamapi: $('#id_corpnamapi').val(),
+						id_corpjbtpi: $('#id_corpjbtpi').val(),
+						id_corpnohp: $('#id_corpnohp').val(),
+						id_corpemail: $('#id_corpemail').val(),
+						id_corpnotlpn: $('#id_corpnotlpn').val()				
+					},
+		            success: function(res) {
+						$('#modal-default').modal('hide');
+						alert("Data saved!");
+						GenDataCorp();
+					},
+		            error: function(xhr){
+		               $('#id_DivCorp').html("error");
+		                     }
+	                 });
+	             } else {
+	            // dan jika gagal
+	                 return false;
+	              }
+  		})
+  	}
 	//Saat Tombol Edit di Klik
 	function EditCorp(id_corporate){
 		$('#modal-default').modal('show');
