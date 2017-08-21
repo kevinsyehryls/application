@@ -48,7 +48,7 @@
 	// ketika DOM ready
 	$(document).ready(function(){
 		GenDataList();
-	})
+	});
 	
 	// ketika tombol tambah user di klik
 	$(document).on('click', '#id_BtnAddList', function(){
@@ -60,13 +60,36 @@
             url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/addlist",
             success: function(res) {
                 $('#id_MdlDefault').html(res);
-				SaveList();
-            },
-            error: function(xhr){
-               $('#id_MdlDefault').html("error");
-            }
-        });		
-	})
+				 // form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmAddList').validate({
+                         rules:{
+                             id_list: "required",
+                             id_listcorp: "required",
+                             id_listmsisdn: "required",
+                             id_listuser: "required",
+                             id_listdiv: "required",
+                             id_listshort: "required",
+                             id_listdes:  "required",
+                         },
+                         messages: {
+                             id_list: "isi id dengan benar",
+                             id_listcorp: "isi nama dengan benar",
+                             id_listmsisdn: "isi jabatan dengan benar",
+                             id_listuser: "isi No HP dengan benar",
+                             id_listdiv: "isi email dengan benar",
+                             id_listshort: "isi Telphone kantor dengan benar",
+                             id_listdes: "isi alamat dengan benar"
+                        }
+                     });
+                 });
+  				SaveList();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault').html("error");
+              }
+          });		
+	 });
 	
 	// function untuk populate data user dari table database
 	function GenDataList(){
@@ -94,30 +117,37 @@
 	
 	// save user
 	function SaveList(){
-		$(document).on('click', '#id_listbtn', function(){
+		$(document).on('click', '#id_listbtn', function(e){
+			e.preventDefault();
+            if($('#id_FrmAddList').valid()){
+             // jika validasi berhasil
 			jQuery.ajax({
-            type: "POST",
-            url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/savelist",
-			data: {
-				id_list: $('#id_list').val(),
-				id_listcorp: $('#id_listcorp').val(),
-				id_listmsisdn: $('#id_listmsisdn').val(),
-				id_listuser: $('#id_listuser').val(),
-				id_listdiv: $('#id_listdiv').val(),
-				id_listshort: $('#id_listshort').val(),
-				id_listdes: $('#id_listdes').val()		
-			},
-            success: function(res) {
-				$('#modal-default').modal('hide');
-				alert("Data saved!" + res);
-				GenDataList();
-			},
-            error: function(xhr){
-               $('#id_DivList').html("error");
-            }
-        });
-		})
-	}
+	            type: "POST",
+	            url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/savelist",
+				data: {
+					id_list: $('#id_list').val(),
+					id_listcorp: $('#id_listcorp').val(),
+					id_listmsisdn: $('#id_listmsisdn').val(),
+					id_listuser: $('#id_listuser').val(),
+					id_listdiv: $('#id_listdiv').val(),
+					id_listshort: $('#id_listshort').val(),
+					id_listdes: $('#id_listdes').val()		
+				},
+	            success: function(res) {
+					$('#modal-default').modal('hide');
+					alert("Data saved!" + res);
+					GenDataList();
+				},
+	            error: function(xhr){
+	               $('#id_DivList').html("error");
+	             }
+            });
+            } else {
+            // dan jika gagal
+                 return false;
+              }
+  		})
+  	}
 	
 	//Saat Tombol Edit di Klik
 	function EditList(id_list_msisdn){
