@@ -59,20 +59,29 @@ class Ccrudpks extends CI_Controller {
               <span aria-hidden="true">×</span></button>
             <h4 class="modal-title">TAMBAH PKS</h4>
           </div>
-          <div class="modal-body">
-        
+    <?php
+      $frmattributes = array(
+       "id" => "id_FrmAddPks",
+       "name" => "FrmAddPks"
+       );
+      echo form_open('cpage/halpks',$frmattributes);
+    ?>
+        <div class="modal-body">
       	 <div class="box-body">
             <div class="form-group">
               <label for="pksid">ID PKS</label>
-              <input type="text" class="form-control" id="id_pks" placeholder="Ketik Id Corporate">
+              <input type="text" class="form-control" id="id_pks" name="id_pks" placeholder="Ketik Id Corporate" required>
+              <label for="id_pks" class="error"></label>
             </div>
             <div class="form-group">
               <label for="nomor">Nomor PKS</label>
-              <input type="text" class="form-control" id="id_pksno" placeholder="Ketik Nama Corporate">
+              <input type="text" class="form-control" id="id_pksno" name="id_pksno" placeholder="Ketik Nomor PKS" required>
+              <label for="id_pksno" class="error"></label>
             </div>
             <div class="form-group">
             <label for="pimpinan">Pimpinan Telkomsel</label>
-            	<select id="id_pksppn" class="form-control">
+            	<select id="id_pksppn" class="form-control" name="id_pksppn" required>
+              <label for="id_pksppn" class="error"></label>
                     <option>---- PILIH PIMPINAN ----</option>
                     <?php
                     $this->load->model('mcrudpks');
@@ -87,7 +96,8 @@ class Ccrudpks extends CI_Controller {
             </div>   
              <div class="form-group">
               <label for="pic">PIC Telkomsel</label>
-              <select id="id_pkspic" class="form-control">
+              <select id="id_pkspic" class="form-control" name="id_pkspic" required>
+              <label for="id_pkspic" class="error"></label>
                     <option>---- PILIH PIC ----</option>
                     <?php
                     $this->load->model('mcrudpks');
@@ -102,7 +112,8 @@ class Ccrudpks extends CI_Controller {
             </div> 
             <div class="form-group">
               <label for="corp">Corporate</label>
-              <select id="id_pkscorp" class="form-control">
+              <select id="id_pkscorp" class="form-control" name="id_pkscorp" required>
+              <label for="id_pkscorp" class="error"></label>
                     <option>---- PILIH CORPORATE ----</option>
                      <?php
                     $this->load->model('mcrudpks');
@@ -117,7 +128,8 @@ class Ccrudpks extends CI_Controller {
             </div> 
              <div class="form-group">
               <label for="pkt">Paket</label>	
-              <select id="id_pkspkt" class="form-control">
+              <select id="id_pkspkt" class="form-control" name="id_pkspkt" required>
+              <label for="id_pkspkt" class="error"></label>
                     <option>---- PILIH PAKET ----</option>
                      <?php
                     $this->load->model('mcrudpks');
@@ -136,7 +148,8 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksst" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd">
+                    <input type="text" class="form-control pull-right" id="id_pksst" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd" name="id_pksst" required>
+                    <label for="id_pksst" class="error"></label>
                 </div>
             </div>
             <div class="form-group">
@@ -145,7 +158,8 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksen" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd">
+                    <input type="text" class="form-control pull-right" id="id_pksen" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd" name="id_pksen" required>
+                    <label for="id_pksen" class="error"></label>
                 </div>
             </div>
             <div class="form-group" style="display: inline-flex">
@@ -157,11 +171,18 @@ class Ccrudpks extends CI_Controller {
             </div>
           </div>          
 		</div>
-        <div class="modal-footer">
-             <button id="id_pkspbtn" type="button" class="btn btn-primary">Save</button>
-          </div>
-		<?php
-	}
+    <div class="modal-footer">
+        <button id="id_pkspbtn" type="button" class="btn btn-primary">Save</button>
+    </div>
+		<style>
+          .error{
+          color: red;
+          font-style: italic;
+          }
+      </style>
+      <?php
+      echo form_close();
+  }
 	
 	public function showeditpks(){
 		$this->load->model('mcrudpks');
