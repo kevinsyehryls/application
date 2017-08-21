@@ -45,7 +45,6 @@ class Ccrudlist extends CI_Controller {
         </table>
 		<?php
 	}
-	
 	public function addlist(){
 		?>
 		<div class="modal-header">
@@ -53,20 +52,28 @@ class Ccrudlist extends CI_Controller {
               <span aria-hidden="true">×</span></button>
             <h4 class="modal-title">TAMBAH LIST NOMOR</h4>
           </div>
+    <?php
+       $frmattributes = array(
+       "id" => "id_FrmAddList",
+       "name" => "FrmAddList"
+       );
+      echo form_open('cpage/hallist',$frmattributes);
+    ?>
          <div class="modal-body">
-        
       	  <div class="box-body">
             <div class="form-group">
               <label for="list">ID List</label>
-              <input type="text" class="form-control" id="id_list" placeholder="Ketik Id">
+              <input type="text" class="form-control" id="id_list" name="id_list" placeholder="Ketik Id" required>
+              <label for="id_list" class="error"></label>
             </div>
              <div class="form-group">
               <label for="corp">Corporate</label>
-              <select id="id_listcorp" class="form-control">
+              <select id="id_listcorp" class="form-control" name="id_listcorp" required>
+              <label for="id_listcorp" class="error"></label>
                     <option>---- PILIH CORPORATE ----</option>
                      <?php
                     $this->load->model('mcrudlist');
-       		  		$query = $this->mcrudpks->relcorp();
+       		  		$query = $this->mcrudlist->relcorp();
 			  		foreach($query->result() as $row){
 						?>
 						<option value="<?=$row->id_corporate?>"><?=$row->nama_corporate?></option>
@@ -77,31 +84,43 @@ class Ccrudlist extends CI_Controller {
             </div> 
             <div class="form-group">
               <label for="msisdn">Msisdn</label>
-              <input type="text" class="form-control" id="id_listmsisdn" placeholder="Ketik Msisdn">
+              <input type="number" class="form-control" id="id_listmsisdn" name="id_listmsisdn" placeholder="Ketik Msisdn" required>
+              <label for="id_listmsisdn" class="error"></label>
             </div>
             <div class="form-group">
               <label for="user">User</label>
-              <input type="text" class="form-control" id="id_listuser" placeholder="Ketik User">
+              <input type="text" class="form-control" id="id_listuser" name="id_listuser" placeholder="Ketik User" required>
+              <label for="id_listuser" class="error"></label>
             </div>
             <div class="form-group">
               <label for="div">Division</label>
-              <input type="text" class="form-control" id="id_listdiv" placeholder="Ketik Division">
+              <input type="text" class="form-control" id="id_listdiv" name="id_listdiv" Placeholder="Ketik Division" required>
+              <label for="id_listdiv" class="error"></label>
             </div>
             <div class="form-group">
               <label for="short">Short Code</label>
-              <input type="text" class="form-control" id="id_listshort" placeholder="Ketik Short Code">
+              <input type="text" class="form-control" id="id_listshort" name="id_listshort" placeholder="Ketik Short Code" required>
+              <label for="id_listshort" class="error"></label>
             </div>
             <div class="form-group">
               <label for="des">Deskripsi</label>
-              <input type="text" class="form-control" id="id_listdes" placeholder="Ketik Deskripi">
+              <input type="text" class="form-control" id="id_listdes" name="id_listdes" placeholder="Ketik Deskripi" required>
+              <label for="id_listdes" class="error"></label>
             </div>                 
           </div>          
 		</div>
-          <div class="modal-footer">
-           <button id="id_listbtn" type="button" class="btn btn-primary">Save</button>
-          </div>
-		<?php
-	}
+      <div class="modal-footer">
+      <button id="id_listbtn" type="button" class="btn btn-primary">Save</button>
+    </div>
+      <style>
+          .error{
+          color: red;
+          font-style: italic;
+          }
+      </style>
+      <?php
+      echo form_close();
+  }
 	
 	public function showeditlist(){
 		$this->load->model('mcrudlist');
