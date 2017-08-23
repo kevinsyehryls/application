@@ -121,6 +121,13 @@ class Ccrudusr extends CI_Controller {
             </div>
             <div class="modal-body">
             
+    <?php
+        $frmattributes = array(
+        "id" => "id_FrmUpdUsr",
+        "name" => "FrmUpdUsr"
+        );
+        echo form_open('cpage/haluser',$frmattributes);
+    ?>
               <div class="box-body">
                 <div class="form-group">
                   <label for="nik">NIK</label>
@@ -152,10 +159,17 @@ class Ccrudusr extends CI_Controller {
               </div>          
             </div>
             <div class="modal-footer">
-                <button id="id_usrbtn" type="button" class="btn btn-primary" onclick="UpdUser()">Save changes</button>
+                <button id="id_usrbtn1" type="button" class="btn btn-primary" onclick="UpdUser()">Save changes</button>
             </div>
+         <style>
+             .error{
+                 color: red;
+                 font-style: italic;
+             }
+         </style>
                 
       <?php
+     echo form_close();
     }
   }
   
