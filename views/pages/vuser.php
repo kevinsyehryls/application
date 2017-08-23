@@ -165,35 +165,69 @@
         },
         success: function(res) {
           $('#id_MdlDefault').html(res);
+        // form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmUpdUsr').validate({
+                         rules:{
+                             id_usremail: {
+                                 required: true,
+                                 email: true
+                             },
+                             id_usrpass: {
+                                 required: true,
+                                 maxlength: 9,
+                                 minlength: 4
+                             },
+                             id_usrnama: "required"
+                         },
+                         messages: {
+                             id_usremail: "isi email dengan benar",
+                             id_usrpass: "isi password dengan benar",
+                             id_usrnama: "isi nama dengan benar",
+                             id_usrlevel: "isi level dengan benar"
+                        }
+                     });
+                 });
+          UpdUser();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault').html("error");
+              }
+          });   
+   };
+  
+  //Saat tombol save change di klik
+  function UpdUser(){
+  $(document).on('click', '#id_usrbtn1', function(e){
+    e.preventDefault();
+      if($('#id_FrmUpdUsr').valid()){
+       // jika validasi berhasil
+      jQuery.ajax({
+        type: "POST",
+        url: "<?php echo base_url(); ?>" + "index.php/ccrudusr/editusr",
+        data: {
+          id_usrnik: $('#id_usrnik').val(),
+          id_usremail: $('#id_usremail').val(),
+          id_usrpass: $('#id_usrpass').val(),
+          id_usrnama: $('#id_usrnama').val(),
+          id_usrlevel: $('#id_usrlevel').val()
+        },
+        success: function(res) {
+          $('#modal-default').modal('hide');
+          alert("Data Updated!");
+          GenDataUsr();
         },
         error: function(xhr){
            $('#id_DivUsr').html("error");
         }
-      });
-  }
+        });
+      } else {
+      // dan jika gagal
+      return false;
+    }
+  })
+}
   
-  //Saat tombol save change di klik
-  function UpdUser(){
-    jQuery.ajax({
-      type: "POST",
-      url: "<?php echo base_url(); ?>" + "index.php/ccrudusr/editusr",
-      data: {
-        id_usrnik: $('#id_usrnik').val(),
-        id_usremail: $('#id_usremail').val(),
-        id_usrpass: $('#id_usrpass').val(),
-        id_usrnama: $('#id_usrnama').val(),
-        id_usrlevel: $('#id_usrlevel').val()
-      },
-      success: function(res) {
-        $('#modal-default').modal('hide');
-        alert("Data Updated!");
-        GenDataUsr();
-      },
-      error: function(xhr){
-         $('#id_DivUsr').html("error");
-      }
-    });
-  }
   
   function DelUsr(id_user){
     var delconf = confirm("Hapus data?");
