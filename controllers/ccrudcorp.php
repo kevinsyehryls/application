@@ -149,55 +149,69 @@ class Ccrudcorp extends CI_Controller {
               <span aria-hidden="true">×</span></button>
             <h4 class="modal-title">EDIT CORPORATE</h4>
           </div>
+    <?php
+      $frmattributes = array(
+      "id" => "id_FrmUpdCorp",
+      "name" => "FrmUpdCorp"
+      );
+      echo form_open('cpage/halcorp',$frmattributes);
+    ?>
           <div class="modal-body">
         
       	  <div class="box-body">
             <div class="form-group">
               <label for="nik">ID Corporate</label>
-              <input type="text" class="form-control" id="id_corp" placeholder="Ketik Id Corporate" value="<?=$row->id_corporate?>" readonly="readonly">
+              <input type="text" class="form-control" id="id_corp" name="id_corp" placeholder="Ketik Id Corporate" value="<?=$row->id_corporate?>" readonly="readonly">
             </div>
             <div class="form-group">
               <label for="nama">Nama Corporate</label>
-              <input type="text" class="form-control" id="id_corpnama" placeholder="Ketik Nama Corporate" value="<?=$row->nama_corporate?>">
+              <input type="text" class="form-control" id="id_corpnama" name="id_corpnama" placeholder="Ketik Nama Corporate" value="<?=$row->nama_corporate?>" required>
             </div>
             <div class="form-group">
               <label for="alamat">Alamat Corporate</label>
-              <textarea class="form-control" rows="3" id="id_corpalmt" placeholder="Ketik Alamat" ><?=$row->alamat_corporate?></textarea>
+              <textarea class="form-control" rows="3" id="id_corpalmt" name="id_corpalmt" placeholder="Ketik Alamat" value="<?=$row->alamat_corporate?>" required></textarea>
             </div>   
              <div class="form-group">
               <label for="pimpinan">Nama Pimpinan</label>
-              <input type="text" class="form-control" id="id_corpnamapn" placeholder="Ketik Nama Pimpinan" value="<?=$row->nama_pimpinan_corporate?>">
+              <input type="text" class="form-control" id="id_corpnamapn" name="id_corpnamapn" placeholder="Ketik Nama Pimpinan" value="<?=$row->nama_pimpinan_corporate?>" required>
             </div> 
             <div class="form-group">
               <label for="jabatanpi">Jabatan Pimpinan</label>
-              <input type="text" class="form-control" id="id_corpjbtpn" placeholder="Ketik Jabatan Pimpinan" value="<?=$row->jabatan_pimpinan_corporate?>">
+              <input type="text" class="form-control" id="id_corpjbtpn" name="id_corpnamapn" placeholder="Ketik Jabatan Pimpinan" value="<?=$row->jabatan_pimpinan_corporate?>" required>
             </div> 
              <div class="form-group">
               <label for="pic">Nama PIC</label>
-              <input type="text" class="form-control" id="id_corpnamapi" placeholder="Ketik Nama PIC" value="<?=$row->nama_pic_corporate?>">
+              <input type="text" class="form-control" id="id_corpnamapi" name="id_corpnamapi" placeholder="Ketik Nama PIC" value="<?=$row->nama_pic_corporate?>" required>
             </div> 
             <div class="form-group">
               <label for="jabatanpi">Jabatan PIC</label>
-              <input type="text" class="form-control" id="id_corpjbtpi" placeholder="Ketik Jabatan PIC" value="<?=$row->jabatan_pic_corporate?>">
+              <input type="text" class="form-control" id="id_corpjbtpi" name="id_corpjbtpi" placeholder="Ketik Jabatan PIC" value="<?=$row->jabatan_pic_corporate?>" required>
             </div>  
              <div class="form-group">
               <label for="nohp">Nomor HP PIC</label>
-              <input type="text" class="form-control" id="id_corpnohp" placeholder="Ketik Nomor HP" value="<?=$row->nomor_hp_pic_corporate?>">
+              <input type="text" class="form-control" id="id_corpnohp" name="id_corpnohp" placeholder="Ketik Nomor HP" value="<?=$row->nomor_hp_pic_corporate?>" required>
             </div>    
              <div class="form-group">
               <label for="email">Alamat Email PIC</label>
-              <input type="text" class="form-control" id="id_corpemail" placeholder="Ketik Email PIC" value="<?=$row->email_pic_corporate?>">
+              <input type="text" class="form-control" id="id_corpemail" name="id_corpemail" placeholder="Ketik Email PIC" value="<?=$row->email_pic_corporate?>" required>
             </div>     
               <div class="form-group">
               <label for="notlpn">Nomor Tlpn Kantor</label>
-              <input type="text" class="form-control" id="id_corpnotlpn" placeholder="Ketik No Tlpn Kantor" value="<?=$row->nomor_tlp_kantor?>">
+              <input type="text" class="form-control" id="id_corpnotlpn" name="id_corpnotlpn" placeholder="Ketik No Tlpn Kantor" value="<?=$row->nomor_tlp_kantor?>" required>
             </div>           
           </div>          
 		</div>
         <div class="modal-footer">
-             <button id="id_corpbtn" type="button" class="btn btn-primary" onclick="UpdCorp()">Save changes</button>
-          </div>
-		<?php
+             <button id="id_corpbtn1" type="button" class="btn btn-primary" onclick="UpdCorp()">Save changes</button>
+          </div> 
+    <style>
+      .error{
+      color: red;
+      font-style: italic;
+      }
+    </style>
+    <?php
+    echo form_close();
 		}
 	}
 		public function editcorp(){
