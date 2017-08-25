@@ -127,7 +127,13 @@ class Ccrudstaf extends CI_Controller {
             <h4 class="modal-title">EDIT STAFF</h4>
           </div>
 
-
+    <?php
+    $frmattributes = array(
+       "id" => "id_FrmUpdStaf",
+       "name" => "FrmUpdStaf"
+       );
+      echo form_open('cpage/halstaf',$frmattributes);
+    ?>
           
          <div class="modal-body">
         
@@ -138,35 +144,41 @@ class Ccrudstaf extends CI_Controller {
             </div>
             <div class="form-group">
               <label for="nama">Nama</label>
-              <input type="text" class="form-control" id="id_stafnama" placeholder="Ketik Nama" value="<?=$row->nama_pic_telkomsel?>">
+              <input type="text" class="form-control" id="id_stafnama" name="id_stafnama" placeholder="Ketik Nama" value="<?=$row->nama_pic_telkomsel?>" equired>
             </div>
             <div class="form-group">
               <label for="jabatan">Jabatan</label>
-              <input type="text" class="form-control" id="id_stafjbt" placeholder="Ketik Jabatan" value="<?=$row->jabatan_pic_telkomsel?>">
+              <input type="text" class="form-control" id="id_stafjbt" name="id_stafjbt" placeholder="Ketik Jabatan" value="<?=$row->jabatan_pic_telkomsel?>" equired>
             </div>
             <div class="form-group">
               <label for="nohp">Nomor Handphone</label>
-              <input type="text" class="form-control" id="id_stafhp" placeholder="Ketik Nomor HP" value="<?=$row->nomor_hp_pic_telkomsel?>">
+              <input type="text" class="form-control" id="id_stafhp" name="id_stafhp" placeholder="Ketik Nomor HP" value="<?=$row->nomor_hp_pic_telkomsel?>" equired>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="text" class="form-control" id="id_stafemail" placeholder="Ketik Email" value="<?=$row->email_pic_telkomsel?>">
+              <input type="text" class="form-control" id="id_stafemail" name="id_stafemail" placeholder="Ketik Email" value="<?=$row->email_pic_telkomsel?>" equired>
             </div>
             <div class="form-group">
               <label for="notlp">Nomor Kantor</label>
-              <input type="text" class="form-control" id="id_stafnotlp" placeholder="Ketik Nomor Tlp Kantor" value="<?=$row->nomor_tlp_kantor?>">
+              <input type="text" class="form-control" id="id_stafnotlp" name="id_stafnotlp" placeholder="Ketik Nomor Tlp Kantor" value="<?=$row->nomor_tlp_kantor?>" equired>
             </div>
              <div class="form-group">
               <label for="alamat">Alamat</label>
-              <textarea class="form-control" rows="3" id="id_stafalmt" placeholder="Ketik Alamat" value="<?=$row->alamat_kantor?>"></textarea>
+              <textarea class="form-control" rows="3" id="id_stafalmt" name="id_stafalmt" placeholder="Ketik Alamat" value="<?=$row->alamat_kantor?>" equired></textarea>
             </div>       
           </div>          
 		</div>
           <div class="modal-footer">
-           <button id="id_stafbtn" type="button" class="btn btn-primary" onclick="UpdStaf()">Save changes</button>
+           <button id="id_stafbtn1" type="button" class="btn btn-primary" onclick="UpdStaf()">Save changes</button>
           </div>
-          
-		<?php
+    <style>
+      .error{
+      color: red;
+      font-style: italic;
+      }
+    </style>
+    <?php
+      echo form_close();
 		}	
 	}
 		public function editstaf(){
