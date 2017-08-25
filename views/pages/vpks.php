@@ -45,17 +45,6 @@
     <!-- /.content -->
   </div>
 
-<!-- daterange picker -->
-<link rel="stylesheet" href="<?=base_url()?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-<!-- bootstrap datepicker -->
-<link rel="stylesheet" href="<?=base_url()?>assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-<!-- date-range-picker -->
-<script src="<?=base_url()?>assets/bower_components/moment/min/moment.min.js"></script>
-<script src="<?=base_url()?>assets/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
-<script src="<?=base_url()?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-
-
 <script>
 // ketika DOM ready
 $(document).ready(function(){
@@ -118,6 +107,7 @@ function GenDataPks(){
             $('#id_DivPks').html(res);
             $(function() {
                 $('#example1').DataTable({
+                    'retrieve'    : true,
                     'paging'      : true,
                     'lengthChange': false,
                     'searching'   : true,
@@ -191,16 +181,28 @@ function EditPks(id_pks){
                 //Date picker
                 $('#id_pksst, #id_pksen').datepicker({
                     autoclose: true
-                });
-            },
-            error: function(xhr){
-               $('#id_DivPks').html("error");
-            }
-    });
-}
-
-
-
+                });// form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmUpdPks').validate({
+                         rules:{
+                             id_pksno: "required",
+                             id_pksst: "required",
+                             id_pksen: "required"
+                         },
+                         messages: {
+                             id_pksno: "isi No PKS dengan benar",
+                             id_pksst: "isi Start Date dengan benar",
+                             id_pksen: "isi End Date dengan benar"
+                        }
+                     });
+                 });
+                UpdPks();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault').html("error");
+              }
+          });   
+   }
 // show combobox select pimpinan Telkomsel
 function ShowCbxPimpTlk(){
     $('#id_SelPimpTlk').css('display','block');
@@ -323,6 +325,7 @@ function id_BtnSvSelPktTlk(){
     var id_pks = $('#id_pks').val();
     var id_SelPktTlk = $('#id_SelPktTlk').val();
     var id_SelPktTlkTxt = $('#id_SelPktTlk option:selected').text();
+
     jQuery.ajax({
         type: "POST",
         url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/updinline_pkttsel",
@@ -348,9 +351,6 @@ function id_BtnCxSelPktTlk(){
     $('#id_BtnSvSelPktTlk').css('display','none');
     $('#id_BtnCxSelPktTlk').css('display','none');
 }
-
-
-
 //Saat tombol save change di klik
 function UpdPks(){
     /* get checkboxes value */
@@ -360,30 +360,39 @@ function UpdPks(){
     var CbxSignTel2 = $('#id_CbxSignTel2:checked').val();
     console.clear();
     console.log(CbxSignCor1 + ", " + CbxSignCor2 + ", " + CbxSignTel1 + ", " + CbxSignTel2);
-    jQuery.ajax({
-        type: "POST",
-        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/editpks",
-        data: {
-            id_pks: $('#id_pks').val(),
-            id_pksno: $('#id_pksno').val(),
-            id_pksst: $('#id_pksst').val(),
-            id_pksen: $('#id_pksen').val(),
-            CbxSignCor1 : CbxSignCor1,
-            CbxSignCor2 : CbxSignCor2,
-            CbxSignTel1 : CbxSignTel1,
-            CbxSignTel2 : CbxSignTel2
-        },
-        success: function(res) {
-            $('#modal-default').modal('hide');
-            alert("Data Updated!");
-            GenDataPks();
-        },
-        error: function(xhr){
-           $('#id_DivPks').html("error");
+        $(document).off('click', '#id_pksupbtn1');
+        $(document).on('click', '#id_pksupbtn1', function(e){
+        e.preventDefault();
+        if($('#id_FrmUpdPks').valid()){
+            // jika validasi berhasil
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/editpks",
+                data: {
+                    id_pks: $('#id_pks').val(),
+                    id_pksno: $('#id_pksno').val(),
+                    id_pksst: $('#id_pksst').val(),
+                    id_pksen: $('#id_pksen').val(),
+                    CbxSignCor1 : CbxSignCor1,
+                    CbxSignCor2 : CbxSignCor2,
+                    CbxSignTel1 : CbxSignTel1,
+                    CbxSignTel2 : CbxSignTel2
+                },
+                success: function(res) {
+                    $('#modal-default').modal('hide');
+                    alert("Data Updated!");
+                    GenDataPks();
+                },
+                error: function(xhr){
+                   $('#id_DivPks').html("error");
+                }
+                });
+              } else {
+              // dan jika gagal
+              return false;
+            }
+          })
         }
-    });
-}
-
 
 function DelPks(id_pks){
     var delconf = confirm("Hapus data?");
