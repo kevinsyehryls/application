@@ -59,7 +59,7 @@
             url: "<?php echo base_url(); ?>" + "index.php/ccrudstaf/addstaf",
             success: function(res) {
                 $('#id_MdlDefault').html(res);
-				 // form validation on ready state
+				        // form validation on ready state
                  $().ready(function(){
                      $('#id_FrmAddStaf').validate({
                          rules:{
@@ -106,12 +106,13 @@
                 $('#id_DivStaf').html(res);
 				$(function() {
 					$('#example1').DataTable({
-						'paging'      : true,
-						'lengthChange': false,
-						'searching'   : true,
-						'ordering'    : true,
-						'info'        : true,
-						'autoWidth'   : true
+            'retrieve'    : true,
+            'paging'      : true,
+            'lengthChange': false,
+            'searching'   : true,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : true
 					})
 				})
             },
@@ -166,37 +167,73 @@
 				},
 				success: function(res) {
 					$('#id_MdlDefault').html(res);
-				},
-				error: function(xhr){
-				   $('#id_DivStaf').html("error");
-				}
-			});
-	}
+          // form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmUpdStaf').validate({
+                         rules:{
+                             id_stafnama: "required",
+                             id_stafjbt: "required",
+                             id_stafhp: "required",
+                             id_stafemail: {
+                                 required: true,
+                                 email: true
+                             },
+                             id_stafnotlp: "required",
+                             id_stafalmt: "required"
+                         },
+                         messages: {
+                             id_stafnik: "isi id dengan benar",
+                             id_stafnama: "isi nama dengan benar",
+                             id_stafjbt: "isi jabatan dengan benar",
+                             id_stafhp: "isi No HP dengan benar",
+                             id_stafemail: "isi email dengan benar",
+                             id_stafnotlp: "isi Telphone kantor dengan benar",
+                             id_stafalmt: "isi alamat dengan benar"
+                        }
+                     });
+                 });
+          UpdStaf();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault').html("error");
+              }
+          });   
+   }
 	
 	//Saat tombol save change di klik
 	function UpdStaf(){
-		jQuery.ajax({
-			type: "POST",
-			url: "<?php echo base_url(); ?>" + "index.php/ccrudstaf/editstaf",
-			data: {
-				id_stafnik: $('#id_stafnik').val(),
-				id_stafnama: $('#id_stafnama').val(),
-				id_stafjbt: $('#id_stafjbt').val(),
-				id_stafhp: $('#id_stafhp').val(),
-				id_stafemail: $('#id_stafemail').val(),
-				id_stafnotlp: $('#id_stafnotlp').val(),
-				id_stafalmt: $('#id_stafalmt').val()
-			},
-			success: function(res) {
-				$('#modal-default').modal('hide');
-				alert("Data Updated!");
-				GenDataStaf();
-			},
-			error: function(xhr){
-			   $('#id_DivStaf').html("error");
-			}
-		});
-	}
+    $(document).off('click', '#id_stafbtn1');
+      $(document).on('click', '#id_stafbtn1', function(e){
+      e.preventDefault();
+        if($('#id_FrmUpdStaf').valid()){
+          // jika validasi berhasil
+      		jQuery.ajax({
+      			type: "POST",
+      			url: "<?php echo base_url(); ?>" + "index.php/ccrudstaf/editstaf",
+      			data: {
+      				id_stafnik: $('#id_stafnik').val(),
+      				id_stafnama: $('#id_stafnama').val(),
+      				id_stafjbt: $('#id_stafjbt').val(),
+      				id_stafhp: $('#id_stafhp').val(),
+      				id_stafemail: $('#id_stafemail').val(),
+      				id_stafnotlp: $('#id_stafnotlp').val(),
+      				id_stafalmt: $('#id_stafalmt').val()
+      			},
+      			success: function(res) {
+      				$('#modal-default').modal('hide');
+      				alert("Data Updated!");
+      				GenDataStaf();
+      			},
+      			error: function(xhr){
+      			   $('#id_DivStaf').html("error");
+      			}
+      });
+        } else {
+        // dan jika gagal
+        return false;
+      }
+    })
+  }
 	
 	function DelStaf(id_pic_telkomsel){
 		var delconf = confirm("Hapus data?");
