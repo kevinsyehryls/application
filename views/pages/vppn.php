@@ -69,7 +69,7 @@
                                 maxlength: 5
                              },
                              id_ppnnama: "required",
-                             id_ppnjbt: "required",
+                             id_ppnjbt: "required"
                          },
                          messages: {
                              id_ppnnik: "isi NIK dengan benar",
@@ -96,6 +96,7 @@
                 $('#id_DivPpn').html(res);
 				$(function() {
 					$('#example1').DataTable({
+            			'retrieve'    : true,
 						'paging'      : true,
 						'lengthChange': false,
 						'searching'   : true,
@@ -152,32 +153,57 @@
 				},
 				success: function(res) {
 					$('#id_MdlDefault').html(res);
-				},
-				error: function(xhr){
-				   $('#id_DivPpn').html("error");
-				}
-			});
-	}
+				// form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmUpdPpn').validate({
+                         rules:{
+                             id_ppnnama: "required",
+                             id_ppnjbt: "required"
+                         },
+                         messages: {
+                             id_ppnnik: "isi NIK dengan benar",
+                             id_ppnnama: "isi nama dengan benar",
+                             id_ppnjbt: "isi Jabatan dengan benar"
+                        }
+                     });
+                 });
+          UpdPpn();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault').html("error");
+              }
+          });   
+   }
 	
 	//Saat tombol save change di klik
 	function UpdPpn(){
-		jQuery.ajax({
-			type: "POST",
-			url: "<?php echo base_url(); ?>" + "index.php/ccrudppn/editppn",
-			data: {
-				id_ppnnik: $('#id_ppnnik').val(),
-				id_ppnnama: $('#id_ppnnama').val(),
-				id_ppnjbt: $('#id_ppnjbt').val()
-			},
-			success: function(res) {
-				$('#modal-default').modal('hide');
-				alert("Data Updated!");
-				GenDataPpn();
-			},
-			error: function(xhr){
-			   $('#id_DivPpn').html("error");
-			}
-		});
+		$(document).off('click', '#id_ppnbtn1');
+  		$(document).on('click', '#id_ppnbtn1', function(e){
+   	 	e.preventDefault();
+      	if($('#id_FrmUpdPpn').valid()){
+       		// jika validasi berhasil
+				jQuery.ajax({
+					type: "POST",
+					url: "<?php echo base_url(); ?>" + "index.php/ccrudppn/editppn",
+					data: {
+						id_ppnnik: $('#id_ppnnik').val(),
+						id_ppnnama: $('#id_ppnnama').val(),
+						id_ppnjbt: $('#id_ppnjbt').val()
+					},
+					success: function(res) {
+						$('#modal-default').modal('hide');
+						alert("Data Updated!");
+						GenDataPpn();
+					},
+					error: function(xhr){
+					   $('#id_DivPpn').html("error");
+					}
+			});
+	      } else {
+	      // dan jika gagal
+	      return false;
+	    }
+	  })
 	}
 	
 	function DelPpn(id_pimpinan_telkomsel){
