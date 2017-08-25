@@ -108,6 +108,7 @@
                 $('#id_DivCorp').html(res);
 				$(function() {
 					$('#example1').DataTable({
+            			'retrieve'    : true,
 						'paging'      : true,
 						'lengthChange': false,
 						'searching'   : true,
@@ -170,15 +171,51 @@
 				},
 				success: function(res) {
 					$('#id_MdlDefault').html(res);
-				},
-				error: function(xhr){
-				   $('#id_DivCorp').html("error");
-				}
-			});
-	}
+				 // form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmUpdCorp').validate({
+                         rules:{
+                             id_corpnama: "required",
+                             id_corpalmt: "required",
+                             id_corpnamapn: "required",
+                             id_corpjbtpn: "required",
+                             id_corpnamapi: "required",
+                             id_corpjbtpi: "required",
+                             id_corpnohp: "required",
+                             id_corpemail: {
+                                 required: true,
+                                 email: true
+                             },
+                             id_corpnotlpn: "required"
+						 },                             	
+                         messages: {
+                             id_corpnama: "isi nama Corporate dengan benar",
+                             id_corpalmt: "isi Alamat dengan benar",
+                             id_corpnamapn: "isi Nama Pimpinan dengan benar",
+                             id_corpjbtpn: "isi Jabatan Pimpinan dengan benar",
+                             id_corpnamapi: "isi Nama PIC dengan benar",
+                             id_corpjbtpi: "isi Jabatan Pimpinan dengan benar",
+                             id_corpnohp: "isi No HP PIC dengan benar",
+                             id_corpemail: "isi email PIC dengan benar",
+                             id_corpnotlpn: "isi Telphone kantor dengan benar"
+                       	}
+                     });
+                 });
+  				UpdCorp();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault').html("error");
+               }
+          });   
+   }
 	
 	//Saat tombol save change di klik
 	function UpdCorp(){
+		$(document).off('click', '#id_corpbtn1');
+  		$(document).on('click', '#id_corpbtn1', function(e){
+   	 	e.preventDefault();
+      	if($('#id_FrmUpdCorp').valid()){
+       		// jika validasi berhasil
 		jQuery.ajax({
 			type: "POST",
 			url: "<?php echo base_url(); ?>" + "index.php/ccrudcorp/editcorp",
@@ -202,7 +239,12 @@
 			error: function(xhr){
 			   $('#id_DivCorp').html("error");
 			}
-		});
+			});
+	      } else {
+	      // dan jika gagal
+	      return false;
+	    }
+	  })
 	}
 	
 	function DelCorp(id_corporate){
