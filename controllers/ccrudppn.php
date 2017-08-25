@@ -103,7 +103,13 @@ class Ccrudppn extends CI_Controller {
             <h4 class="modal-title">EDIT PIMPINAN TELKOMSEL</h4>
           </div>
          <div class="modal-body">
-        
+    <?php
+       $frmattributes = array(
+           "id" => "id_FrmUpdPpn",
+           "name" => "FrmUpdPpn"
+       );
+       echo form_open('cpage/halppn',$frmattributes);
+    ?>
       	  <div class="box-body">
             <div class="form-group">
               <label for="nik">NIK</label>
@@ -111,18 +117,24 @@ class Ccrudppn extends CI_Controller {
             </div>
             <div class="form-group">
               <label for="nama">Nama</label>
-              <input type="text" class="form-control" id="id_ppnnama" placeholder="Ketik Nama" value="<?=$row->nama_pimpinan_telkomsel?>">
-            </div>
+              <input type="text" class="form-control" id="id_ppnnama" name="id_ppnnama" placeholder="Ketik Nama" value="<?=$row->nama_pimpinan_telkomsel?>" required>
             <div class="form-group">
               <label for="jabatan">Jabatan</label>
-              <input type="text" class="form-control" id="id_ppnjbt" placeholder="Ketik Jabatan" value="<?=$row->jabatan_pimpinan_telkomsel?>">
+              <input type="text" class="form-control" id="id_ppnjbt" name="id_ppnnama" placeholder="Ketik Jabatan" value="<?=$row->jabatan_pimpinan_telkomsel?>" required>
             </div>      
           </div>          
 		</div>
           <div class="modal-footer">
-           <button id="id_ppnbtn" type="button" class="btn btn-primary" onclick="UpdPpn()">Save changes</button>
+           <button id="id_ppnbtn1" type="button" class="btn btn-primary" onclick="UpdPpn()">Save changes</button>
           </div>
+    <style>
+      .error{
+      color: red;
+      font-style: italic;
+      }
+    </style>
 		<?php
+      echo form_close();
 		}	
 	}
 		public function editppn(){
