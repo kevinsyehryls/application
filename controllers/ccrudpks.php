@@ -194,15 +194,24 @@ class Ccrudpks extends CI_Controller {
               <span aria-hidden="true">×</span></button>
             <h4 class="modal-title">EDIT PKS</h4>
           </div>
+
+    <?php
+      $frmattributes = array(
+       "id" => "id_FrmUpdPks",
+       "name" => "FrmUpdPks"
+       );
+      echo form_open('cpage/halpks',$frmattributes);
+    ?>
+
           <div class="modal-body">
       	  <div class="box-body">
             <div class="form-group">
               <label for="pksid">ID PKS</label>
-              <input type="text" class="form-control" id="id_pks" placeholder="Ketik Id Corporate"  value="<?=$row->id_pks?>" readonly="readonly">
+              <input type="text" class="form-control" id="id_pks" name="id_pks" placeholder="Ketik Id Corporate"  value="<?=$row->id_pks?>" readonly="readonly">
             </div>
             <div class="form-group">
               <label for="nomor">Nomor PKS</label>
-              <input type="text" class="form-control" id="id_pksno" placeholder="Ketik Nama Corporate" value="<?=$row->nomor_pks?>">
+              <input type="text" class="form-control" id="id_pksno" name="id_pksno" placeholder="Ketik Nama Corporate" value="<?=$row->nomor_pks?>" required>
             </div>
             <div class="form-group">
                 <label for="pimpinan">Pimpinan Telkomsel</label>
@@ -342,7 +351,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksst" value="<?=$row->start_date?>" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd">
+                    <input type="text" class="form-control pull-right" id="id_pksst" name="id_pksst" value="<?=$row->start_date?>" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd" required>
                 </div>
             </div> 
             <div class="form-group">
@@ -351,7 +360,7 @@ class Ccrudpks extends CI_Controller {
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control pull-right" id="id_pksen" value="<?=$row->end_date?>" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd">
+                    <input type="text" class="form-control pull-right" id="id_pksen" name="id_pksen" value="<?=$row->end_date?>" placeholder="YYYY/MM/DD" data-date-format="yyyy/mm/dd" required>
                 </div>
             </div>
             <div class="form-group" style="display: inline-flex">
@@ -363,10 +372,17 @@ class Ccrudpks extends CI_Controller {
             </div>
           </div>          
 		</div>
-        <div class="modal-footer">
-             <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdPks()">Save changes</button>
-        </div>
-		<?php
+    <div class="modal-footer">
+      <button id="id_pksupbtn1" type="button" class="btn btn-primary" onclick="UpdPks()">Save changes</button>
+    </div>
+    <style>
+      .error{
+      color: red;
+      font-style: italic;
+      }
+    </style>
+  <?php
+      echo form_close();
 		}
 	}
 
