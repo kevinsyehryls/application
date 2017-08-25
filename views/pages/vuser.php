@@ -107,6 +107,7 @@
                 $('#id_DivUsr').html(res);
         $(function() {
           $('#example1').DataTable({
+            'retrieve'    : true,
             'paging'      : true,
             'lengthChange': false,
             'searching'   : true,
@@ -194,10 +195,11 @@
                  $('#id_MdlDefault').html("error");
               }
           });   
-   };
+   }
   
   //Saat tombol save change di klik
   function UpdUser(){
+  $(document).off('click', '#id_usrbtn1');
   $(document).on('click', '#id_usrbtn1', function(e){
     e.preventDefault();
       if($('#id_FrmUpdUsr').valid()){
