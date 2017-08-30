@@ -45,6 +45,7 @@
     <!-- /.content -->
   </div>
 
+
 <script>
 // ketika DOM ready
 $(document).ready(function(){
@@ -387,12 +388,32 @@ function UpdPks(){
                    $('#id_DivPks').html("error");
                 }
                 });
-              } else {
-              // dan jika gagal
-              return false;
-            }
-          })
+        } else {
+          // dan jika gagal
+          return false;
         }
+    })
+}
+
+
+// print contract PKS
+function PrintDivElement(id_pks){
+    jQuery.ajax({
+        type: "POST",
+        url: "<?=base_url();?>index.php/ccrudpks/printpks",
+        data: {
+            id_pks : id_pks
+        },
+        success: function(res){
+            var NewTab = window.open();
+            var SelectedDiv = res;
+            NewTab.document.body.innerHTML = SelectedDiv;
+            NewTab.print();
+            NewTab.close();
+        }
+    });
+}
+
 
 function DelPks(id_pks){
     var delconf = confirm("Hapus data?");

@@ -194,14 +194,13 @@ class Ccrudpks extends CI_Controller {
               <span aria-hidden="true">×</span></button>
             <h4 class="modal-title">EDIT PKS</h4>
           </div>
-
-    <?php
-      $frmattributes = array(
-       "id" => "id_FrmUpdPks",
-       "name" => "FrmUpdPks"
-       );
-      echo form_open('cpage/halpks',$frmattributes);
-    ?>
+        <?php
+          $frmattributes = array(
+           "id" => "id_FrmUpdPks",
+           "name" => "FrmUpdPks"
+           );
+          echo form_open('cpage/halpks',$frmattributes);
+        ?>
 
           <div class="modal-body">
       	  <div class="box-body">
@@ -373,7 +372,8 @@ class Ccrudpks extends CI_Controller {
           </div>          
 		</div>
     <div class="modal-footer">
-      <button id="id_pksupbtn1" type="button" class="btn btn-primary" onclick="UpdPks()">Save changes</button>
+      <button id="id_pksupbtn1" type="button" class="btn btn-primary" onclick="UpdPks()"><li class="fa fa-save"></li>&nbsp;&nbsp; Save changes</button>
+        <button id="id_pksprint" type="button" class="btn btn-success" onclick="PrintDivElement('<?=$row->id_pks?>')"><li class="fa fa-print"></li>&nbsp;&nbsp; Print Contract</button>
     </div>
     <style>
       .error{
@@ -381,10 +381,27 @@ class Ccrudpks extends CI_Controller {
       font-style: italic;
       }
     </style>
-  <?php
+    <?php
       echo form_close();
 		}
 	}
+
+	// include file kontrak PKS
+    public function printpks(){
+        $this->load->model('mcrudpks');
+        $query = $this->mcrudpks->selectprintpks()->row_array();
+        $datapks = array(
+            "__id_pks" => $query['id_pks'],
+            "__no_pks" => $query['nomor_pks'],
+            "__pim_tsel" => $query['nama_pimpinan_telkomsel'],
+            "__jabpim_tsel" => $query['jabatan_pimpinan_telkomsel'],
+            "__nama_corp" => $query['nama_corporate'],
+            "__namapim_corp" => $query['nama_pimpinan_corporate'],
+            "__jabpim_corp" => $query['jabatan_pimpinan_corporate'],
+            "__start_date" => $query['start_date']
+        );
+        $this->load->view("pages/vpks_endorsement", $datapks);
+    }
 
 	public function editpks(){
 		$this->load->model('mcrudpks');

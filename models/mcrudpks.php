@@ -97,6 +97,27 @@ class Mcrudpks extends CI_Model {
 		$query= $this->db->query("select * from tb_pks where id_pks='$pks_id'");
 		return $query;	
 	}
+
+	// untuk print pks
+    function selectprintpks(){
+        $id_pks = $this->input->post('id_pks');
+        $query = $this->db->query("
+            select
+            a.`id_pks`,
+            a.`nomor_pks`,
+            b.`nama_pimpinan_telkomsel`,
+            b.`jabatan_pimpinan_telkomsel`,
+            c.`nama_corporate`,
+            c.`nama_pimpinan_corporate`,
+            c.`jabatan_pimpinan_corporate`,
+            a.`start_date`
+            from `tb_pks` a
+            join `tb_pimpinan_telkomsel` b on a.`id_pimpinan_telkomsel` = b.`id_pimpinan_telkomsel`
+            join `tb_corporate` c on a.`id_corporate` = c.`id_corporate`
+            where a.id_pks = '$id_pks'
+        ");
+        return $query;
+    }
 	
 	function updatepks(){
         $id_pks = $this->input->post('id_pks');
