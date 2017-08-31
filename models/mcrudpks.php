@@ -1,4 +1,4 @@
-<title>m</title>
+<title>Dokumen PKS</title>
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Mcrudpks extends CI_Model {
@@ -108,12 +108,25 @@ class Mcrudpks extends CI_Model {
             b.`nama_pimpinan_telkomsel`,
             b.`jabatan_pimpinan_telkomsel`,
             c.`nama_corporate`,
+            c.`alamat_corporate`,
             c.`nama_pimpinan_corporate`,
             c.`jabatan_pimpinan_corporate`,
+            c.`nama_pic_corporate`,
+			c.`jabatan_pic_corporate`,
+			c.`nomor_hp_pic_corporate`,
+			c.`email_pic_corporate`,
+			c.`nomor_tlp_kantor`,
+            d.`nama_pic_telkomsel`,
+  			d.`jabatan_pic_telkomsel`,
+  			d.`nomor_hp_pic_telkomsel`,
+  			d.`email_pic_telkomsel`,
+  			e.`nama_paket`,
             a.`start_date`
             from `tb_pks` a
             join `tb_pimpinan_telkomsel` b on a.`id_pimpinan_telkomsel` = b.`id_pimpinan_telkomsel`
             join `tb_corporate` c on a.`id_corporate` = c.`id_corporate`
+            join `tb_pic_telkomsel` d on a.`id_pic_telkomsel` = d.`id_pic_telkomsel`
+            join `tb_paket` e on a.`id_paket` = e.`id_paket`
             where a.id_pks = '$id_pks'
         ");
         return $query;
