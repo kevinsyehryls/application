@@ -40,8 +40,11 @@ class Ccrudpks extends CI_Controller {
                   <td><?php echo $row->start_date ?></td>
                   <td><?php echo $row->end_date ?></td>
                   <td>
-                    <button onclick="EditPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Edit</button>
-                    <button onclick="DelPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Delete</button>
+                    <button onclick="EditPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Edit
+                    </button>
+                    <button onclick="DelPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Delete
+                    </button>
+                    <button onclick="PrintDivElement('<?=$row->id_pks?>')"id="id_pksprint" type="button" class="btn btn-primary btn-xs"><li class="fa fa-print"></li>&nbsp;&nbsp; Print</button>
                   </td> 			                  
                 </tr>
 				<?php
@@ -373,7 +376,7 @@ class Ccrudpks extends CI_Controller {
 		</div>
     <div class="modal-footer">
       <button id="id_pksupbtn1" type="button" class="btn btn-primary" onclick="UpdPks()"><li class="fa fa-save"></li>&nbsp;&nbsp; Save changes</button>
-        <button id="id_pksprint" type="button" class="btn btn-success" onclick="PrintDivElement('<?=$row->id_pks?>')"><li class="fa fa-print"></li>&nbsp;&nbsp; Print Contract</button>
+        
     </div>
     <style>
       .error{
@@ -396,8 +399,19 @@ class Ccrudpks extends CI_Controller {
             "__pim_tsel" => $query['nama_pimpinan_telkomsel'],
             "__jabpim_tsel" => $query['jabatan_pimpinan_telkomsel'],
             "__nama_corp" => $query['nama_corporate'],
+            "__almt_corp" => $query['alamat_corporate'],
             "__namapim_corp" => $query['nama_pimpinan_corporate'],
             "__jabpim_corp" => $query['jabatan_pimpinan_corporate'],
+            "__namapic_corp" => $query['nama_pic_corporate'],
+            "__jabpic_corp" => $query['jabatan_pic_corporate'],
+            "__hppic_corp" => $query['nomor_hp_pic_corporate'],
+            "__emailpic_corp" => $query['email_pic_corporate'],
+            "__tlp_corp" => $query['nomor_tlp_kantor'],
+            "__nama_pictsel" => $query['nama_pic_telkomsel'],
+            "__jbtn_pictsel" => $query['jabatan_pic_telkomsel'],
+            "__nohp_pictsel" => $query['nomor_hp_pic_telkomsel'],
+            "__email_pictsel" => $query['email_pic_telkomsel'],
+            "__nama_pkt" => $query['nama_paket'],
             "__start_date" => $query['start_date']
         );
         $this->load->view("pages/vpks_endorsement", $datapks);
