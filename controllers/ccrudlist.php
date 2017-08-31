@@ -12,11 +12,11 @@ class Ccrudlist extends CI_Controller {
 		 <table id="example1" class="table table-bordered table-striped">
             <thead>
             	<tr>
-              		<th width="5%">No</th>
-             		<th width="10%">Id Msisdn</th>
+              	<th width="5%">No</th>
+                <th width="20%">Msisdn</th>
+                <th width="20%">User </th>
+                <th width="20%">Deskripsi</th>
              	 	<th width="20%">Corporate</th>
-             	 	<th width="20%">MSISDN</th>
-             	 	<th width="20%">User </th>
                 <th width="20%">Kelola </th>
            	 	</tr>
             </thead>
@@ -29,10 +29,10 @@ class Ccrudlist extends CI_Controller {
 			  	?>
 				<tr>
                   <td><?php echo $i ?></td>
-                  <td><?php echo $row->id_list_msisdn ?></td>
-                  <td><?php echo $row->nama_corporate ?></td>
                   <td><?php echo $row->msisdn ?></td>
                   <td><?php echo $row->user ?></td>
+                  <td><?php echo $row->deskripsi ?></td>
+                  <td><?php echo $row->nama_corporate ?></td>
                   <td>
                     <button onclick="EditList('<?=$row->id_list_msisdn?>')" type="button" class="btn btn-primary btn-xs">Edit</button>
                     <button onclick="DelList('<?=$row->id_list_msisdn?>')" type="button" class="btn btn-primary btn-xs">Delete</button>
@@ -61,11 +61,6 @@ class Ccrudlist extends CI_Controller {
     ?>
          <div class="modal-body">
       	  <div class="box-body">
-            <div class="form-group">
-              <label for="list">ID List</label>
-              <input type="text" class="form-control" id="id_list" name="id_list" placeholder="Ketik Id" required>
-              <label for="id_list" class="error"></label>
-            </div>
              <div class="form-group">
               <label for="corp">Corporate</label>
               <select id="id_listcorp" class="form-control" name="id_listcorp" required>
@@ -82,7 +77,7 @@ class Ccrudlist extends CI_Controller {
 					?>
               </select>
             </div> 
-            <div class="form-group">
+            <div class="form-group">    
               <label for="msisdn">Msisdn</label>
               <input type="number" class="form-control" id="id_listmsisdn" name="id_listmsisdn" placeholder="Ketik Msisdn" required>
               <label for="id_listmsisdn" class="error"></label>
