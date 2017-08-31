@@ -116,12 +116,52 @@ class Ccrudlist extends CI_Controller {
       <?php
       echo form_close();
   }
+
+  public function upldlist(){
+  ?>
+    <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">UPLOAD LIST NOMOR</h4>
+    </div>
+    <?php
+       $frmattributes = array(
+       "id" => "id_FrmUpldList",
+       "name" => "FrmUpldList"
+       );
+      echo form_open('cpage/hallist',$frmattributes);
+    ?>
+      <div class="modal-body">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="div">Mohon Upload File Dengan Format Yang Sudah Disediakan</label>
+            </div>
+            
+            <div class="form-group">
+                  <label for="exampleInputFile">Upload File excel dibawah ini</label>
+                  <input type="file" id="upldexcel" name="upldexcel" required>
+                  <p class="help-block">Upload File harus menggunakan Template <a href="<?php echo base_url(); ?>application/file/draftupldlist.xls"> Berikut.</a></p>
+            </div>                 
+          </div>          
+    </div>
+      <div class="modal-footer">
+      <button id="id_btn_upld" type="button" class="btn btn-primary">Upload</button>
+    </div>
+    <style>
+          .error{
+          color: red;
+          font-style: italic;
+          }
+      </style>
+  <?php
+      echo form_close();
+  }
 	
 	public function showeditlist(){
 		$this->load->model('mcrudlist');
 		$query=$this->mcrudlist->select1list();
 		foreach($query->result() as $row){
-			?>
+	?>
 		<div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span></button>
