@@ -32,9 +32,9 @@
     <td colspan="3" style="font-size:11px"><strong><center>No PKS : <?=strtoupper($__no_pks)?> </center></strong></td>
   </tr>
   <tr>
-    <td colspan="3">Perjanjian Layanan Corporate Business Solutions (selanjutnya disebut “Perjanjian”) ini dibuat dan diadakan pada tanggal <?=$__start_date?> oleh dan di antara :</td>
+    <td colspan="3">Perjanjian Layanan Corporate Business Solutions (selanjutnya disebut “Perjanjian”) ini dibuat dan diadakan pada tanggal <?php $date = new DateTime($__start_date); echo  $date->format('d-M-Y');?> oleh dan di antara :</td>
     <td width="2%">&nbsp;</td>
-    <td colspan="3">This Corporate Business Solutions Service Agreement (hereinafter referred to as “Agreement”) is made and entered into on <?=$__start_date?> by and between: </td>
+    <td colspan="3">This Corporate Business Solutions Service Agreement (hereinafter referred to as “Agreement”) is made and entered into on <?php $date = new DateTime($__start_date); echo  $date->format('d-M-Y');?> by and between: </td>
   </tr>
   <tr>
     <td valign=top width="3%">1.</div></td>
@@ -149,10 +149,10 @@
   </tr>
   <tr>
     <td valign=top width="3%">3.      </div></td>
-    <td colspan="2">Dengan merujuk kepada ketentuan Pasal 4 ayat 1  dari Bagian I dari Perjanjian ini, dan dengan tunduk pada ketentuan Pasal 4  ayat 3 dari Bagian I dari Perjanjian ini, Perjanjian ini berlaku untuk jangka  waktu <strong>1 (satu) tahun,  terhitung sejak tanggal <?=$__start_date?>.</strong></td>
+    <td colspan="2">Dengan merujuk kepada ketentuan Pasal 4 ayat 1  dari Bagian I dari Perjanjian ini, dan dengan tunduk pada ketentuan Pasal 4  ayat 3 dari Bagian I dari Perjanjian ini, Perjanjian ini berlaku untuk jangka  waktu <strong>1 (satu) tahun,  terhitung sejak tanggal <?php $date = new DateTime($__start_date); echo  $date->format('d-m-Y');?>.</strong></td>
     <td>&nbsp;</td>
     <td valign=top width="3%">3.</td>
-    <td colspan="2">With reference to the provisions of Article 4  clause 1 of Section I of this Agreement and in compliance with the provisions  of Article 4 clause 3 of Section I of this Agreement, this Agreement will be  valid for a period of <strong>1 (one) years  effective from  the date <?=$__start_date?>.</strong></td>
+    <td colspan="2">With reference to the provisions of Article 4  clause 1 of Section I of this Agreement and in compliance with the provisions  of Article 4 clause 3 of Section I of this Agreement, this Agreement will be  valid for a period of <strong>1 (one) years  effective from  the date <?php $date = new DateTime($__start_date); echo  $date->format('d-m-Y');?>.</strong></td>
   </tr>
    <tr>
     <td valign=top width="3%">4.</div></td>
@@ -4906,7 +4906,7 @@ and Other Services</strong>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="3"><strong>Denpasar, <?=strtoupper($__start_date)?></strong></td>
+    <td colspan="3"><strong>Denpasar, <?php $date = new DateTime($__start_date); echo  $date->format('d-M-Y');?></strong></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
