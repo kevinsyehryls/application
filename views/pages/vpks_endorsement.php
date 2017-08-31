@@ -38,17 +38,17 @@
   </tr>
   <tr>
     <td valign=top width="3%">1.</div></td>
-    <td colspan="2"><strong>PT. Telekomunikasi Selular</strong>, suatu perseroan terbatas yang didirikan menurut hukum Negara Republik  Indonesia, berkedudukan di Gedung Telkom Landmark Tower Menara 1, Lantai 1 -  20, Jl. Jenderal Gatot Subroto Kav. 42, Kuningan Barat, Mampang Prapatan,  Jakarta Selatan, Jakarta 12710, Indonesia, yang dalam hal ini diwakili oleh <strong>Database tb_pimpinan_telkomsel/nama_pimpinan_telkomsel, Database tb_pimpinan_telkomsel/Jabatan_pimpinan_telkomsel,</strong> yang bertindak selaku kuasa dari Direksi PT.  Telekomunikasi Selular dan karenanya sah bertindak untuk dan atas nama serta  mewakili PT. Telekomunikasi Selular (selanjutnya disebut <strong>&ldquo;TELKOMSEL&rdquo;</strong>); dan</td>
+    <td colspan="2"><strong>PT. Telekomunikasi Selular</strong>, suatu perseroan terbatas yang didirikan menurut hukum Negara Republik  Indonesia, berkedudukan di Gedung Telkom Landmark Tower Menara 1, Lantai 1 -  20, Jl. Jenderal Gatot Subroto Kav. 42, Kuningan Barat, Mampang Prapatan,  Jakarta Selatan, Jakarta 12710, Indonesia, yang dalam hal ini diwakili oleh <strong><?=strtoupper($__pim_tsel)?>, <?=strtoupper($__jabpim_tsel)?>,</strong> yang bertindak selaku kuasa dari Direksi PT.  Telekomunikasi Selular dan karenanya sah bertindak untuk dan atas nama serta  mewakili PT. Telekomunikasi Selular (selanjutnya disebut <strong>&ldquo;TELKOMSEL&rdquo;</strong>); dan</td>
     <td>&nbsp;</td>
     <td valign=top width="3%">1.</td>
-    <td colspan="2"><strong>PT. Telekomunikasi Selular</strong>, a limited liability company established in accordance to the laws and  regulations of the Republic of Indonesia, located in Gedung Telkom Landmark  Tower Menara 1, Lantai 1 - 20, Jl. Jenderal Gatot Subroto Kav. 42, Kuningan  Barat, Mampang Prapatan, Jakarta Selatan, Jakarta 12710, as represented by <strong> Database tb_pimpinan_telkomsel/nama_pimpinan_telkomsel, Database tb_pimpinan_telkomsel/Jabatan_pimpinan_telkomsel,,</strong> who is acting as the power of attorney for  PT. Telekomunikasi Selular and  therefore is legally acting for and on behalf of and representing PT.  Telekomunikasi Selular ( hereinafter referred to as <strong>&ldquo;TELKOMSEL&rdquo;</strong>); and</td>
+    <td colspan="2"><strong>PT. Telekomunikasi Selular</strong>, a limited liability company established in accordance to the laws and  regulations of the Republic of Indonesia, located in Gedung Telkom Landmark  Tower Menara 1, Lantai 1 - 20, Jl. Jenderal Gatot Subroto Kav. 42, Kuningan  Barat, Mampang Prapatan, Jakarta Selatan, Jakarta 12710, as represented by <strong> <?=strtoupper($__pim_tsel)?>, <?=strtoupper($__jabpim_tsel)?>,</strong> who is acting as the power of attorney for  PT. Telekomunikasi Selular and  therefore is legally acting for and on behalf of and representing PT.  Telekomunikasi Selular ( hereinafter referred to as <strong>&ldquo;TELKOMSEL&rdquo;</strong>); and</td>
   </tr>
    <tr>
     <td valign=top width="3%">2.</div></td>
-    <td colspan="2"><strong>Database tb_corporate/nama_corporate</strong>, suatu badan usaha yang didirikan menurut hukum Negara Republik  Indonesia, berkedudukan di Database tb_corporate/alamat_corporate, yang dalam hal ini diwakili oleh<strong> Database tb_corporate/nama_pimpinan_corporate</strong> dalam kedudukannya selaku<strong> Database tb_corporate/jabatan_pimpinan_corporate</strong> dan  yang mewakili Direksi dari <strong>Database tb_corporate/nama_corporate</strong> dan karenanya sah bertindak untuk dan atas nama serta mewakili <strong>Database tb_corporate/nama_corporate</strong> (selanjutnya disebut &ldquo;<strong>PELANGGAN</strong>&rdquo;)</td>
+    <td colspan="2"><strong><?=strtoupper($__nama_corp)?></strong>, suatu badan usaha yang didirikan menurut hukum Negara Republik  Indonesia, berkedudukan di <?=strtoupper($__almt_corp)?>, yang dalam hal ini diwakili oleh<strong> <?=strtoupper($__namapim_corp)?></strong> dalam kedudukannya selaku<strong> <?=strtoupper($__jabpim_corp)?></strong> dan  yang mewakili Direksi dari <strong><?=strtoupper($__nama_corp)?></strong> dan karenanya sah bertindak untuk dan atas nama serta mewakili <strong><?=strtoupper($__nama_corp)?></strong> (selanjutnya disebut &ldquo;<strong>PELANGGAN</strong>&rdquo;)</td>
     <td>&nbsp;</td>
     <td valign=top width="3%">2.</td>
-    <td colspan="2"><strong>Database tb_corporate/nama_corporate</strong>, a company duly established under the laws of the  Republic of Indonesia, having its domicile at Database tb_corporate/alamat_corporate, in  this matter represented by <strong>Database tb_corporate/nama_pimpinan_corporate</strong> in  his / her   capacity as<strong> </strong><strong>Database tb_corporate/jabatan_pimpinan_corporate </strong>and representing the Board of Directors of <strong>Database tb_corporate/nama_corporate</strong> and as such lawfully acting for and on behalf of as well as  representing <strong>Database tb_corporate/nama_corporate</strong> (hereinafter, the&ldquo;<strong>SUBSCRIBER</strong>&rdquo;).</td>
+    <td colspan="2"><strong><?=strtoupper($__nama_corp)?></strong>, a company duly established under the laws of the  Republic of Indonesia, having its domicile at <?=strtoupper($__almt_corp)?>, in  this matter represented by <strong><?=strtoupper($__namapim_corp)?></strong> in  his / her   capacity as<strong> </strong><strong><?=strtoupper($__jabpim_corp)?> </strong>and representing the Board of Directors of <strong><?=strtoupper($__nama_corp)?></strong> and as such lawfully acting for and on behalf of as well as  representing <strong><?=strtoupper($__nama_corp)?></strong> (hereinafter, the&ldquo;<strong>SUBSCRIBER</strong>&rdquo;).</td>
   </tr>
   <tr>
     <td colspan="3">TELKOMSEL dan Pelanggan menerangkan terlebih dahulu sebagai berikut: </td>
@@ -133,26 +133,26 @@
   </tr>
   <td>&nbsp;</td>
     <td valign=top width="3%">(f)</td>
-    <td width="43%">Bagian V     :     Layanan kartuHALO Database tb_corporate/nama_corporate  </td>
+    <td width="43%">Bagian V     :     Layanan kartuHALO <?=strtoupper($__nama_corp)?></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td valign=top width="3%">(f)</td>
-    <td width="43%">Section V    :     kartuHALO Corporate  Services Database tb_corporate/nama_corporate</td>
+    <td width="43%">Section V    :     kartuHALO Corporate  Services <?=strtoupper($__nama_corp)?></td>
   </tr>
   <td>&nbsp;</td>
     <td valign=top width="3%">(g)</td>
-    <td width="43%">Bagian VI    :     Data Pengguna  kartuHALO   Database tb_corporate/nama_corporate   </td>
+    <td width="43%">Bagian VI    :     Data Pengguna  kartuHALO <?=strtoupper($__nama_corp)?></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td valign=top width="3%">(g)</td>
-    <td width="43%">Section VI   :     List of kartuHALO User Database tb_corporate/nama_corporate</td>
+    <td width="43%">Section VI   :     List of kartuHALO User <?=strtoupper($__nama_corp)?></td>
   </tr>
   <tr>
     <td valign=top width="3%">3.      </div></td>
-    <td colspan="2">Dengan merujuk kepada ketentuan Pasal 4 ayat 1  dari Bagian I dari Perjanjian ini, dan dengan tunduk pada ketentuan Pasal 4  ayat 3 dari Bagian I dari Perjanjian ini, Perjanjian ini berlaku untuk jangka  waktu <strong>1 (satu) tahun,  terhitung sejak tanggal Database tb_pks/Start_Date .</strong></td>
+    <td colspan="2">Dengan merujuk kepada ketentuan Pasal 4 ayat 1  dari Bagian I dari Perjanjian ini, dan dengan tunduk pada ketentuan Pasal 4  ayat 3 dari Bagian I dari Perjanjian ini, Perjanjian ini berlaku untuk jangka  waktu <strong>1 (satu) tahun,  terhitung sejak tanggal <?=$__start_date?>.</strong></td>
     <td>&nbsp;</td>
     <td valign=top width="3%">3.</td>
-    <td colspan="2">With reference to the provisions of Article 4  clause 1 of Section I of this Agreement and in compliance with the provisions  of Article 4 clause 3 of Section I of this Agreement, this Agreement will be  valid for a period of <strong>1 (one) years  effective from  the date Database tb_pks/Start_Date.</strong></td>
+    <td colspan="2">With reference to the provisions of Article 4  clause 1 of Section I of this Agreement and in compliance with the provisions  of Article 4 clause 3 of Section I of this Agreement, this Agreement will be  valid for a period of <strong>1 (one) years  effective from  the date <?=$__start_date?>.</strong></td>
   </tr>
    <tr>
     <td valign=top width="3%">4.</div></td>
@@ -173,11 +173,11 @@
   <tr>
     <td>&nbsp;</td>
     <td valign=top width="3%">(b)</td>
-    <td width="43%">Layanan Database tb_paket/nama_paket Pembayaran Transfer / BC 20</td>
+    <td width="43%">Layanan <?=$__nama_pkt?> Pembayaran Transfer / BC 20</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td valign=top width="3%">(b)</td>
-    <td width="43%">Database tb_paket/nama_paket   Services Transfer Payment / BC 20</td>
+    <td width="43%"><?=$__nama_pkt?> Services Transfer Payment / BC 20</td>
   </tr>
    <tr>
     <td valign=top width="3%">5.</div></td>
@@ -222,28 +222,28 @@
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">Mobile</div></td>
     <td>:</td>
-    <td colspan="3">Database tb_pic_telkomsel/nomor_hp_pic_telkomsel</td>
+    <td colspan="3"><?=$__nohp_pictsel?></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">Email</div></td>
     <td>:</td>
-    <td colspan="3">Database tb_pic_telkomsel/email_pic_telkomsel</td>
+    <td colspan="3"><?=$__email_pictsel?></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">U.p. / Attention</div></td>
     <td>:</td>
-    <td colspan="3">Database tb_pic_telkomsel/nama_pic_telkomsel</td>
+    <td colspan="3"><?=$__nama_pictsel?></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">Jabatan / Title</div></td>
     <td>:</td>
-    <td colspan="3">Database tb_pic_telkomsel/jabatan_pic_telkomsel</td>
+    <td colspan="3"><?=$__jbtn_pictsel?></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -274,45 +274,45 @@
   </tr>
   <tr>
     <td colspan="7"><div align="center">
-      <strong>Database tb_corporate/nama_corporate</strong></div></td>
+      <strong><?=$__nama_corp?></strong></div></td>
   </tr>
    <tr>
-    <td colspan="7"><div align="center">Database tb_corporate/alamat_corporate </div></td>
+    <td colspan="7"><div align="center"><?=$__almt_corp?></div></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">Telpon / Telephone</div></td>
     <td>:</td>
-    <td colspan="3"> Database tb_corporate/nomor_tlp_kantor </td>
+    <td colspan="3"><?=$__tlp_corp?></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">Mobile</div></td>
     <td>:</td>
-    <td colspan="3">Database tb_corporate/nomor_hp_pic_corporate</td>
+    <td colspan="3"><?=$__nohp_pictsel?></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">Email</div></td>
     <td>:</td>
-    <td colspan="3">Database tb_corporate/email_pic_corporate</td>
+    <td colspan="3"><?=$__email_pictsel?></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">U.p. / Attention</div></td>
     <td>:</td>
-    <td colspan="3">Database tb_corporate/nama_pic_corporate</td>
+    <td colspan="3"><?=$__nama_pictsel?></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">Jabatan / Title</div></td>
     <td>:</td>
-    <td colspan="3">Database tb_corporate/jabatan_pic_corporate</td>
+    <td colspan="3"><?=$__jbtn_pictsel?></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -340,7 +340,7 @@
    <tr>
     <td colspan="3"><p><strong>PT. Telekomunikasi Selular</strong><strong> </strong></p></td>
     <td></td>
-    <td colspan="3"><p><strong>Database tb_corporate/nama_corporate</strong><u> </u></p></td>
+    <td colspan="3"><p><strong><?=$__nama_corp?></strong><u> </u></p></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
@@ -397,14 +397,50 @@
     <td width="43%">&nbsp;</td>
   </tr>
    <tr>
-    <td colspan="3"><strong><u> Database tb_pimpinan_telkomsel/nama_pimpinan_telkomsel</u></strong></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
     <td></td>
-    <td colspan="3"><strong><u>Database tb_corporate/nama_pimpinan_corporate</u></strong><strong>     <u></u></strong></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+   <tr>
+    <td colspan="3"><strong><u><?=$__pim_tsel?></u></strong></td>
+    <td></td>
+    <td colspan="3"><strong><u><?=$__namapim_corp?></u></strong></td>
   </tr>
   <tr>
-    <td colspan="3"> Database tb_pimpinan_telkomsel/jabatan_pimpinan_telkomsel,</td>
+    <td colspan="3"><?=$__jabpim_tsel?></td>
     <td></td>
-    <td colspan="3">Database tb_corporate/jabatan_pimpinan_corporate</td>
+    <td colspan="3"><?=$__jabpim_corp?></td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+   <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
   </tr>
    <tr>
     <td>&nbsp;</td>
@@ -2977,7 +3013,7 @@ and Other Services</strong>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="2"><table width="100%" border="1">
+    <td colspan="2"><table width="100%" border="1" style="font-size:10px">
       <tr>
         <td><strong>Billing Cycle (BC)</strong></td>
         <td><strong>Periode Pemakaian</strong></td>
@@ -2993,7 +3029,7 @@ and Other Services</strong>
     </table></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td colspan="2"><table width="100%" border="1">
+    <td colspan="2"><table width="100%" border="1" style="font-size:10px">
       <tr>
         <td width="34%"><strong>Billing Cycle (BC)</strong></td>
         <td width="66%"><strong>Usage Period</strong></td>
@@ -3017,7 +3053,7 @@ and Other Services</strong>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td colspan="2"><table width="100%" border="1">
+    <td colspan="2"><table width="100%" border="1" style="font-size:10px">
       <tr>
         <td width="28%"><strong>Billing Cycle (BC)</strong></td>
         <td width="72%"><strong>Due Dates Billing (Tanggal Takwim)</strong></td>
@@ -3033,7 +3069,7 @@ and Other Services</strong>
     </table></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td colspan="2"><table width="100%" border="1">
+    <td colspan="2"><table width="100%" border="1" style="font-size:10px">
       <tr>
         <td width="35%"><strong>Billing Cycle (BC)</strong></td>
         <td width="65%"><strong>Due Dates Billing </strong></td>
@@ -3323,7 +3359,7 @@ and Other Services</strong>
   </tr>
   <tr>
     <td colspan="7" style="font-size:12px"><div align="center">
-      <strong>Database tb_corporate/nama_corporate</strong>
+      <strong><?=strtoupper($__nama_corp)?></strong>
     </div></td>
   </tr>
   <tr>
@@ -3337,10 +3373,10 @@ and Other Services</strong>
   </tr>
   <tr>
     <td valign="top">1.</td>
-    <td colspan="2">Layanan kartuHALO  Corporate Samabe Bali Suite &amp;  Villas adalah layanan yang tercantum dalam bagian ini, yaitu mencakup  <strong>L</strong><strong>ayanan </strong><strong>K</strong><strong>omunikasi</strong><strong> Database tb_paket/nama_paket , Siklus Billing, dan Payment  Responsibility Type</strong>. </td>
+    <td colspan="2">Layanan kartuHALO  Corporate Samabe Bali Suite &amp;  Villas adalah layanan yang tercantum dalam bagian ini, yaitu mencakup  <strong>L</strong><strong>ayanan </strong><strong>K</strong><strong>omunikasi</strong><strong> <?=strtoupper($__nama_pkt)?>, Siklus Billing, dan Payment  Responsibility Type</strong>. </td>
     <td>&nbsp;</td>
     <td valign="top">1.</td>
-    <td colspan="2">KartuHALO Corporate  Corporate Services Samabe Bali Suite &amp; Villas is a service listed in this  section, which includes <strong>Communication  Services Database tb_paket/nama_paket , Billing Cycle, and Payment  Responsibility Type.</strong><strong> </strong></td>
+    <td colspan="2">KartuHALO Corporate  Corporate Services Samabe Bali Suite &amp; Villas is a service listed in this  section, which includes <strong>Communication  Services <?=strtoupper($__nama_pkt)?>, Billing Cycle, and Payment  Responsibility Type.</strong><strong> </strong></td>
   </tr>
   <tr>
     <td valign="top">2.</td>
@@ -4798,7 +4834,7 @@ and Other Services</strong>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="7"><div align="center"><strong>Database tb_corporate/nama_corporate</strong></div></td>
+    <td colspan="7"><div align="center"><strong><?=strtoupper($__nama_pkt)?></strong></div></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
@@ -4810,7 +4846,8 @@ and Other Services</strong>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="7"><table width="100%" border="1">
+    <td colspan="7">
+    <table id='coba0' width="100%" border="1" style="font-size:10px">
       <tr>
         <td width="3%">No</td>
         <td width="23%">Nama Corporate</td>
@@ -4869,7 +4906,7 @@ and Other Services</strong>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="3"><strong>Denpasar, Database tb_pks/Start_Date</strong></td>
+    <td colspan="3"><strong>Denpasar, <?=strtoupper($__start_date)?></strong></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -4879,7 +4916,7 @@ and Other Services</strong>
    <tr>
     <td colspan="3"><p><strong>PT. Telekomunikasi Selular</strong><strong> </strong></p></td>
     <td></td>
-    <td colspan="3"><p><strong> Database tb_corporate/nama_corporate</strong><u> </u></p></td>
+    <td colspan="3"><p><strong><?=strtoupper($__nama_corp)?></strong><u> </u></p></td>
   </tr>
    <tr>
     <td>&nbsp;</td>
@@ -4936,14 +4973,14 @@ and Other Services</strong>
     <td width="43%">&nbsp;</td>
   </tr>
    <tr>
-    <td colspan="3"><strong><u>Database tb_pic_telkomsel/nama_pic_telkomsel</u></strong></td>
+    <td colspan="3"><strong><u><?=strtoupper($__nama_pictsel)?></u></strong></td>
     <td></td>
-    <td colspan="3"><strong><u>Database tb_corporate/nama_pic_corporate</u></strong><strong>     <u></u></strong></td>
+    <td colspan="3"><strong><u><?=strtoupper($__namapic_corp)?></u></strong><strong>     <u></u></strong></td>
   </tr>
   <tr>
-    <td colspan="3">General Manager  Account Management Jawa Bali</td>
+    <td colspan="3"><?=strtoupper($__jbtn_pictsel)?></td>
     <td></td>
-    <td colspan="3">Database tb_corporate/jabatan_pic_corporate</td>
+    <td colspan="3"><?=strtoupper($__jabpic_corp)?></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
