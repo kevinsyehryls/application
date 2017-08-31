@@ -25,6 +25,12 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">MAIN NAVIGATION</li>
+        <li>
+          <a href="<?php echo base_url(); ?>index.php/cpage/halindx">
+            <i class="fa fa-list"></i> <span>BERANDA</span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-user-plus"></i> <span> MENU KELOLA</span>
