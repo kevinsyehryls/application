@@ -1,8 +1,19 @@
 <div class="content-wrapper" style="min-height: 1126px;">
     
+    <!-- /.modal-add List -->
 	<div class="modal fade" id="modal-default" style="display: none;">
 		<div class="modal-dialog">
 			<div id="id_MdlDefault" class="modal-content">
+			<!-- isi modal dinamis disini -->
+			</div>
+		<!-- /.modal-content -->
+		</div>
+	<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal-upload List -->
+	<div class="modal fade" id="modal-default1" style="display: none;">
+		<div class="modal-dialog">
+			<div id="id_MdlDefault1" class="modal-content">
 			<!-- isi modal dinamis disini -->
 			</div>
 		<!-- /.modal-content -->
@@ -29,7 +40,11 @@
       <div class="box">
         <div class="box-header with-border">
           <h3 class="box-title">Tambah List Nomor</h3>
-             <button type="button" id="id_BtnAddList" class="btn btn-primary btn-sm pull-right">Tambah List Nomor	</button>
+          	<div class="btn-group-left">
+             <button type="button" id="id_BtnUpldList" class="btn btn-primary btn-sm pull-right">Upload List Nomor
+             </button>
+             <button type="button" id="id_BtnList" class="btn btn-primary btn-sm pull-right">+ List Nomor</button>
+            </div>
         </div>
         <div class="box-body">
          <div id="id_DivList">
@@ -51,7 +66,7 @@
 	});
 	
 	// ketika tombol tambah user di klik
-	$(document).on('click', '#id_BtnAddList', function(){
+	$(document).on('click', '#id_BtnList', function(){
 		// tampilkan modal
 		$('#modal-default').modal('show');
 		// isi modal dengan form add user
@@ -62,7 +77,7 @@
                 $('#id_MdlDefault').html(res);
 				 // form validation on ready state
                  $().ready(function(){
-                     $('#id_FrmAddList').validate({
+                     $('#id_FrmUpldList').validate({
                          rules:{
                              id_list: "required",
                              id_listcorp: "required",
@@ -87,6 +102,35 @@
               },
               error: function(xhr){
                  $('#id_MdlDefault').html("error");
+              }
+          });		
+	 });
+
+	// ketika tombol upload list nomor
+	$(document).on('click', '#id_BtnUpldList', function(){
+		// tampilkan modal
+		$('#modal-default1').modal('show');
+		// isi modal dengan form add user
+		jQuery.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/upldlist",
+            success: function(res) {
+                $('#id_MdlDefault1').html(res);
+				 // form validation on ready state
+                 $().ready(function(){
+                     $('#id_FrmAddList').validate({
+                         rules:{
+                             upldexcel: "required"
+                         },
+                         messages: {
+                             upldexcel: "Mohon Upload Dengan Benar"
+                        }
+                     });
+                 });
+  				UpldListnmr();
+              },
+              error: function(xhr){
+                 $('#id_MdlDefault1').html("error");
               }
           });		
 	 });
@@ -132,6 +176,34 @@
 					id_listdiv: $('#id_listdiv').val(),
 					id_listshort: $('#id_listshort').val(),
 					id_listdes: $('#id_listdes').val()		
+				},
+	            success: function(res) {
+					$('#modal-default').modal('hide');
+					alert("Data saved!" + res);
+					GenDataList();
+				},
+	            error: function(xhr){
+	               $('#id_DivList').html("error");
+	             }
+            });
+            } else {
+            // dan jika gagal
+                 return false;
+              }
+  		})
+  	}
+
+  	// upload list
+	function UpldListnmr(){
+		$(document).on('click', '#id_btn_upld', function(e){
+			e.preventDefault();
+            if($('#id_FrmUpldList').valid()){
+             // jika validasi berhasil
+			jQuery.ajax({
+	            type: "POST",
+	            url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/upldlist",
+				data: {
+					upldexcel: $('#upldexcel').val()		
 				},
 	            success: function(res) {
 					$('#modal-default').modal('hide');
