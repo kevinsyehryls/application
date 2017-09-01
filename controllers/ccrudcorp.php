@@ -13,15 +13,14 @@ class Ccrudcorp extends CI_Controller {
             <thead>
             	<tr>
               	  <th width="2%">No</th>
-                  <th width="10%">Id Corporate</th>
-                  <th width="10%">Nama Corporate</th>
+                  <th width="5%">Id Corporate</th>
+                  <th width="15%">Nama Corporate</th>
                   <th width="10%">Nama Pimpinan</th>
                   <th width="10%">Jabatan Pimpinan</th>
-                  <th width="10%">Nama PIC</th>
+                  <th width="15%">Nama PIC</th>
                   <th width="10%">Jabatan PIC</th>
                   <th width="8%">Handphone PIC</th>
-                  <th width="10%">Email PIC</th>
-                  <th width="10%">Alamat</th>
+                  <th width="15%">Email PIC</th>
                   <th width="10%">Opsi</th>
            	 	</tr>
             </thead>
@@ -42,7 +41,6 @@ class Ccrudcorp extends CI_Controller {
                   <td><?php echo $row->jabatan_pic_corporate ?></td>
                   <td><?php echo $row->nomor_hp_pic_corporate ?></td>
                   <td><?php echo $row->email_pic_corporate ?></td>
-                  <td><?php echo $row->alamat_corporate ?></td>
 
 
                   <td>
@@ -74,11 +72,6 @@ class Ccrudcorp extends CI_Controller {
           ?>
           <div class="modal-body">
       	  <div class="box-body">
-            <div class="form-group">
-              <label for="nik">ID Corporate</label>
-              <input type="text" class="form-control" id="id_corp" name="id_corp" placeholder="Ketik Id Corporate" required>
-              <label for="id_corp" class="error"></label>
-            </div>
             <div class="form-group">
               <label for="nama">Nama Corporate</label>
               <input type="text" class="form-control" id="id_corpnama" name="id_corpnama" placeholder="Ketik Nama Corporate" required>
