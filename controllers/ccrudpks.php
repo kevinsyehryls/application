@@ -72,10 +72,6 @@ class Ccrudpks extends CI_Controller {
         <div class="modal-body">
       	 <div class="box-body">
             <div class="form-group">
-              <label for="pksid">ID PKS</label>
-              <input type="text" class="form-control" id="id_pks" name="id_pks" placeholder="Ketik Id Corporate" required>
-              <label for="id_pks" class="error"></label>
-            </div>
             <div class="form-group">
               <label for="nomor">Nomor PKS</label>
               <input type="text" class="form-control" id="id_pksno" name="id_pksno" placeholder="Ketik Nomor PKS" required>
