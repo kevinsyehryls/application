@@ -23,7 +23,38 @@ class Mcrudpks extends CI_Model {
 		");
 		return $query;
 	}
-	
+
+	function selectpks_ttd(){
+		$query = $this->db->query("
+			select
+			a.*,
+			b.*,
+			c.*,
+			d.*
+			from tb_pks a
+			join tb_pimpinan_telkomsel b on a.id_pimpinan_telkomsel = b.id_pimpinan_telkomsel
+			join tb_corporate c on a.`id_corporate` = c.`id_corporate`
+			join `tb_pic_telkomsel` d on d.`id_pic_telkomsel` = a.`id_pic_telkomsel`
+		");
+		return $query;
+	}
+
+	function selectpks_end(){
+		$query = $this->db->query("
+			select
+			a.*,
+			b.*,
+			c.*,
+			d.*
+			from tb_pks a 
+			join tb_pimpinan_telkomsel b on a.id_pimpinan_telkomsel = b.id_pimpinan_telkomsel
+			join tb_corporate c on a.`id_corporate` = c.`id_corporate`
+			join `tb_pic_telkomsel` d on d.`id_pic_telkomsel` = a.`id_pic_telkomsel`
+			where a.end_date between date_sub(now(),INTERVAL 2 WEEK) and now()
+
+		");
+		return $query;
+	}
 	// tampil cbx pimpinan telkomsel pada modal tambah PKS
 	function relpimpinan(){
 		$query = $this->db->query("select * from tb_pimpinan_telkomsel");
@@ -154,6 +185,37 @@ class Mcrudpks extends CI_Model {
             'sign_pic_corporate'        => $CbxSignCor2,
             'sign_pimpinan_telkomsel'   => $CbxSignTel1,
             'sign_pic_telkomsel'        => $CbxSignTel2
+		);	
+		$this->db->where('id_pks', $id_pks);
+		$this->db->update('tb_pks', $datapks);
+	}
+
+	function updatepks_ttd(){
+		$id_pks = $this->input->post('id_pks');
+		/* cbx val */
+        $CbxSignCor1 = $this->input->post('CbxSignCor1');
+        $CbxSignCor2 = $this->input->post('CbxSignCor2');
+        $CbxSignTel1 = $this->input->post('CbxSignTel1');
+        $CbxSignTel2 = $this->input->post('CbxSignTel2');
+        if($CbxSignCor1 == ''){$CbxSignCor1 = "F";}
+        if($CbxSignCor2 == ''){$CbxSignCor2 = "F";}
+        if($CbxSignTel1 == ''){$CbxSignTel1 = "F";}
+        if($CbxSignTel2 == ''){$CbxSignTel2 = "F";}
+		$datapks =array(
+            'sign_pimpinan_corporate'   => $CbxSignCor1,
+            'sign_pic_corporate'        => $CbxSignCor2,
+            'sign_pimpinan_telkomsel'   => $CbxSignTel1,
+            'sign_pic_telkomsel'        => $CbxSignTel2
+		);	
+		$this->db->where('id_pks', $id_pks);
+		$this->db->update('tb_pks', $datapks);
+	}
+
+	function updatepks_pdf(){
+		$id_pks = $this->input->post('id_pks');
+		$inputpdf = $this->input->post('inputpdf');
+		$datapks =array(
+            'file_pdf'                => $inputpdf
 		);	
 		$this->db->where('id_pks', $id_pks);
 		$this->db->update('tb_pks', $datapks);
