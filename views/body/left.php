@@ -65,7 +65,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url(); ?>index.php/cpage/halrpt"><i class="fa fa-circle-o"></i> Kelola Report</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/cpage/halpks_ttd"><i class="fa fa-circle-o"></i> Pending Tanda Tangan</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/cpage/halpks_end"><i class="fa fa-circle-o"></i> PKS AKAN BERAKHIR</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/cpage/halrpt"><i class="fa fa-circle-o"></i> Eksport Data</a></li>
           </ul>
         </li>
        </ul>
