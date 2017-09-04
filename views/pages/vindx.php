@@ -13,64 +13,28 @@
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150</h3>
-
-              <p>PENDING TTD PIC</p>
-              <p>CORPORATE</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-alert-circled"></i>
-            </div>
-            <a href="#" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53</h3>
-              <p>PENDING TTD</p>
-              <p>PIMPINAN CORPORATE</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-alert-circled"></i>
-            </div>
-            <a href="#" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
-
-              <p>PENDING TTD</p>
-              <p>PIC TELKOMSEL</p>
+              <h3>150</h3>
+              <p><strong>TTD TERTUNDA</strong></p>
             </div>
             <div class="icon">
               <i class="ion ion-alert-circled"></i>
             </div>
-             <a href="#" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo base_url(); ?>index.php/cpage/halpks_ttd" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
               <h3>65</h3>
-
-              <p>PENDING TTD</p>
-              <p>PIMPINAN TELKOMSEL</p>
+               <p><strong>PKS AKAN BERAKHIR</strong></p>
             </div>
             <div class="icon">
               <i class="ion ion-alert-circled"></i>
             </div>
-             <a href="#" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
+             <a href="<?php echo base_url(); ?>index.php/cpage/halpks_end" class="small-box-footer">Info Lebih Lanjut <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
     </section>
