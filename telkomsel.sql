@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2017 at 11:24 AM
+-- Generation Time: Sep 04, 2017 at 12:06 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -160,15 +160,18 @@ CREATE TABLE `tb_pks` (
   `sign_pimpinan_corporate` varchar(5) NOT NULL,
   `sign_pic_corporate` varchar(5) NOT NULL,
   `sign_pimpinan_telkomsel` varchar(5) NOT NULL,
-  `sign_pic_telkomsel` varchar(5) NOT NULL
+  `sign_pic_telkomsel` varchar(5) NOT NULL,
+  `file_pdf` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_pks`
 --
 
-INSERT INTO `tb_pks` (`id_pks`, `nomor_pks`, `id_pimpinan_telkomsel`, `id_pic_telkomsel`, `id_corporate`, `id_paket`, `start_date`, `end_date`, `sign_pimpinan_corporate`, `sign_pic_corporate`, `sign_pimpinan_telkomsel`, `sign_pic_telkomsel`) VALUES
-(2001, '010/LG.05/CM.73/VIII/2017', '67292', '87928', 103, 'P002', '2017-09-01', '2018-09-01', 'F', 'F', 'F', 'F');
+INSERT INTO `tb_pks` (`id_pks`, `nomor_pks`, `id_pimpinan_telkomsel`, `id_pic_telkomsel`, `id_corporate`, `id_paket`, `start_date`, `end_date`, `sign_pimpinan_corporate`, `sign_pic_corporate`, `sign_pimpinan_telkomsel`, `sign_pic_telkomsel`, `file_pdf`) VALUES
+(2001, '010/LG.05/CM.73/VIII/2017', '67292', '87928', 103, 'P002', '2017-09-01', '2018-09-01', 'T', 'T', 'F', 'F', ''),
+(2002, 'ddddddddddddd', '67292', '87928', 101, 'P002', '2017-07-01', '2017-09-03', 'F', 'F', 'F', 'F', ''),
+(2004, 'ddddddd', '67292', '87928', 104, 'P003', '2017-08-01', '2017-09-10', 'F', 'F', 'F', 'F', '');
 
 -- --------------------------------------------------------
 
@@ -261,7 +264,7 @@ ALTER TABLE `tb_list_nomor`
 -- AUTO_INCREMENT for table `tb_pks`
 --
 ALTER TABLE `tb_pks`
-  MODIFY `id_pks` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2002;
+  MODIFY `id_pks` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2005;
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
