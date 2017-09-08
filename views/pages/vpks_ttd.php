@@ -111,23 +111,6 @@ function EditPks(id_pks){
     });
 }
 
-//Saat Tombol Edit di Klik
-function UploadPks(id_pks){
-    $('#modal-default').modal('show');
-    jQuery.ajax({
-            type: "POST",
-            url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/showupload",
-            data: {
-                id_pks: id_pks
-            },
-            success: function(res) {
-                $('#id_MdlDefault').html(res);
-            },
-            error: function(xhr){
-               $('#id_DivPks').html("error");
-            }
-    });
-}
 
 //Saat tombol save change di klik
 function UpdPks(id_pks){
@@ -156,25 +139,50 @@ function UpdPks(id_pks){
     });
 }
 
-//Saat tombol save change di klik
-function UpdPks1(id_pks){
-    /* get checkboxes value */
-    var inputpdf = $('#inputpdf').prop('files')[0];
+//Saat Tombol Edit di Klik
+function UploadPks(id_pks){
+    $('#modal-default').modal('show');
     jQuery.ajax({
         type: "POST",
-        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/editupload",
+        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/showupload",
         data: {
-            id_pks: id_pks,
-            inputpdf : inputpdf
+            id_pks: id_pks
         },
         success: function(res) {
-            $('#modal-default').modal('hide');
-            alert("Data Perubahan Tersimpan");
-            GenDataPks();
+            $('#id_MdlDefault').html(res);
+            UploadPDF(id_pks);
         },
         error: function(xhr){
-           $('#id_DivPks').html("error");
+            $('#id_DivPks').html("error");
         }
+    });
+}
+
+function UploadPDF(id_pks){
+    event.preventDefault();
+    $('#upload').on('click', function () {
+        var file_data = $('#file').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        $.ajax({
+            url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/upload_file/"+id_pks,
+            dataType: 'text',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            beforeSend: function(){
+                $('.modal-body').html("Tunggu, lagi upload nih...!");
+            },
+            success: function (response) {
+                $('.modal-body').html(response);
+                GenDataPks();
+            },
+            error: function (response) {
+                $('.modal-body').html(response);
+            }
+        });
     });
 }
 

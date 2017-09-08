@@ -89,7 +89,6 @@ $autoload['drivers'] = array();
 */
 
 $autoload['helper'] = array('url','text','form','captcha', 'html', 'file');
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Config files
