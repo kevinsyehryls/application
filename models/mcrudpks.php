@@ -55,6 +55,12 @@ class Mcrudpks extends CI_Model {
 		");
 		return $query;
 	}
+
+	function select_chart(){
+		$query = $this->db->query("select * from tb_pks");
+		return $query;
+	}
+
 	// tampil cbx pimpinan telkomsel pada modal tambah PKS
 	function relpimpinan(){
 		$query = $this->db->query("select * from tb_pimpinan_telkomsel");
