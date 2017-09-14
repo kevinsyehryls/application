@@ -126,7 +126,10 @@ function UpdPks(id_pks){
         url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/editpks",
         data: {
             id_pks: id_pks,
-            inputpdf : inputpdf
+            CbxSignCor1 : CbxSignCor1,
+            CbxSignCor2 : CbxSignCor2,
+            CbxSignTel1 : CbxSignTel1,
+            CbxSignTel2 : CbxSignTel2
         },
         success: function(res) {
             $('#modal-default').modal('hide');
@@ -135,25 +138,6 @@ function UpdPks(id_pks){
         },
         error: function(xhr){
            $('#id_DivPks').html("error");
-        }
-    });
-}
-
-//Saat Tombol Edit di Klik
-function UploadPks(id_pks){
-    $('#modal-default').modal('show');
-    jQuery.ajax({
-        type: "POST",
-        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/showupload",
-        data: {
-            id_pks: id_pks
-        },
-        success: function(res) {
-            $('#id_MdlDefault').html(res);
-            UploadPDF(id_pks);
-        },
-        error: function(xhr){
-            $('#id_DivPks').html("error");
         }
     });
 }
