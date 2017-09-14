@@ -76,7 +76,7 @@ class Ccrudpks_ttd extends CI_Controller {
           </div>  
         </div>
     <div class="modal-footer">
-         <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdPks(<?=$row->id_pks?>)">Save changes</button>
+         <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdPks(<?=$row->  id_pks?>)">Save changes</button>
     </div>
     <?php
     }
@@ -111,7 +111,7 @@ class Ccrudpks_ttd extends CI_Controller {
         $config['allowed_types'] = '*';
         $config['max_filename'] = '255';
         $config['file_name'] = "PKS_" . $id_pks;
-        $config['max_size'] = '1024'; //1 MB
+        $config['max_size'] = '500000'; //500 MB
 
         // jika file exists
         if (isset($_FILES['file']['name'])) {
