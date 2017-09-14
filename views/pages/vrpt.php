@@ -13,49 +13,14 @@
     </section>
 
     <section class="content">
-      <div class="row">
-        <div class="col-md-6">
           <!-- AREA CHART -->
           <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Area Chart</h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
             <div class="box-body">
-              <div class="chart">
-                <canvas id="barChart" style="height: 160px; width: 355px;" width="355" height="160"></canvas>
-              </div>
+              <div id="container"></div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-        </div>
-        <!-- /.col (LEFT) -->
-        <div class="col-md-6">
-          <!-- BAR CHART -->
-          <div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Bar Chart</h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div class="chart">
-                <canvas id="barChart" style="height: 160px; width: 355px;" width="355" height="160"></canvas>
-              </div>
-            </div>
-            <!-- /.box-body -->
-        </div>
-        <!-- /.col (RIGHT) -->
-      </div>
-      <!-- /.row -->
     </section>
 
     <!-- Main content -->
@@ -64,7 +29,7 @@
       <div class="box">
         <div class="box-header with-border">
           <h3 class="box-title">Contoh box title</h3>
-          <button type="button" id="id_export" class="btn btn-primary btn-sm pull-right">Eksport</button>
+          <button type="button" id="id_export" class="btn btn-primary btn-sm pull-right" href="<?php echo base_url(); ?>/controllers/ccrud_excel.php">Eksport</button>
         </div>
         <div class="box-body">
         sss
@@ -80,3 +45,47 @@
     </section>
     <!-- /.content -->
   </div>
+
+<script type="text/javascript">
+  var chart = Highcharts.chart('container', {
+
+    chart: {
+        type: 'column'
+    },
+
+    title: {
+        text: 'Total fruit consumtion, grouped by gender'
+    },
+
+    xAxis: {
+          categories: [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
+        ],
+        crosshair: true
+    },
+
+    yAxis: {
+        allowDecimals: false,
+        min: 0,
+        title: {
+            text: 'Number of fruits'
+        }
+    },
+    series: [{
+        name: 'PKS',
+        data: [5, 3, 4, 7, 2, 1, 2, 4, 6, 7, 5, 3],
+        stack: 'a'
+    }]
+});
+</script>
