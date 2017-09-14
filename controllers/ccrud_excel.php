@@ -8,7 +8,14 @@ class Ccrud_excel extends CI_Controller {
 		parent::__construct();
 		$this->load->library("PHPExcel");
 		$this->load->model("phpexcel_model");
+    	$this->load->model('mcrudpks');
 	}
+
+	public function chart()
+	{
+        $data_pks['tb_pks'] = $this->mcrudpks->select_chart();
+        $this->load->view('tb_pks', $data_pks);
+    }
 
 	public function export(){ 
             //membuat objek
