@@ -47,6 +47,10 @@
     <!-- bootstrap datepicker -->
     <script src="<?=base_url()?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
+    <!-- Highcharts js -->
+    <script src="<?=base_url()?>application/libraries/highchart/highcharts.js"></script>
+    <script src="<?=base_url()?>application/libraries/highchart/highcharts-more.js"></script>
+    <script src="<?=base_url()?>application/libraries/highchart/exporting.js"></script>
     
     <script>
       $(document).ready(function () {
