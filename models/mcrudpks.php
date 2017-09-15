@@ -56,6 +56,11 @@ class Mcrudpks extends CI_Model {
 		return $query;
 	}
 
+	function jumlah_pks_end(){
+		$query = $this->db->query("select count(*) as jml from tb_pks where end_date between date_sub(now(),INTERVAL 2 WEEK) and now()");
+		return $query;
+	}
+
 	function select_chart(){
 		$query = $this->db->query("select * from tb_pks");
 		return $query;
