@@ -494,5 +494,15 @@ class Ccrudpks extends CI_Controller {
             echo $id_SelPktTlkTxt;
         }
     }
+
+    /* ambil data chart pks */
+    public function ShowGrafikPKS(){
+      $query = $this->db->select('*')->get('vw_chart_rekap_pks');
+      $data = array();
+      foreach ($query->result() as $row) {
+          $data[] = $row;
+      }
+      echo json_encode($data);
+    }
 }
 ?>

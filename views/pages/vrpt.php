@@ -46,46 +46,65 @@
     <!-- /.content -->
   </div>
 
-<script type="text/javascript">
-  var chart = Highcharts.chart('container', {
 
-    chart: {
-        type: 'column'
-    },
+<script>
+  // DOM ready
+  $(document).ready(function(){
+    LoadChartPks();
+  });
 
-    title: {
-        text: 'Total fruit consumtion, grouped by gender'
-    },
+  // load chart
+  var LoadChartPks = function(){
+      jQuery.ajax({
+        type: "POST",
+        dataType : "json",
+        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks/ShowGrafikPKS",
+        beforeSend: function () {
+            console.log("is loading chart");
+        },
+        success: function(res) {
+            console.log("chart is loaded");
 
-    xAxis: {
-          categories: [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec'
-        ],
-        crosshair: true
-    },
+            // deklarasi variable array
+            var bulans = [];
+            var jml    = [];
 
-    yAxis: {
-        allowDecimals: false,
-        min: 0,
-        title: {
-            text: 'Number of fruits'
+            // push data ke variable array
+            for(var i in res){
+                bulans.push(res[i].bulans);
+                jml.push(parseInt(res[i].jml));
+            }   
+
+            // draw chart
+            Highcharts.chart('container', {
+              chart: {
+                  type: 'column'
+              },
+              title: {
+                  text: 'Total fruit consumtion, grouped by gender'
+              },
+              xAxis: {
+                  categories: bulans,
+                  crosshair: true
+              },
+              yAxis: {
+                  allowDecimals: false,
+                  min: 0,
+                  title: {
+                      text: 'Number of fruits'
+                  }
+              },
+              series: [{
+                  name: 'PKS',
+                  data: jml,
+                  stack: 'a'
+              }]
+            });
+
+        },
+        error: function (xhr) {
+            console.log('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
         }
-    },
-    series: [{
-        name: 'PKS',
-        data: [5, 3, 4, 7, 2, 1, 2, 4, 6, 7, 5, 3],
-        stack: 'a'
-    }]
-});
+    });
+  }
 </script>
