@@ -3819,7 +3819,9 @@ and Other Services</strong>
     <td>&nbsp;</td>
   </tr>
 </table>
-<table width="100%" style="font-size:10x">
+
+
+<!-- <table width="100%" style="font-size:10x">
   <tr>
     <td colspan="3" style="font-size:12px"><strong>
       <center>
@@ -3990,9 +3992,9 @@ and Other Services</strong>
     <td width="3%">&nbsp;</td>
     <td width="43%">&nbsp;</td>
   </tr>
-</table>
+</table> -->
 
-<table width="100%" style="font-size:10x">
+<!-- <table width="100%" style="font-size:10x">
   <tr>
     <td colspan="3" style="font-size:12px"><strong>
       <center>
@@ -4187,8 +4189,9 @@ and Other Services</strong>
     <td width="3%">&nbsp;</td>
     <td width="43%">&nbsp;</td>
   </tr>
-</table>
-<table width="100%" style="font-size:10x">
+</table> -->
+
+<!-- <table width="100%" style="font-size:10x">
   <tr>
     <td colspan="3" style="font-size:12px"><strong>
       <center>
@@ -4323,8 +4326,9 @@ and Other Services</strong>
     <td width="3%">&nbsp;</td>
     <td width="43%">&nbsp;</td>
   </tr>
-</table>
-<table width="100%" style="font-size:10x">
+</table> -->
+
+<!-- <table width="100%" style="font-size:10x">
   <tr>
     <td colspan="3" style="font-size:12px"><strong>
       <center>
@@ -4532,9 +4536,9 @@ and Other Services</strong>
     <td width="3%">&nbsp;</td>
     <td width="43%">&nbsp;</td>
   </tr>
-</table>
+</table> -->
 
-<table width="100%" style="font-size:10x">
+<!-- <table width="100%" style="font-size:10x">
   <tr>
     <td colspan="3" style="font-size:12px"><strong>
       <center>
@@ -4779,7 +4783,23 @@ and Other Services</strong>
     <td width="3%">&nbsp;</td>
     <td width="43%">&nbsp;</td>
   </tr>
-</table>
+</table> -->
+
+<?php
+  $query = $this->db->query("
+    select * from tb_paket
+    where id_paket = (
+      select id_paket
+      from tb_pks where id_pks = '$__id_pks'
+    )
+  ")->result();
+
+  if ($query) {
+    foreach ($query as $row) {
+      echo $row->html_paket;
+    }
+  }
+?>
 
 <table>
 </table>
