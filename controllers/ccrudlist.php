@@ -264,5 +264,58 @@ class Ccrudlist extends CI_Controller {
             echo $id_SelCorpTlkTxt;
         }
     }
+
+   /* import csv */
+    public function proc_imp() {
+        ini_set('max_execution_time', 600); //600 seconds = 60 minutes
+        ini_set('memory_limit', '-1'); // overide memory limit of php.ini
+        $row = 1; // utk skip header table
+        $rcount = 0; // utk count jumlah baris data
+        if(!empty($_FILES['csv']['size']) && $_FILES['csv']['size'] > 0){
+            ?><span id="id_PrgFnm"></span><br>
+            <progress id="id_progress" value="0" max="100"></progress><?php
+            ob_implicit_flush(true);
+            
+            /* begin iteration */
+            $file = $_FILES['csv']['tmp_name'];
+            $handle = fopen($file,"r");
+            while ($data = fgetcsv($handle,100000,",","'")){
+                if($row == 1){ $row++; continue; } // skip the header table on excel.
+                if ($data[0]) {
+                    $this->load->model('mcrudlist');                   
+                    $this->mcrudlist->insert_import_list($data);
+                }
+                // handle progress bar while inserting...
+                $filenm = $_FILES['csv']['name'];
+                $prgttl = count(file($_FILES['csv']['tmp_name'])) - 1; // hitung ttl row tanpa header
+                $prgite = $rcount + 1;
+                $prgval = ($prgite/$prgttl) * 100;
+                ?><script>
+                    /* update progress bar */
+                    $("#id_PrgFnm").html('Uploading <em><?=$filenm?></em> ... <b><?=round($prgval)?>%</b>');
+                    $("#id_progress").val(<?=$prgval?>); // update progressbar
+                    /* disabled element while progress */
+                    $('#id_btnImps').prop('disabled','disabled');
+                    $('#csv').prop('disabled','disabled');
+                    $('#id_BtnModClose').hide();
+                </script><?php
+                flush();
+                ob_flush();
+                usleep(500); // 1000000 = 1 second
+                $rcount++;
+            }
+            /* after progress is complete */
+            ?><script>
+                $('#id_btnImps').prop('disabled',false);
+                $('#csv').prop('disabled',false);
+                $("#id_PrgFnm").html('Selesai, <?=$rcount?> data di-<em>import</em>.');
+                $('#id_BtnModClose').show();
+                $('#id_PrgFnm, #id_progress').fadeOut(30000);
+            </script><?php
+            exit();
+        } else {
+            echo "Gagal! (File berukuran 0 kb/belum dipilih)";
+        }
+    }
 }
 ?>
