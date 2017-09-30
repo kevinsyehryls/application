@@ -127,6 +127,28 @@ class Cpage extends CI_Controller {
         );
         $this->load->view('wrapper', $data);
     }
+
+    /* halaman Grafik */
+    public function halgraf(){
+        $data = array(
+            'apptitle' => 'E-PKS',
+            'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',
+            'title'    => 'Grafik Pembuatan PKS',
+            'page'     => 'pages/vgraf'
+        );
+        $this->load->view('wrapper', $data);
+    }
+
+     /* halaman Grafik */
+    public function halprof(){
+        $data = array(
+            'apptitle' => 'E-PKS',
+            'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',
+            'title'    => 'Edit Profile',
+            'page'     => 'pages/vprof'
+        );
+        $this->load->view('wrapper', $data);
+    }
 	
 	/* halaman index */
     public function halindx(){
