@@ -2681,6 +2681,115 @@ and Other Services</strong>
     <td width="3%">&nbsp;</td>
     <td width="43%">-</td>
   </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr> 
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">&nbsp;</td>
+    <td></td>
+    <td>&nbsp;</td>
+    <td width="3%">&nbsp;</td>
+    <td width="43%">-</td>
+  </tr>
 </table>
 <tr>
 </tr>
@@ -2949,6 +3058,41 @@ and Other Services</strong>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
+  </tr>  
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
 </table>
 <table>
@@ -3142,6 +3286,51 @@ and Other Services</strong>
     <td colspan="2">The SUBSCRIBER may pay these fees en masse whether by cash, autodebit  from bank accounts or via transfer to accounts designated by TELKOMSEL, in  observance of the payment period or timeframe, and the Subscriber must submit  their proof of payment and the list if kartuHALO or HALOcards (MSISDN) numbers  with regards to payments having been made by the Customer for every payment  period to TELKOMSEL as confirmation of payment.</td>
   </tr>
 </>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -4805,6 +4994,146 @@ and Other Services</strong>
 </table>
 <table width="100%" style="font-size:10px">
   <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
     <td colspan="3" style="font-size:12px"><strong>
       <center>
         <strong>BAGIAN </strong><strong>VI</strong>
@@ -4877,43 +5206,34 @@ and Other Services</strong>
         <td width="13%">SHORT CODE</td>
         <td width="21%">DESKRIPSI</td>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
+      <?php
+        $query = $this->db->query("
+          select
+          a.*,
+          b.*,
+          c.*
+          from tb_list_nomor a
+          join tb_corporate b on a.id_corporate = b.id_corporate
+          join tb_pks c on b.id_corporate = c.id_corporate
+        ")->result();
+        $i = 1;
+          foreach ($query as $row) {
+          ?>
+        <tr>
+          <td><?php echo $i ?></td>
+          <td><?php echo $row->nama_corporate ?></td>
+          <td><?php echo $row->msisdn ?></td>
+          <td><?php echo $row->user ?></td>
+          <td><?php echo $row->division ?></td>
+          <td><?php echo $row->short_code?></td>
+          <td><?php echo $row->deskripsi ?></td>        
+        </tr>
+        <?php
+        $i++;
+        } 
+        ?>            
+    </table>
+    </td>
   </tr>
 </>
   <tr>
