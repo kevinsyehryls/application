@@ -81,7 +81,7 @@
                   type: 'column'
               },
               title: {
-                  text: 'Total fruit consumtion, grouped by gender'
+                  text: 'Grafik Jumlah PKS'
               },
               xAxis: {
                   categories: bulans,
@@ -91,7 +91,7 @@
                   allowDecimals: false,
                   min: 0,
                   title: {
-                      text: 'Number of fruits'
+                      text: 'Jumlah PKS'
                   }
               },
               series: [{
