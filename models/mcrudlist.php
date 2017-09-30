@@ -91,5 +91,21 @@ class McrudList extends CI_Model {
 		$query = $this->db->query("select * from tb_corporate");
 		return $query;
 	}
+
+
+	// import pks
+	function insert_import_list($data){
+        $datacsv = array(
+			//'id_list_msisdn'			=> addslashes($data[0]), rem due to auto_incremental
+			'id_corporate'				=> addslashes($data[1]),
+			'msisdn'					=> addslashes($data[2]),
+			'user'						=> addslashes($data[3]),
+			'division'					=> addslashes($data[4]),
+			'short_code'				=> addslashes($data[5]),
+			'deskripsi'					=> addslashes($data[6])
+
+        );
+        $this->db->insert('tb_list_nomor',$datacsv);
+    }
 }
 ?>
