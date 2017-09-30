@@ -1,0 +1,6 @@
+no,nomor_pks,id_pimpinan_telkomsel,id_pic_telkomsel,id_corporate,id_paket,start_date,end_date,sign_pimpinan_telkomsel,sign_pic_corporate,sign_pimpinan_telkomsel,sign_pic_telkomsel,file_pdf
+1,PKS-001,67292,73245,101,P001,2017-09-30,2017-09-30,T,T,T,T,D:\pks.pdf
+2,PKS-002,67292,73245,101,P001,2017-09-30,2017-09-30,T,T,T,T,D:\pks.pdf
+3,PKS-003,71829,87928,102,P002,2017-09-30,2017-09-30,T,T,T,T,D:\pks.pdf
+4,PKS-004,71829,87928,102,P002,2017-09-30,2017-09-30,T,T,T,T,D:\pks.pdf
+5,PKS-005,71829,87928,102,P002,2017-09-30,2017-09-30,T,T,T,T,D:\pks.pdf

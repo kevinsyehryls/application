@@ -237,20 +237,40 @@ class Mcrudpks extends CI_Model {
 		$query = $this->db->query("select * from tb_pimpinan_telkomsel");
 		return $query;
 	}
-		// fill cbx edit pic telkomsel
+	// fill cbx edit pic telkomsel
 	function selectpic(){
 		$query = $this->db->query("select * from tb_pic_telkomsel");
 		return $query;
 	}
-		// fill cbx edit corporate
+	// fill cbx edit corporate
 	function selectcorp(){
 		$query = $this->db->query("select * from tb_corporate");
 		return $query;
 	}
-		// fill cbx edit paket
+	// fill cbx edit paket
 	function selectpkt(){
 		$query = $this->db->query("select * from tb_paket");
 		return $query;
 	}
+
+	// import pks
+	function insert_import_pks($data){
+        $datacsv = array(
+			//'id_pks'					=> addslashes($data[0]), rem due to auto_incremental
+			'nomor_pks'					=> addslashes($data[1]),
+			'id_pimpinan_telkomsel'		=> addslashes($data[2]),
+			'id_pic_telkomsel'			=> addslashes($data[3]),
+			'id_corporate'				=> addslashes($data[4]),
+			'id_paket'					=> addslashes($data[5]),
+			'start_date'				=> addslashes($data[6]),
+			'end_date'					=> addslashes($data[7]),
+			'sign_pimpinan_corporate'	=> addslashes($data[8]),
+			'sign_pic_corporate'		=> addslashes($data[9]),
+			'sign_pimpinan_telkomsel'	=> addslashes($data[10]),
+			'sign_pic_telkomsel'		=> addslashes($data[11]),
+			'file_pdf'					=> addslashes($data[12])
+        );
+        $this->db->insert('tb_pks',$datacsv);
+    }
 }
 ?>
