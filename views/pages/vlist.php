@@ -41,12 +41,22 @@
         <div class="box-header with-border">
           <h3 class="box-title">Tambah List Nomor</h3>
           	<div class="btn-group-left">
-             <button type="button" id="id_BtnUpldList" class="btn btn-primary btn-sm pull-right">Upload List Nomor
-             </button>
              <button type="button" id="id_BtnList" class="btn btn-primary btn-sm pull-right">+ List Nomor</button>
             </div>
         </div>
         <div class="box-body">
+        <h5>Upload List CSV</h5>
+          <div id="id_impFile">
+              <form name="frm_uploadCsv" id="id_uploadCsv">
+                  <div style="display: flex; margin-top: 5px;">
+                      <input name="csv" type="file" id="csv" class="btn btn-default btn-xs" accept=".csv"/>&nbsp;&nbsp;
+                      <button class="btn btn-default btn-xs" id="id_btnImps" onclick="uploadCsv(event)"><i class="fa fa-check"></i>&nbsp; Upload</button>
+                  </div>
+              </form>
+              <div id="progress"></div>
+              <div id="id_staMes"><!-- ajax result load here --></div>
+              <p class="help-block">Upload File harus menggunakan Template <a href="<?php echo base_url(); ?>application/list.csv"> Berikut.</a></p>
+          </div>
          <div id="id_DivList">
             	<!-- data user akan tampil disini -->
          </div>
@@ -322,4 +332,40 @@
 		}		
 	}
 	
+  function uploadCsv(event){
+      event.preventDefault();
+      var quest = confirm("lanjut import?");
+      if(quest){
+          $('#id_staMes').css('display','').html("");
+          var formData = new FormData($('#id_uploadCsv')[0]);
+          jQuery.ajax({
+              type: "POST",
+              url: "<?php echo base_url(); ?>" + "index.php/ccrudlist/proc_imp",
+              data: formData,
+              mimeType: "multipart/form-data",
+              contentType: false,
+              cache: false,
+              processData: false,
+              beforeSend: function(){
+              },
+              success: function(res) {
+                  document.getElementById('id_uploadCsv').reset();
+                  LoadChartPks();
+              },              
+              xhr: function(){
+                  var xhr = new window.XMLHttpRequest();
+                  xhr.addEventListener("progress", function (e) {
+                      var progressval = e.currentTarget.response;
+                      $("#progress").html(progressval);
+                  });
+                  return xhr;
+              },
+              error: function(xhr){
+                  console.log(xhr.status);
+              }
+          });
+      } else {
+          return false;
+      }
+  }
 </script>
