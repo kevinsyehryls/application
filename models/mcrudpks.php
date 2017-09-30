@@ -15,11 +15,13 @@ class Mcrudpks extends CI_Model {
 			a.*,
 			b.*,
 			c.*,
-			d.*
+			d.*,
+			e.*
 			from tb_pks a
 			join tb_pimpinan_telkomsel b on a.id_pimpinan_telkomsel = b.id_pimpinan_telkomsel
 			join tb_corporate c on a.`id_corporate` = c.`id_corporate`
-			join `tb_pic_telkomsel` d on d.`id_pic_telkomsel` = a.`id_pic_telkomsel`
+			join `tb_pic_telkomsel` d on a.`id_pic_telkomsel` = d.`id_pic_telkomsel`
+			join `tb_paket` e on a.`id_paket` = e.`id_paket`
 		");
 		return $query;
 	}
@@ -58,6 +60,11 @@ class Mcrudpks extends CI_Model {
 
 	function jumlah_pks_end(){
 		$query = $this->db->query("select count(*) as jml from tb_pks where end_date between date_sub(now(),INTERVAL 2 WEEK) and now()");
+		return $query;
+	}
+
+	function jumlah_upload(){
+		$query = $this->db->query("select count(*) as jml1 from tb_pks where file_pdf is null");
 		return $query;
 	}
 
