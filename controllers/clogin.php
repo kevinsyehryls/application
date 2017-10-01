@@ -18,8 +18,8 @@ class Clogin extends CI_Controller {
 			'db'       => $this->db->database,
 			'user'     => $this->db->username,
 			'pass'     => $this->db->password,
-			'apptitle' => 'S I R A M A',
-			'appver'   => 'SISTEM PERAMALAN PENJUALAN CAT <Br> DENGAN MENGGUNAKAN <i>WEIGHTED MOVING AVERAGE</i> <br> PADA MITRA 10 DENPASAR',
+			'apptitle' => 'E-PKS',
+		    'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',   
 		);
 		$this->load->view('login', $dbconfig);
 	}
