@@ -22,6 +22,7 @@
           </div>
           <!-- /.box -->
     </section>
+</div>
 
 <script>
   // DOM ready
