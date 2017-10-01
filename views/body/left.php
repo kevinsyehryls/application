@@ -19,13 +19,12 @@
           <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
-              </span>
+          </span>
         </div>
       </form>
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-      <li class="header">MAIN NAVIGATION</li>
+
+       <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>        
         <li>
           <a href="<?php echo base_url(); ?>index.php/cpage/halindx">
             <i class="fa fa-list"></i> <span>BERANDA</span>
@@ -47,8 +46,8 @@
             <li><a href="<?php echo base_url(); ?>index.php/cpage/halppn"><i class="fa fa-cog"></i> Kelola Pimpinan Telkomsel</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/cpage/halstaf"><i class="fa fa-cog"></i> Kelola PIC Telkomsel</a></li>
           </ul>
-         </li>
-         <li class="treeview">
+        </li>
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>PELANGGAN CORPORATE</span>
             <span class="pull-right-container">
@@ -85,7 +84,7 @@
             <li><a href="<?php echo base_url(); ?>index.php/cpage/halgraf"><i class="fa fa-line-chart"></i> Lihat Grafik</a></li>
           </ul>
         </li>
-       </ul>
+      </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
