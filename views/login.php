@@ -39,7 +39,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Silahkan Login Terlebih Dahulu</p>
 
-    <form action="../../index2.html" method="post">
+    <form id="id_FrmLogin">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -51,12 +51,11 @@
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
- 
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" id="id_BtnLogin" class="btn btn-primary btn-block btn-flat">Sign In</button>
         </div>
         <!-- /.col -->
       </div>
@@ -84,3 +83,10 @@
 </script>
 </body>
 </html>
+
+<script>
+  $(document).on('click', '#id_BtnLogin', function(event){
+    event.preventDefault();
+    alert("login");
+  })
+</script>

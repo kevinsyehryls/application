@@ -1,4 +1,4 @@
-<div class="content-wrapper" style="min-height: 1126px;">    
+<div class="content-wrapper">
     
     <div class="modal fade" id="modal-default" style="display: none;">
       <div class="modal-dialog">
@@ -9,8 +9,7 @@
       </div>
       <!-- /.modal-dialog -->
     </div>
-    
-    
+        
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
