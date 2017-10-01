@@ -76,12 +76,11 @@ class Ccrudpks_ttd extends CI_Controller {
           </div>  
         </div>
     <div class="modal-footer">
-         <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdPks(<?=$row->  id_pks?>)">Save changes</button>
+         <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdPks(<?=$row->id_pks?>)">Save changes</button>
     </div>
     <?php
     }
   }
-
     public function showupload(){
         $this->load->model('mcrudpks');
         $query=$this->mcrudpks->select1pks();
@@ -99,20 +98,17 @@ class Ccrudpks_ttd extends CI_Controller {
             <?php
         }
     }
-
     public function editpks(){
         $this->load->model('mcrudpks');
         $query = $this->mcrudpks->updatepks_ttd();
     }
-
     function upload_file($id_pks) {
         //upload file
         $config['upload_path'] = './application/upload';
         $config['allowed_types'] = '*';
         $config['max_filename'] = '255';
         $config['file_name'] = "PKS_" . $id_pks;
-        $config['max_size'] = '500000'; //500 MB
-
+        $config['max_size'] = '10000'; //10 MB
         // jika file exists
         if (isset($_FILES['file']['name'])) {
             // jika file corupt
@@ -140,6 +136,5 @@ class Ccrudpks_ttd extends CI_Controller {
             echo 'Please choose a file';
         }
     }
-
 }
 ?>
