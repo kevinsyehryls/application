@@ -16,15 +16,22 @@ class Ccrudpks_rpt extends CI_Controller {
     <table id="example1" class="table table-bordered table-striped" width="100%">
       <thead>
         <tr>
-          <th width="6%">No</th>
-          <th width="6%">Nomor PKS</th>
-          <th width="6%">Id Corporate</th>
-          <th width="6%">Corporate</th>
-          <th width="6%">Paket</th>
-          <th width="6%">PIC Telkomsel</th>
-          <th width="6%">Pimpinan Corporate</th>
-          <th width="6%">Jabatan Pimpinan Corporate</th>
-          <th width="6%">PIC Corporate</th>
+          <th>No</th>
+         <th>Nomor PKS</th>
+         <th>Id Corporate</th>
+         <th>Corporate</th>
+         <th>Paket</th>
+         <th>PIC Telkomsel</th>
+         <th>Pimpinan Corporate</th>
+         <th>Jabatan Pimpinan Corporate</th>
+         <th>PIC Corporate</th>
+         <th>Jabatan PIC Corporate</th>
+         <th>Nomor HP PIC Corporate</th>
+         <th>Email PIC Corporate</th>
+         <th>No Tlp Kantor</th>
+         <th>Start Date</th>
+         <th>End Date</th>
+         <th>Alamat</th>
         </tr>
       </thead>
       <tbody>      
@@ -43,14 +50,21 @@ class Ccrudpks_rpt extends CI_Controller {
         foreach($query->result() as $row) { ?>
         <tr>
           <td><?php echo $i++; ?></td>
-          <td><?php echo $row->nomor_pks ?></td>
-          <td><?php echo $row->id_corporate ?></td>
+         <td><?php echo $row->nomor_pks ?></td>
+         <td><?php echo $row->id_corporate ?></td>
           <td><?php echo $row->nama_corporate ?></td>
           <td><?php echo $row->nama_paket ?></td>
           <td><?php echo $row->nama_pic_telkomsel?></td>
           <td><?php echo $row->nama_pimpinan_corporate ?></td>
           <td><?php echo $row->jabatan_pimpinan_corporate ?></td>
-          <td><?php echo $row->nama_pic_corporate ?></td>          
+          <td><?php echo $row->nama_pic_corporate ?></td>
+          <td><?php echo $row->jabatan_pic_corporate ?></td>
+          <td><?php echo $row->nomor_hp_pic_corporate ?></td>
+          <td><?php echo $row->email_pic_corporate ?></td>
+          <td><?php echo $row->nomor_tlp_kantor ?></td>
+          <td><?php echo date('d-M-Y', strtotime($row->start_date))?></td>
+          <td><?php echo date('d-M-Y', strtotime($row->end_date))?></td> 
+          <td><?php echo $row->alamat_corporate ?></td>       
         </tr>
         <?php } ?>
       </tbody>      
