@@ -64,7 +64,7 @@ class Mcrudpks extends CI_Model {
 	}
 
 	function jumlah_upload(){
-		$query = $this->db->query("select count(*) as jml1 from tb_pks where file_pdf is null");
+		$query = $this->db->query("select count(*) as jml1 from tb_pks Where file_pdf is null or file_pdf = ' ' ");
 		return $query;
 	}
 
