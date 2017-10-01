@@ -49,8 +49,6 @@
 $(document).ready(function(){
     GenDataPks();
 });
-
-
 // ketika tombol upload pks di klik
 $(document).on('click', '#id_BtnupldPks', function(){
     // tampilkan modal
@@ -67,7 +65,6 @@ $(document).on('click', '#id_BtnupldPks', function(){
               }
     });       
 });
-
 // function untuk populate data user dari table database
 function GenDataPks(){
     jQuery.ajax({
@@ -92,7 +89,6 @@ function GenDataPks(){
         }
     });
 }
-
 //Saat Tombol Edit di Klik
 function EditPks(id_pks){
     $('#modal-default').modal('show');
@@ -110,8 +106,6 @@ function EditPks(id_pks){
             }
     });
 }
-
-
 //Saat tombol save change di klik
 function UpdPks(id_pks){
     /* get checkboxes value */
@@ -126,10 +120,7 @@ function UpdPks(id_pks){
         url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/editpks",
         data: {
             id_pks: id_pks,
-            CbxSignCor1 : CbxSignCor1,
-            CbxSignCor2 : CbxSignCor2,
-            CbxSignTel1 : CbxSignTel1,
-            CbxSignTel2 : CbxSignTel2
+            inputpdf : inputpdf
         },
         success: function(res) {
             $('#modal-default').modal('hide');
@@ -141,7 +132,24 @@ function UpdPks(id_pks){
         }
     });
 }
-
+//Saat Tombol Edit di Klik
+function UploadPks(id_pks){
+    $('#modal-default').modal('show');
+    jQuery.ajax({
+        type: "POST",
+        url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/showupload",
+        data: {
+            id_pks: id_pks
+        },
+        success: function(res) {
+            $('#id_MdlDefault').html(res);
+            UploadPDF(id_pks);
+        },
+        error: function(xhr){
+            $('#id_DivPks').html("error");
+        }
+    });
+}
 function UploadPDF(id_pks){
     event.preventDefault();
     $('#upload').on('click', function () {
@@ -169,6 +177,4 @@ function UploadPDF(id_pks){
         });
     });
 }
-
-
 </script>
