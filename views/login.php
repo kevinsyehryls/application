@@ -41,11 +41,11 @@
 
     <form id="id_FrmLogin">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" id="id_FrmLoginEmail" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" id="id_FrmLoginPassw" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -87,6 +87,19 @@
 <script>
   $(document).on('click', '#id_BtnLogin', function(event){
     event.preventDefault();
-    alert("login");
+    var email = $('#id_FrmLoginEmail').val();
+    var passw = $('#id_FrmLoginPassw').val();
+    jQuery.ajax({
+      type: "POST",
+      url: "<?php echo base_url(); ?>" + "index.php/clogin/auth",
+      data: {email: email, passw: passw},
+      success: function(res) {
+          if(res==true){
+              window.location.href = "<?php echo base_url(); ?>" + "index.php/cpage";
+          } else {
+              alert("Invalid email or password");
+          }
+      }
+    });
   })
 </script>

@@ -11,14 +11,30 @@ class Pageauth {
 		$this->CI =& get_instance();
     }
 
-	// cek user level and session
-    function sess_level_auth() {
+    function sess_auth_admin() {
 		// ensure user is signed in
 		if ( $this->CI->session->userdata('login_state') == FALSE ) {
 			redirect( "clogin/" );
 		} else {
 			// avoid access by a non admin level
-			if ($this->CI->session->userdata('access') != 'admin') {
+			if ($this->CI->session->userdata('level') != 'Administrasi') {
+				?>
+				<script>
+					window.alert("Sorry, you don not have any privilleges to access this function!.");
+					window.location="<?php echo base_url().'index.php/cpage/'; ?>";
+				</script>
+				<?php
+			}
+		}
+    }
+
+    function sess_auth_spv() {
+		// ensure user is signed in
+		if ( $this->CI->session->userdata('login_state') == FALSE ) {
+			redirect( "clogin/" );
+		} else {
+			// avoid access by a non admin level
+			if ($this->CI->session->userdata('level') != 'SPV') {
 				?>
 				<script>
 					window.alert("Sorry, you don not have any privilleges to access this function!.");
@@ -36,24 +52,5 @@ class Pageauth {
 			redirect( "clogin/" );
 		}
     }
-
-	// cek session, page_id, and username
-	function sess_page_auth($obj_id) {
-		$username = $this->CI->session->userdata('username');
-		// query
-		$query = $this->CI->db->query("
-			select *
-			from `sys_user_obj` obj
-			join `sys_user` usr on obj.`obj_level` = usr.`obj_level`
-			where obj.`obj_id` = $obj_id and usr.`username` = '$username'
-		");
-		$rwcnt = $query->num_rows();
-		// ensure user is signed in and have access to the page
-		if($this->CI->session->userdata('login_state') == FALSE) {
-			redirect( "clogin/" );
-		} elseif($rwcnt == 0){
-			redirect( "cpage/" );
-		}
-	}
 }
 ?>
