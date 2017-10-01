@@ -28,7 +28,7 @@ class Cpage extends CI_Controller {
 	
 	/* halaman Kelola User Login */
     public function haluser(){
-        $this->pageauth->sess_auth_admin();
+        $this->pageauth->sess_auth_spv();
         $data = array(
             'apptitle' => 'E-PKS',
             'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',
@@ -40,7 +40,7 @@ class Cpage extends CI_Controller {
 	
 	/* halaman Kelola Pimpinan Telkomsel */
     public function halppn(){
-        $this->pageauth->sess_auth();
+        $this->pageauth->sess_auth_spv();
         $data = array(
             'apptitle' => 'E-PKS',
             'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',
@@ -52,7 +52,7 @@ class Cpage extends CI_Controller {
 	
 	/* halaman Kelola Staff Telkomsel */
     public function halstaf(){
-        $this->pageauth->sess_auth();
+        $this->pageauth->sess_auth_spv();
         $data = array(
             'apptitle' => 'E-PKS',
             'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',
@@ -136,7 +136,7 @@ class Cpage extends CI_Controller {
 	
 	/* halaman Report */
     public function halrpt(){
-        $this->pageauth->sess_auth();
+        $this->pageauth->sess_auth_spv();
         $data = array(
             'apptitle' => 'E-PKS',
             'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',
@@ -148,7 +148,7 @@ class Cpage extends CI_Controller {
 
     /* halaman Grafik */
     public function halgraf(){
-        $this->pageauth->sess_auth();
+        $this->pageauth->sess_auth_spv();
         $data = array(
             'apptitle' => 'E-PKS',
             'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',
