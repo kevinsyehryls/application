@@ -32,22 +32,22 @@ class Ccrudpks_ttd extends CI_Controller {
 			  foreach($query->result() as $row){
 			  	?>
 				<tr>
-                  <td><?php echo $i ?></td>
-                  <td><?php echo $row->nomor_pks ?></td>
-                  <td><?php echo $row->nama_corporate ?></td>
-                  <td><?php echo $row->sign_pimpinan_corporate ?></td>
-                  <td><?php echo $row->sign_pic_corporate ?></td>
-                  <td><?php echo $row->sign_pic_telkomsel?></td>
-                  <td><?php echo $row->sign_pimpinan_telkomsel ?></td>
-                  <td>
-                      <a href="<?php echo base_url(); ?>application/upload/<?=$row->file_pdf.'.pdf'?>" download="<?=$row->file_pdf.'.pdf'?>"><?=$row->file_pdf?></a>
-                  </td>
-                  <td>
-                    <button onclick="EditPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">TTD</button>
-                      &nbsp;
-                    <button onclick="UploadPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">PDF</button>
-                  </td> 			                  
-                </tr>
+          <td><?php echo $i ?></td>
+          <td><?php echo $row->nomor_pks ?></td>
+          <td><?php echo $row->nama_corporate ?></td>
+          <td><input type="checkbox" <?php echo ($row->sign_pimpinan_corporate=='T'?'checked="checked"':'') ?> ></td>
+          <td><input type="checkbox" <?php echo ($row->sign_pic_corporate=='T'?'checked="checked"':'') ?> ></td>
+          <td><input type="checkbox" <?php echo ($row->sign_pic_telkomsel=='T'?'checked="checked"':'') ?> ></td>
+          <td><input type="checkbox" <?php echo ($row->sign_pimpinan_telkomsel=='T'?'checked="checked"':'') ?> ></td>
+          <td>
+              <a href="<?php echo base_url(); ?>application/upload/<?=$row->file_pdf.'.pdf'?>" download="<?=$row->file_pdf.'.pdf'?>"><?=$row->file_pdf?></a>
+          </td>
+          <td>
+            <button onclick="EditPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">TTD</button>
+              &nbsp;
+            <button onclick="UploadPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">PDF</button>
+          </td>
+        </tr>
         <?php
         $i++;
         } 

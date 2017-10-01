@@ -51,6 +51,9 @@
     <script src="<?=base_url()?>application/libraries/highchart/highcharts.js"></script>
     <script src="<?=base_url()?>application/libraries/highchart/highcharts-more.js"></script>
     <script src="<?=base_url()?>application/libraries/highchart/exporting.js"></script>
+
+    <!-- table2excel -->
+    <script src="<?php echo base_url(); ?>application/libraries/table2excel/src/jquery.table2excel.js"></script>
     
     <script>
       $(document).ready(function () {
