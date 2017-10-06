@@ -152,7 +152,7 @@ class Cpage extends CI_Controller {
         $data = array(
             'apptitle' => 'E-PKS',
             'appver'   => 'SISTEM INFORMASI PERJANJIAN KERJASAMA <Br> PT TELKOMSEL BALI <i>DENGAN PELANGGAN CORPORATE</i> <br> BERBASIS BOOTSRAP',
-            'title'    => 'Grafik Pembuatan PKS',
+            'title'    => 'Grafik PKS',
             'page'     => 'pages/vgraf'
         );
         $this->load->view('wrapper', $data);
