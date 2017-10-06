@@ -17,7 +17,7 @@
         <?php echo $apptitle?>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-edit"></i> Create PKS</a></li>
+        <li><a href="#"><i class="fa fa-files-o"></i> MENU</a></li>
         <li class="active"><?php echo $title ?></li>
       </ol>
     </section>
