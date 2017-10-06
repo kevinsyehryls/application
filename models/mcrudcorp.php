@@ -45,7 +45,7 @@ class Mcrudcorp extends CI_Model {
 		$this->db->where('id_corporate', $id_corp);
 		$this->db->delete('tb_corporate');	
 	}
-	
+
 	function select1corp(){
 		$corp_id=$this->input->post('id_corp');
 		$query= $this->db->query("select * from tb_corporate where id_corporate='$corp_id'");
