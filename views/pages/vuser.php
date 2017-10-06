@@ -229,7 +229,6 @@
   })
 }
   
-  
   function DelUsr(id_user){
     var delconf = confirm("Hapus data?");
     if(delconf){
