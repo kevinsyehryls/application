@@ -20,16 +20,12 @@ class Mcrudstaf extends CI_Model {
 		$jabatan=$this->input->post("id_stafjbt");
 		$nohp=$this->input->post("id_stafhp");
 		$email=$this->input->post("id_stafemail");
-		$notlp=$this->input->post("id_stafnotlp");
-		$alamat=$this->input->post("id_stafalmt");
 		$datastaf=array(
 			'id_pic_telkomsel' => $nik,
 			'nama_pic_telkomsel' => $nama,
 			'jabatan_pic_telkomsel' => $jabatan,
 			'nomor_hp_pic_telkomsel' => $nohp,
-			'email_pic_telkomsel' => $email,
-			'nomor_tlp_kantor' => $notlp,
-			'alamat_kantor' => $alamat
+			'email_pic_telkomsel' => $email
 		);	
 		$this->db->insert('tb_pic_telkomsel', $datastaf);
 	}
@@ -52,15 +48,11 @@ class Mcrudstaf extends CI_Model {
 		$jabatan=$this->input->post("id_stafjbt");
 		$nohp=$this->input->post("id_stafhp");
 		$email=$this->input->post("id_stafemail");
-		$notlp=$this->input->post("id_stafnotlp");
-		$alamat=$this->input->post("id_stafalmt");
 		$datastaf=array(
 			'nama_pic_telkomsel' => $nama,
 			'jabatan_pic_telkomsel' => $jabatan,
 			'nomor_hp_pic_telkomsel' => $nohp,
-			'email_pic_telkomsel' => $email,
-			'nomor_tlp_kantor' => $notlp,
-			'alamat_kantor' => $alamat	
+			'email_pic_telkomsel' => $email
 		);	
 		$this->db->where('id_pic_telkomsel', $nik);
 		$this->db->update('tb_pic_telkomsel', $datastaf);
