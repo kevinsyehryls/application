@@ -1,15 +1,15 @@
 <div class="content-wrapper" style="min-height: 1126px;">    
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <h1>
-      <?php echo $title ?>
-      <?php echo $apptitle?>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-edit"></i> Create PKS</a></li>
-      <li class="active"><?php echo $title ?></li>
-    </ol>
-  </section>
+   <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <?php echo $title ?>
+        <?php echo $apptitle?>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-files-o"></i> MENU </a></li>
+        <li class="active"><?php echo $title ?></li>
+      </ol>
+    </section>
 
   <!-- Main content -->
   <section class="content">
