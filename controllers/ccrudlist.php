@@ -35,7 +35,7 @@ class Ccrudlist extends CI_Controller {
                   <td><?php echo $row->nama_corporate ?></td>
                   <td>
                     <button onclick="EditList('<?=$row->id_list_msisdn?>')" type="button" class="btn btn-primary btn-xs">Edit</button>
-                    <button onclick="DelList('<?=$row->id_list_msisdn?>')" type="button" class="btn btn-primary btn-xs">Delete</button>
+                    <button onclick="DelList('<?=$row->id_list_msisdn?>')" type="button" class="btn btn-primary btn-xs">Hapus</button>
                   </td> 			                  
                 </tr>
 				<?php
