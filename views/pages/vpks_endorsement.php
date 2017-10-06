@@ -215,7 +215,7 @@
     <td width="3%">&nbsp;</td>
     <td width="43%"><div align="right">Telpon / Telephone</div></td>
     <td>:</td>
-    <td colspan="3"> (0361) 244235</td>
+    <td colspan="3"> 0361-244235<td>
   </tr>
    <tr>
     <td>&nbsp;</td>
