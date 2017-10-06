@@ -44,19 +44,5 @@ class Ccrudpks_end extends CI_Controller {
         </table>
     <?php
   }  
-  
-  public function showeditpks(){
-    $this->load->model('mcrudpks');
-    $query=$this->mcrudpks->select1pks();
-    foreach($query->result() as $row){
-    ?> 
-    <?php
-    }
-  }
-
-  public function editpks(){
-    $this->load->model('mcrudpks');
-    $query = $this->mcrudpks->updatepks_ttd();
-  }
 }
 ?>
