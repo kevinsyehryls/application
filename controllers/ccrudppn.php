@@ -33,7 +33,7 @@ class Ccrudppn extends CI_Controller {
                   <td><?php echo $row->jabatan_pimpinan_telkomsel ?></td>
                   <td>
                     <button onclick="EditPpn(<?=$row->id_pimpinan_telkomsel?>)" type="button" class="btn btn-primary btn-xs">Edit</button>
-                    <button onclick="DelPpn(<?=$row->id_pimpinan_telkomsel?>)" type="button" class="btn btn-primary btn-xs">Delete</button>
+                    <button onclick="DelPpn(<?=$row->id_pimpinan_telkomsel?>)" type="button" class="btn btn-primary btn-xs">Hapus</button>
                   </td> 			                  
                 </tr>
 				<?php
