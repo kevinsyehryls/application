@@ -42,7 +42,7 @@ class Ccrudpks extends CI_Controller {
                   <td>
                     <button onclick="EditPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Edit
                     </button>
-                    <button onclick="DelPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Delete
+                    <button onclick="DelPks('<?=$row->id_pks?>')" type="button" class="btn btn-primary btn-xs">Hapus
                     </button>
                     <button onclick="PrintDivElement('<?=$row->id_pks?>')"id="id_pksprint" type="button" class="btn btn-primary btn-xs"><li class="fa fa-print"></li>&nbsp;&nbsp; Print</button>
                   </td> 			                  
@@ -162,7 +162,7 @@ class Ccrudpks extends CI_Controller {
                 </div>
             </div>
             <div class="form-group" style="display: inline-flex">
-                <label for="Sign sequencial priority">Signing sequencial priority:</label><br>
+                <label for="Sign sequencial priority">Proses Sirkulasi Tanda Tangan :</label><br>
                 <input type="checkbox" id="id_CbxSignCor1" name="Cbxpks" value="T">&nbsp;&nbsp;pimpinan corporate
                 <input type="checkbox" id="id_CbxSignCor2" name="Cbxpks" value="T">&nbsp;&nbsp;pic corporate
                 <input type="checkbox" id="id_CbxSignTel1" name="Cbxpks" value="T">&nbsp;&nbsp;pimpinan telkomsel
