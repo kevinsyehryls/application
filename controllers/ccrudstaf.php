@@ -39,7 +39,7 @@ class Ccrudstaf extends CI_Controller {
                   <td><?php echo $row->nomor_tlp_kantor ?></td>
                   <td>
                     <button onclick="EditStaf(<?=$row->id_pic_telkomsel?>)" type="button" class="btn btn-primary btn-xs">Edit</button>
-                    <button onclick="DelStaf('<?=$row->id_pic_telkomsel?>')" type="button" class="btn btn-primary btn-xs">Delete</button>
+                    <button onclick="DelStaf('<?=$row->id_pic_telkomsel?>')" type="button" class="btn btn-primary btn-xs">Hapus</button>
                   </td> 			                  
                 </tr>
 				<?php
@@ -91,16 +91,6 @@ class Ccrudstaf extends CI_Controller {
               <input type="text" class="form-control" id="id_stafemail" name="id_stafemail" placeholder="Ketik Email" equired>
               <label for="id_stafemail" class="error"></label>
             </div>
-            <div class="form-group">
-              <label for="notlp">Nomor Kantor</label>
-              <input type="number" class="form-control" id="id_stafnotlp" name="id_stafnotlp" placeholder="Ketik Nomor Tlp Kantor" equired>
-              <label for="id_stafnotlp" class="error"></label>
-            </div>
-             <div class="form-group">
-              <label for="alamat">Alamat</label>
-              <textarea class="form-control" rows="3" id="id_stafalmt" name="id_stafalmt" placeholder="Ketik Alamat" equired></textarea>
-              <label for="id_stafalmt" class="error"></label>
-            </div>       
           </div>          
 		</div>
     <div class="modal-footer">
@@ -157,17 +147,8 @@ class Ccrudstaf extends CI_Controller {
             <div class="form-group">
               <label for="email">Email</label>
               <input type="text" class="form-control" id="id_stafemail" name="id_stafemail" placeholder="Ketik Email" value="<?=$row->email_pic_telkomsel?>" equired>
-            </div>
-            <div class="form-group">
-              <label for="notlp">Nomor Kantor</label>
-              <input type="text" class="form-control" id="id_stafnotlp" name="id_stafnotlp" placeholder="Ketik Nomor Tlp Kantor" value="<?=$row->nomor_tlp_kantor?>" equired>
-            </div>
-             <div class="form-group">
-              <label for="alamat">Alamat</label>
-              <textarea class="form-control" rows="3" id="id_stafalmt" name="id_stafalmt" placeholder="Ketik Alamat" value="<?=$row->alamat_kantor?>" equired></textarea>
-            </div>       
-          </div>          
-		</div>
+            </div>    
+		      </div>
           <div class="modal-footer">
            <button id="id_stafbtn1" type="button" class="btn btn-primary" onclick="UpdStaf()">Save changes</button>
           </div>
