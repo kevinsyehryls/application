@@ -35,7 +35,7 @@ class Ccrudusr extends CI_Controller {
                   <td><?php echo $row->level ?></td>
                   <td>
                     <button onclick="EditUsr(<?=$row->id_user?>)" type="button" class="btn btn-primary btn-xs">Edit</button>
-                    <button onclick="DelUsr(<?=$row->id_user?>)" type="button" class="btn btn-primary btn-xs">Delete</button>
+                    <button onclick="DelUsr(<?=$row->id_user?>)" type="button" class="btn btn-primary btn-xs">Hapus</button>
                   </td>                         
                 </tr>
         <?php
