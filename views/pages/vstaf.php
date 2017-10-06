@@ -74,18 +74,14 @@
                              id_stafemail: {
                                  required: true,
                                  email: true
-                             },
-                             id_stafnotlp: "required",
-                             id_stafalmt: "required"
+                             }
                          },
                          messages: {
                              id_stafnik: "isi id dengan benar",
                              id_stafnama: "isi nama dengan benar",
                              id_stafjbt: "isi jabatan dengan benar",
                              id_stafhp: "isi No HP dengan benar",
-                             id_stafemail: "isi email dengan benar",
-                             id_stafnotlp: "isi Telphone kantor dengan benar",
-                             id_stafalmt: "isi alamat dengan benar"
+                             id_stafemail: "isi email dengan benar"
                         }
                      });
                  });
@@ -136,9 +132,7 @@
                          id_stafnama: $('#id_stafnama').val(),
                          id_stafjbt: $('#id_stafjbt').val(),
                        	 id_stafhp: $('#id_stafhp').val(),
-                         id_stafemail: $('#id_stafemail').val(),
-                       	 id_stafnotlp: $('#id_stafnotlp').val(),
-                         id_stafalmt: $('#id_stafalmt').val()
+                         id_stafemail: $('#id_stafemail').val()
                      },
                      success: function(res) {
                         $('#modal-default').modal('hide');
@@ -177,18 +171,14 @@
                              id_stafemail: {
                                  required: true,
                                  email: true
-                             },
-                             id_stafnotlp: "required",
-                             id_stafalmt: "required"
+                             }
                          },
                          messages: {
                              id_stafnik: "isi id dengan benar",
                              id_stafnama: "isi nama dengan benar",
                              id_stafjbt: "isi jabatan dengan benar",
                              id_stafhp: "isi No HP dengan benar",
-                             id_stafemail: "isi email dengan benar",
-                             id_stafnotlp: "isi Telphone kantor dengan benar",
-                             id_stafalmt: "isi alamat dengan benar"
+                             id_stafemail: "isi email dengan benar"
                         }
                      });
                  });
@@ -215,9 +205,7 @@
       				id_stafnama: $('#id_stafnama').val(),
       				id_stafjbt: $('#id_stafjbt').val(),
       				id_stafhp: $('#id_stafhp').val(),
-      				id_stafemail: $('#id_stafemail').val(),
-      				id_stafnotlp: $('#id_stafnotlp').val(),
-      				id_stafalmt: $('#id_stafalmt').val()
+      				id_stafemail: $('#id_stafemail').val()
       			},
       			success: function(res) {
       				$('#modal-default').modal('hide');
