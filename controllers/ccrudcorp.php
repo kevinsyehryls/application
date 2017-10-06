@@ -45,7 +45,7 @@ class Ccrudcorp extends CI_Controller {
 
                   <td>
                     <button onclick="EditCorp('<?=$row->id_corporate?>')" type="button" class="btn btn-primary btn-xs">Edit</button>
-                    <button onclick="DelCorp('<?=$row->id_corporate?>')" type="button" class="btn btn-primary btn-xs">Delete</button>
+                    <button onclick="DelCorp('<?=$row->id_corporate?>')" type="button" class="btn btn-primary btn-xs">Hapus</button>
                   </td> 			                  
                 </tr>
 				<?php
@@ -61,7 +61,7 @@ class Ccrudcorp extends CI_Controller {
 		<div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span></button>
-            <h4 class="modal-title">TAMBAH PIMPINAN</h4>
+            <h4 class="modal-title">TAMBAH CORPORATE</h4>
           </div>
           <?php
               $frmattributes = array(
@@ -162,7 +162,7 @@ class Ccrudcorp extends CI_Controller {
             </div>
             <div class="form-group">
               <label for="alamat">Alamat Corporate</label>
-              <textarea class="form-control" rows="3" id="id_corpalmt" name="id_corpalmt" placeholder="Ketik Alamat" value="<?=$row->alamat_corporate?>" required></textarea>
+              <textarea class="form-control" rows="3" id="id_corpalmt" name="id_corpalmt" placeholder="Ketik Alamat" required><?=$row->alamat_corporate?></textarea>
             </div>   
              <div class="form-group">
               <label for="pimpinan">Nama Pimpinan</label>
@@ -218,9 +218,7 @@ class Ccrudcorp extends CI_Controller {
 	
 		public function delcorp(){
 		$this->load->model('mcrudcorp');
-		$query = $this->mcrudcorp->deletecorp();
-		
-		
+		$query = $this->mcrudcorp->deletecorp();		
 	}
 }
 ?>
