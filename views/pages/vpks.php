@@ -78,7 +78,8 @@ $(document).on('click', '#id_BtnAddPks', function(){
                              id_pkspkt: "required",
                              id_pksst: "required",
                              id_pksen: {
-                                 required: true
+                                 required: true,
+                                 overlap:false
                              },
                          },
                          messages: {
