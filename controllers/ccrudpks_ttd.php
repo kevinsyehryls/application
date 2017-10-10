@@ -68,12 +68,12 @@ class Ccrudpks_ttd extends CI_Controller {
       </div>
         <div class="modal-body">
           <div class="form-group" style="display: inline-flex">
-            <label for="Sign sequencial priority">Proses Sirkulasi Tanda Tangan:</label><br>
-            <input type="checkbox" id="id_CbxSignCor1" name="Cbxpks" value="T" <?=$row->sign_pimpinan_corporate == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pimpinan corporate
-            <input type="checkbox" id="id_CbxSignCor2" name="Cbxpks" value="T" <?=$row->sign_pic_corporate == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pic corporate
-            <input type="checkbox" id="id_CbxSignTel1" name="Cbxpks" value="T" <?=$row->sign_pimpinan_telkomsel  == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pimpinan telkomsel
-            <input type="checkbox" id="id_CbxSignTel2" name="Cbxpks" value="T" <?=$row->sign_pic_telkomsel == 'T' ? 'checked' : '' ?>>  pic telkomsel
-          </div>  
+                <label for="Sign sequencial priority">Signing sequencial priority:</label><br>
+                <input type="checkbox" id="id_CbxSignCor1" name="Cbxpks" value="T" <?=$row->sign_pimpinan_corporate == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pimpinan corporate
+                <input type="checkbox" id="id_CbxSignCor2" name="Cbxpks" value="T" <?=$row->sign_pic_corporate == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pic corporate
+                <input type="checkbox" id="id_CbxSignTel1" name="Cbxpks" value="T" <?=$row->sign_pimpinan_telkomsel  == 'T' ? 'checked' : '' ?>>&nbsp;&nbsp;pimpinan telkomsel
+                <input type="checkbox" id="id_CbxSignTel2" name="Cbxpks" value="T" <?=$row->sign_pic_telkomsel == 'T' ? 'checked' : '' ?>>  pic telkomsel
+            </div>
         </div>
     <div class="modal-footer">
          <button id="id_pksupbtn" type="button" class="btn btn-primary" onclick="UpdPks(<?=$row->id_pks?>)">Save changes</button>
@@ -98,6 +98,8 @@ class Ccrudpks_ttd extends CI_Controller {
             <?php
         }
     }
+
+    
     public function editpks(){
         $this->load->model('mcrudpks');
         $query = $this->mcrudpks->updatepks_ttd();
