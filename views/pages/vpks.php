@@ -77,7 +77,9 @@ $(document).on('click', '#id_BtnAddPks', function(){
                              id_pkscorp: "required",
                              id_pkspkt: "required",
                              id_pksst: "required",
-                             id_pksen: "required"
+                             id_pksen: {
+                                 required: true
+                             },
                          },
                          messages: {
                              id_pks: "isi id PKS dengan benar",
@@ -146,7 +148,7 @@ function SavePks(){
             id_pkscorp: $('#id_pkscorp').val(),
             id_pkspkt: $('#id_pkspkt').val(),
             id_pksst: $('#id_pksst').val(),
-            id_pksen: $('#id_pksen').val(),
+            id_pksen: $('#id_pksenx').val(),
             CbxSignCor1 : CbxSignCor1,
             CbxSignCor2 : CbxSignCor2,
             CbxSignTel1 : CbxSignTel1,
