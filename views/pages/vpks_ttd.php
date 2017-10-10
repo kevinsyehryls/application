@@ -120,7 +120,10 @@ function UpdPks(id_pks){
         url: "<?php echo base_url(); ?>" + "index.php/ccrudpks_ttd/editpks",
         data: {
             id_pks: id_pks,
-            inputpdf : inputpdf
+            CbxSignCor1 : CbxSignCor1,
+            CbxSignCor2 : CbxSignCor2,
+            CbxSignTel1 : CbxSignTel1,
+            CbxSignTel2 : CbxSignTel2
         },
         success: function(res) {
             $('#modal-default').modal('hide');
