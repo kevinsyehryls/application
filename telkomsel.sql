@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2017 at 06:23 PM
+-- Generation Time: Oct 29, 2017 at 05:44 AM
 -- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- PHP Version: 5.6.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -34,21 +34,30 @@ CREATE TABLE `tb_corporate` (
   `jabatan_pimpinan_corporate` varchar(50) NOT NULL,
   `nama_pic_corporate` varchar(50) NOT NULL,
   `jabatan_pic_corporate` varchar(50) NOT NULL,
-  `nomor_hp_pic_corporate` varchar(13) NOT NULL,
+  `nomor_hp_pic_corporate` varchar(14) NOT NULL,
   `email_pic_corporate` varchar(100) NOT NULL,
-  `nomor_tlp_kantor` varchar(10) NOT NULL
+  `nomor_tlp_kantor` varchar(10) NOT NULL,
+  `timedate_corporate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_corporate`
 --
 
-INSERT INTO `tb_corporate` (`id_corporate`, `nama_corporate`, `alamat_corporate`, `nama_pimpinan_corporate`, `jabatan_pimpinan_corporate`, `nama_pic_corporate`, `jabatan_pic_corporate`, `nomor_hp_pic_corporate`, `email_pic_corporate`, `nomor_tlp_kantor`) VALUES
-(101, 'PT. Mirage Bali Distribution', 'swssdwdwdwdwd', 'Thusen', 'Owner', 'Thusen', 'Owner', '811386772', 'mirage.bali@gmail.com', '121332'),
-(102, 'PT. Bpr Sri Artha Lestari', 'wdwddw', 'Luh Ketut Citarasmini', 'Kadiv HCM & Complience', 'Ribka Kristin', 'Staff HCM', '823772382', 'ribka.kristin@bprlestari.com', '2147483647'),
-(103, 'Potato Head And Club', 'Jl. Peti Tenget 51B Seminyak, Kuta, Badung, Bali', 'Ario Bimo Wicaksono', 'Financial Controller', 'Ni Ketut Suarini', 'Manager GA', '2147483647', 'suryani@pttfamily.com', '323234'),
-(104, 'PT. Livit International Indonesia', 'Rukan No 14 Perum Bumi Santi, Banjar Sasih,Jl. Pratu Made Rembug Batu Bulan 80571, Gianyar, Bali', 'Nicholas John Martin', 'Operational Director', 'Ni Luh Putu Yunari', 'Finance & Operation Assistant', '2147483647', 'invoice@liv.it', '361292123'),
-(106, 'CV Bali Dipta', 'Jl. Gunung Lumut No.63 Denpasar', 'I Gst Ngr Ag Aditya Naradipta', 'Direktur', 'I Gst Ngr Ag Aditya Naradipta', 'Direktur', '081338499288', 'athuagungaditya@gmail.com', '0361474096');
+INSERT INTO `tb_corporate` (`id_corporate`, `nama_corporate`, `alamat_corporate`, `nama_pimpinan_corporate`, `jabatan_pimpinan_corporate`, `nama_pic_corporate`, `jabatan_pic_corporate`, `nomor_hp_pic_corporate`, `email_pic_corporate`, `nomor_tlp_kantor`, `timedate_corporate`) VALUES
+(101, 'PT. Mirage Bali Distribution', 'swssdwdwdwdwd', 'Thusen', 'Owner', 'Thusen', 'Owner', '811386772', 'mirage.bali@gmail.com', '121332', '0000-00-00 00:00:00'),
+(102, 'PT. Bpr Sri Artha Lestari', 'Jl. Teuku Umar No.110, Dauh Puri Kauh, Denpasar Bar., Kota Denpasar, Bali 80113', 'Luh Ketut Citarasmini', 'Kadiv HCM & Complience', 'Ribka Kristin', 'Staff HCM', '823772382', 'ribka.kristin@bprlestari.com', '0361246706', '0000-00-00 00:00:00'),
+(103, 'Potato Head And Club', 'Jl. Peti Tenget 51B Seminyak, Kuta, Badung, Bali', 'Ario Bimo Wicaksono', 'Financial Controller', 'Ni Ketut Suarini', 'Manager GA', '03614737979', 'suryani@pttfamily.com', '323234', '0000-00-00 00:00:00'),
+(104, 'PT. Livit International Indonesia', 'Rukan No 14 Perum Bumi Santi, Banjar Sasih,Jl. Pratu Made Rembug Batu Bulan 80571, Gianyar, Bali', 'Nicholas John Martin', 'Operational Director', 'Ni Luh Putu Yunari', 'Finance & Operation Assistant', '2147483647', 'invoice@liv.it', '361292123', '0000-00-00 00:00:00'),
+(106, 'CV Bali Dipta', 'Jl. Gunung Lumut No.63 Denpasar', 'I Gst Ngr Ag Aditya Naradipta', 'Direktur', 'I Gst Ngr Ag Aditya Naradipta', 'Direktur', '081338499288', 'athuagungaditya@gmail.com', '0361474096', '0000-00-00 00:00:00'),
+(109, 'PT. Windys Bali Dewata Agung', 'Jl Glogor Carik 3, Kerobokan, Kuta, Bali', 'Soegijanto Limanto', 'Direktur Utama', 'Soegijanto Limanto', 'Direktur Utama', '0811394184', 'lee_fuseen@hotmail.com', '0361767760', '0000-00-00 00:00:00'),
+(110, 'PT. Kura Kura', 'Jl. Raya Kuta No.100, Kuta, Kabupaten Badung, Bali 80361', 'Sefcho Rizal', 'Accounting Manager', 'Sefcho Rizal', 'Accounting Manager', '081916540542', 'Sefcho_r@kura2bali.com', '0361757070', '0000-00-00 00:00:00'),
+(112, 'PT. Bali Kulina Utama', 'Jl. Raya Kampus Udayana No.89, Jimbaran, Kuta Sel., Kabupaten Badung, Bali 80361', 'Sarita Sanowi', 'Direktur Utama', 'I Made Dharma Wijaya', 'HRD/GA', '081916236233', 'ga-bali@indoguna.co.id', '0361720556', '0000-00-00 00:00:00'),
+(113, 'PT. Gapura Angkasa', 'Bandara Internasional Ngurah Rai, Terminal Keberangkatan Internasional Lantai 1, Tuban, Kuta, Kabupaten Badung, Bali', 'Uzia Siregar', 'General Manager Gapura Angkasa Bali', 'Bagus Parta', 'Assistant Manager Fasilitas Kantor & Umum', '0813826196', 'bagus.parta@gapura.id', '0361935101', '0000-00-00 00:00:00'),
+(114, 'PT. Karang Mas Sejahtera - Ayana Resort & Spa', 'Jl. Karang Mas Sejahtera, Jimbaran, Badung, Bali 80364', 'Jones Sindukarta Widjaja', 'Director of Finance', 'Jones Sindukarta Widjaja', 'Director of Finance', '08113888787', 'jones@ayanaresort.com', '0361702222', '0000-00-00 00:00:00'),
+(115, 'PT. Wahana Boga Nusantara', 'Jl. By Pass Ngurah Rai No.18, Jimbaran, Kuta Sel., Kabupaten Badung, Bali 80361', 'Lia Dahlia', 'GA Manager', 'Lia Dahlia', 'GA Manager', '08113804799', 'hs@lotusfood.com', '0361701001', '0000-00-00 00:00:00'),
+(116, 'Potato Head And Club', 'Jl. Peti Tenget 51B Seminyak, Kuta, Badung, Bali', 'Ario Bimo Wicaksono', 'Financial Controller', 'Ni Ketut Suarini', 'Manager GA', '08119567779', 'suryani@pttfamily.com', '0361473797', '0000-00-00 00:00:00'),
+(117, 'PT. stikom bali', 'jlan renon', 'dadang', 'ketua ', 'candra', 'wakil ', '08233383838', 'caandra@stikom.com', '0361888516', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -59,7 +68,7 @@ INSERT INTO `tb_corporate` (`id_corporate`, `nama_corporate`, `alamat_corporate`
 CREATE TABLE `tb_list_nomor` (
   `id_list_msisdn` int(15) NOT NULL,
   `id_corporate` int(15) NOT NULL,
-  `msisdn` int(12) NOT NULL,
+  `msisdn` varchar(13) NOT NULL,
   `user` varchar(30) NOT NULL,
   `division` varchar(30) NOT NULL,
   `short_code` varchar(30) NOT NULL,
@@ -71,8 +80,13 @@ CREATE TABLE `tb_list_nomor` (
 --
 
 INSERT INTO `tb_list_nomor` (`id_list_msisdn`, `id_corporate`, `msisdn`, `user`, `division`, `short_code`, `deskripsi`) VALUES
-(10001, 101, 323232, 'fvf', 'fvf', 'vfv', 'vf'),
-(10002, 102, 90392090, 'cdcd', 'cdc', 'cd', 'cd');
+(10001, 110, '081338769412', 'staff', 'staff', 'staff', 'staff'),
+(10002, 102, '081338769411', 'user', 'user', 'user', 'user'),
+(10008, 101, '081339333555', 'dani', 'IT', 'none', 'none'),
+(10009, 101, '081339333556', 'ani', 'IT', 'none', 'none'),
+(10010, 101, '081339333557', 'budi', 'IT', 'none', 'none'),
+(10011, 101, '081339333558', 'alga', 'IT', 'none', 'none'),
+(10012, 101, '081339333559', 'dira', 'IT', 'none', 'none');
 
 -- --------------------------------------------------------
 
@@ -136,22 +150,20 @@ CREATE TABLE `tb_pic_telkomsel` (
   `id_pic_telkomsel` varchar(15) NOT NULL,
   `nama_pic_telkomsel` varchar(50) NOT NULL,
   `jabatan_pic_telkomsel` varchar(50) NOT NULL,
-  `nomor_hp_pic_telkomsel` int(14) NOT NULL,
-  `email_pic_telkomsel` varchar(50) NOT NULL,
-  `nomor_tlp_kantor` int(12) NOT NULL,
-  `alamat_kantor` text NOT NULL
+  `nomor_hp_pic_telkomsel` varchar(14) NOT NULL,
+  `email_pic_telkomsel` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_pic_telkomsel`
 --
 
-INSERT INTO `tb_pic_telkomsel` (`id_pic_telkomsel`, `nama_pic_telkomsel`, `jabatan_pic_telkomsel`, `nomor_hp_pic_telkomsel`, `email_pic_telkomsel`, `nomor_tlp_kantor`, `alamat_kantor`) VALUES
-('73245', 'Ida Bagus Wisnu Singarsa', 'Account Manager', 811391737, 'ida_bw_singarsa@telkomsel.co.id', 361244235, 'dsds'),
-('87928', 'Ni Komang Meigawati', 'Account Manager', 811390008, 'nikomang_meigawati@telkomsel.co.id', 361244235, 'Jl. Raya Puputan No.33, Renon, Denpasar Tim., Kota Denpasar, Bali 80234'),
-('88132', 'Pandu Adi Setiawan', 'Account Manager', 2147483647, 'pandu_a_setiawan@telkomsel.co.id', 361244235, 'Jl. Raya Puputan No.33, Renon, Denpasar Tim., Kota Denpasar, Bali 80234'),
-('88145', 'Jonathan', 'Account Manager', 2147483647, 'jonathan@telkomsel.co.id', 361244235, 'Jl. Raya Puputan No.33, Renon, Denpasar Tim., Kota Denpasar, Bali 80234'),
-('90532', 'Andhi Prabowo', 'Account Manager', 2147483647, 'andhi_prabowo@telkomsel.co.id', 361244235, 'Jl. Raya Puputan No.33, Renon, Denpasar Tim., Kota Denpasar, Bali 80234');
+INSERT INTO `tb_pic_telkomsel` (`id_pic_telkomsel`, `nama_pic_telkomsel`, `jabatan_pic_telkomsel`, `nomor_hp_pic_telkomsel`, `email_pic_telkomsel`) VALUES
+('73245', 'Ida Bagus Wisnu Singarsa', 'Account Manager', '0811391737', 'ida_bw_singarsa@telkomsel.co.id'),
+('87928', 'Ni Komang Meigawati', 'Account Manager', '0811390008', 'nikomang_meigawati@telkomsel.co.id'),
+('88132', 'Pandu Adi Setiawan', 'Account Manager', '08111791988', 'pandu_a_setiawan@telkomsel.co.id'),
+('88145', 'Jonathan', 'Account Manager', '08118021988', 'jonathan@telkomsel.co.id'),
+('90532', 'Andhi Prabowo', 'Account Manager', '08113898900', 'andhi_prabowo@telkomsel.co.id');
 
 -- --------------------------------------------------------
 
@@ -200,9 +212,17 @@ CREATE TABLE `tb_pks` (
 --
 
 INSERT INTO `tb_pks` (`id_pks`, `nomor_pks`, `id_pimpinan_telkomsel`, `id_pic_telkomsel`, `id_corporate`, `id_paket`, `start_date`, `end_date`, `sign_pimpinan_corporate`, `sign_pic_corporate`, `sign_pimpinan_telkomsel`, `sign_pic_telkomsel`, `file_pdf`) VALUES
-(2001, '010/LG.05/CM.73/VIII/2017', '67292', '87928', 103, 'P002', '2017-09-01', '2018-09-01', 'T', 'T', 'F', 'F', ''),
-(2002, 'ddddddddddddd', '67292', '87928', 101, 'P002', '2016-10-13', '2017-10-06', 'F', 'F', 'F', 'F', ''),
-(2004, 'ddddddd', '67292', '87928', 104, 'P003', '2017-08-01', '2017-09-10', 'F', 'F', 'F', 'F', '');
+(2002, '011/LG.05/CM.73/X/2016', '71829', '88132', 101, 'P002', '2016-10-13', '2017-10-31', 'T', 'T', 'T', 'T', 'PKS_2002'),
+(2004, '012/LG.05/CM.73/X/2016', '67292', '73245', 104, 'P003', '2016-10-15', '2017-10-15', 'T', 'T', 'T', 'T', 'PKS_2004'),
+(2005, '013/LG.05/CM.73/X/2016', '67292', '73245', 102, 'P002', '2016-10-17', '2017-10-17', 'T', 'T', 'T', 'T', 'PKS_2005'),
+(2014, '024/LG.05/CM.73/X/2017', '71829', '73245', 106, 'P001', '2017-09-01', '2018-09-01', 'F', 'T', 'T', 'T', 'PKS_2014'),
+(2015, '025/LG.05/CM.73/X/2017', '71829', '88132', 109, 'P001', '2017-10-01', '2018-10-01', 'F', 'F', 'F', 'F', ''),
+(2016, '026/LG.05/CM.73/X/2017', '71829', '87928', 110, 'P003', '2017-10-01', '2018-10-01', 'F', 'F', 'F', 'F', ''),
+(2017, '022/LG.05/CM.73/IX/2017', '67292', '88145', 114, 'P001', '2017-08-01', '2018-08-01', 'F', 'F', 'F', 'F', ''),
+(2018, '027/LG.05/CM.73/X/2017', '71829', '88145', 115, 'P003', '2017-10-01', '2018-10-01', 'F', 'F', 'F', 'F', ''),
+(2019, '023/LG.05/CM.73/X/2017', '67292', '88132', 113, 'P002', '2017-09-01', '2018-09-01', 'F', 'F', 'F', 'F', ''),
+(2020, '028/LG.05/CM.73/X/2017', '71829', '87928', 112, 'P003', '2017-10-01', '2018-10-01', 'F', 'F', 'F', 'F', ''),
+(2021, '03/09/2017', '67292', '87928', 117, 'P002', '2017-10-01', '2018-10-01', 'F', 'F', 'F', 'F', '');
 
 -- --------------------------------------------------------
 
@@ -223,8 +243,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `email`, `pass`, `nama`, `level`) VALUES
-(99, 'azizah@telkomsel.co.id', '1234', 'Azizarssdd,l,l,', 'Administrasi'),
-(106, 'aldi@telkomsel.co.id', '1234', 'paijo91115', 'Administrasi'),
+(99, 'azizah@telkomsel.co.id', '1234', 'Aziza', 'Administrasi'),
+(106, 'aldi@telkomsel.co.id', '1234', 'Aldi', 'Administrasi'),
 (108, 'imade_abimayu@telkomsel.co.id', '1234', 'I Made Abimayu', 'SPV'),
 (212121, 'coba2@gmail.com', '1234', 'coba administrasiff', 'Administrasi'),
 (222222, 'coba@gmail.com', '1234', 'coba spv', 'SPV');
@@ -266,7 +286,7 @@ CREATE TABLE `vw_seri_pks_monthly` (
 --
 DROP TABLE IF EXISTS `vw_chart_rekap_pks`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_chart_rekap_pks`  AS  select `s`.`bulans` AS `bulans`,coalesce(`v`.`jml`,0) AS `jml` from (`vw_seri_pks_monthly` `s` left join `vw_rekap_pks_monthly` `v` on((convert(`v`.`bulan` using utf8) = `s`.`bulans`))) order by `s`.`nomor` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_chart_rekap_pks`  AS  select `s`.`bulans` AS `bulans`,coalesce(`v`.`jml`,0) AS `jml` from (`vw_seri_pks_monthly` `s` left join `vw_rekap_pks_monthly` `v` on((convert(`v`.`bulan` using utf8) = convert(`s`.`bulans` using utf8)))) order by `s`.`nomor` ;
 
 -- --------------------------------------------------------
 
@@ -344,17 +364,17 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_corporate`
 --
 ALTER TABLE `tb_corporate`
-  MODIFY `id_corporate` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id_corporate` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 --
 -- AUTO_INCREMENT for table `tb_list_nomor`
 --
 ALTER TABLE `tb_list_nomor`
-  MODIFY `id_list_msisdn` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10003;
+  MODIFY `id_list_msisdn` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10013;
 --
 -- AUTO_INCREMENT for table `tb_pks`
 --
 ALTER TABLE `tb_pks`
-  MODIFY `id_pks` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2006;
+  MODIFY `id_pks` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2022;
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
